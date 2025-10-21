@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONGHub</title>
+  <title>Nossos Projetos - ONGHub</title> <meta name="description" content="Conheça os projetos e causas que apoiamos. Descubra como sua doação pode transformar vidas e apoiar iniciativas incríveis.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header__container">
       <div class="header__logo">
         <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
       </div>
-
       <nav class="header__nav" aria-label="Menu principal">
         <ul class="nav__list">
-          <li><a href="#" aria-current="page">Início</a></li>
-          <li><a href="#">Nossos Projetos</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#" aria-current="page">Nossos Projetos</a></li>
           <li><a href="#">Seja Voluntário</a></li>
         </ul>
         <a href="#" class="btn btn--login">Login</a>
@@ -27,13 +25,12 @@
   </header>
 
   <main>
-    <!-- Home / Hero -->
     <section class="home">
       <div class="home__container">
         <div class="home__content">
           <div class="home__left">
             <h1>Nossas Causas em ação</h1>
-            <h3>Conheça iniciativas que estão mudando vidas e descubra como o seu gesto pode gerar um impacto real.</h3>
+            <p class="home__subtitle">Conheça iniciativas que estão mudando vidas e descubra como o seu gesto pode gerar um impacto real.</p>
           </div>
           <div class="home__right">
             <img src="assets/images/projetos.webp" alt="Ilustração dos projetos ONGHub">
@@ -42,201 +39,73 @@
       </div>
     </section>
 
-    <!-- Seção de Causas -->
     <section class="causas">
       <div class="causas__container">
         <h2>Apoie nossas causas</h2>
         <div class="causas__cards">
-
-          <!-- Card 1 -->
           <article class="causa-card">
-            <img src="" alt="Imagem Sementes do Amanhã">
+            <img src="assets/images/sementes-amanha.webp" alt="Imagem Sementes do Amanhã">
             <h3>Sementes do Amanhã</h3>
-            <p class="resumo">Criada por um grupo de professores da rede pública, a ONG oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social. Em cinco anos, mais de 300 jovens conseguiram bolsas de estudo.</p>
-            <p class="descricao-completa" hidden>Fundada em 2017 por um grupo de professores da rede pública, a ONG nasceu do sonho de reduzir a evasão escolar em comunidades de baixa renda. Começou com 10 voluntários dando aulas de reforço em uma sala emprestada. Hoje, o projeto atende mais de 420 crianças por ano, oferecendo reforço escolar, oficinas de robótica e acesso gratuito à internet. Graças a parcerias locais, 85% dos alunos atendidos melhoraram suas notas e 40 jovens já conseguiram bolsas em escolas técnicas. O lema da ONG é “Educar é plantar futuro”.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
+            <p class="resumo">Criada por um grupo de professores da rede pública, a ONG oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social.</p>
+            <p class="descricao-completa" id="desc-sementes" hidden>Fundada em 2017 por um grupo de professores...</p>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
           </article>
 
-          <!-- Card 2 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Patinhas do Bem">
-            <h3>Patinhas do Bem</h3>
-            <p class="resumo">Começou quando uma veterinária resgatou cães abandonados perto de um lixão. Hoje, mantém um abrigo com 80 animais e promove campanhas mensais de adoção e castração gratuita.</p>
-            <p class="descricao-completa" hidden>A veterinária Larissa Nogueira fundou a ONG em 2019 após resgatar um grupo de cães abandonados durante uma enchente. O abrigo começou num terreno simples e hoje acolhe mais de 120 cães e 60 gatos, todos vacinados e castrados. A ONG realiza feiras mensais de adoção, já somando mais de 800 adoções responsáveis. Também promove palestras em escolas sobre respeito aos animais e possui uma campanha permanente chamada “Adote Amor”.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Raízes da Terra">
-            <h3>Raízes da Terra</h3>
-            <p class="resumo">Fundada por jovens indígenas, atua na preservação da Amazônia e na educação ambiental de comunidades ribeirinhas. Cada árvore plantada é batizada com o nome de um doador.</p>
-            <p class="descricao-completa" hidden>Fundada por jovens indígenas das etnias Tikuna e Baré, a ONG atua na recuperação de áreas desmatadas e no ensino de práticas sustentáveis. Desde 2016, já plantou mais de 50 mil árvores nativas e capacitou 200 famílias ribeirinhas em reflorestamento e coleta seletiva. Seu projeto “Floresta Viva” conecta doadores a áreas específicas de reflorestamento, onde cada árvore recebe o nome de quem ajudou a plantá-la. O grupo sonha em se tornar referência em educação ambiental na Amazônia.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Mãos que Acolhem">
-            <h3>Mãos que Acolhem</h3>
-            <p class="resumo">Nasceu durante a pandemia, oferecendo marmitas e kits de higiene a famílias sem renda. Hoje, possui um centro comunitário que oferece cursos de culinária e costura para geração de renda.</p>
-            <p class="descricao-completa" hidden>Nascida durante a pandemia de 2020, a ONG começou distribuindo marmitas feitas por voluntários de um bairro popular. Com o tempo, ampliou sua atuação e hoje mantém um centro comunitário que oferece 3.000 refeições mensais e cursos gratuitos de culinária e costura. Mais de 80 mulheres já se formaram e abriram pequenos negócios locais. A ONG se orgulha de ser um ponto de esperança e acolhimento para quem perdeu tudo.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 5 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Viver com Dignidade">
-            <h3>Viver com Dignidade</h3>
-            <p class="resumo">Criada por pais de crianças com deficiência física, luta por acessibilidade urbana e promove oficinas de tecnologia assistiva. Desenvolveu uma cadeira de rodas de baixo custo impressa em 3D.</p>
-            <p class="descricao-completa" hidden>Criada por André Santos, pai de uma criança com paralisia cerebral, a ONG surgiu da necessidade de tornar a cidade mais acessível. Hoje, conta com uma equipe de engenheiros e designers que desenvolveram uma cadeira de rodas modular de baixo custo, impressa em 3D. O projeto já beneficiou 150 pessoas com mobilidade reduzida e oferece oficinas de programação e robótica inclusiva. A missão da ONG é “transformar barreiras em pontes”.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Cores da Vida">
-            <h3>Cores da Vida</h3>
-            <p class="resumo">Formada por voluntários LGBTQIA+, oferece apoio psicológico gratuito e palestras sobre respeito e diversidade em escolas públicas.</p>
-            <p class="descricao-completa" hidden>Fundada em 2018 por estudantes universitários, a ONG oferece apoio psicológico gratuito e palestras sobre respeito e diversidade. Já realizou mais de 400 atendimentos psicológicos e 200 palestras em escolas e empresas. Seu projeto “Famílias de Coração” conecta jovens LGBTQIA+ expulsos de casa com famílias acolhedoras. O impacto social da ONG tem sido reconhecido nacionalmente por promover empatia e segurança.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 7 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Artesãs do Sertão">
-            <h3>Artesãs do Sertão</h3>
-            <p class="resumo">Criada por um grupo de artesãs do sertão, capacita mulheres em design e empreendedorismo. Hoje, exportam produtos feitos com palha de carnaúba para mais de 10 países.</p>
-            <p class="descricao-completa" hidden>A ONG começou em uma pequena vila sem acesso à internet. Hoje, capacita mais de 300 mulheres por ano em design sustentável e marketing digital. Seus produtos, feitos com palha de carnaúba, já foram exportados para a França e Portugal. A ONG também criou um fundo solidário que oferece microcrédito a mulheres empreendedoras locais.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 8 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Som das Ruas">
-            <h3>Som das Ruas</h3>
-            <p class="resumo">Iniciativa de músicos locais que transformaram becos abandonados em espaços culturais. Ensina percussão e canto para jovens da periferia — e já revelou artistas que hoje vivem da música.</p>
-            <p class="descricao-completa" hidden>Fundada por músicos de rua, a ONG transforma becos abandonados em espaços culturais. Oferece aulas de percussão, canto e dança para mais de 150 jovens. O projeto “Batuque da Esperança” revelou artistas que hoje se apresentam em festivais e vivem da música. A ONG acredita que a arte é o som que liberta.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 9 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Cuidar é Viver">
-            <h3>Cuidar é Viver</h3>
-            <p class="resumo">Formada por enfermeiros e médicos voluntários, leva atendimento básico e exames preventivos gratuitos a comunidades rurais. A ONG também atua em campanhas de vacinação itinerante.</p>
-            <p class="descricao-completa" hidden>Formada por enfermeiros e médicos voluntários, leva atendimento gratuito a regiões rurais sem posto de saúde. Desde 2015, já realizou 25 mil consultas e distribuiu mais de 40 mil kits de higiene e medicamentos. Durante a pandemia, criou uma unidade móvel que atendia até 200 pessoas por dia. Seu foco atual é a prevenção de doenças crônicas e o apoio à saúde mental.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 10 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Mesa Solidária">
-            <h3>Mesa Solidária</h3>
-            <p class="resumo">Recolhe alimentos de supermercados e restaurantes e distribui a famílias carentes. Desde 2021, já evitou o desperdício de mais de 50 toneladas de comida.</p>
-            <p class="descricao-completa" hidden>A ONG surgiu quando três amigos decidiram recolher alimentos descartados por restaurantes do bairro e redistribuí-los. Hoje, possui uma rede de 60 voluntários e 40 parceiros comerciais, salvando cerca de 10 toneladas de alimentos por mês. Além da doação, promove oficinas de aproveitamento integral dos alimentos. O objetivo é que “nenhuma comida boa vá para o lixo”.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 11 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Flor do Campo">
-            <h3>Flor do Campo</h3>
-            <p class="resumo">Ajuda agricultores familiares a adotarem práticas sustentáveis e venderem seus produtos em feiras locais. Parte do lucro é revertida para escolas rurais da região.</p>
-            <p class="descricao-completa" hidden>Criada em 2014 por um grupo de agricultores, promove práticas sustentáveis e a venda direta dos produtos em feiras. A ONG já apoiou 120 famílias com capacitação técnica e estrutura de irrigação ecológica. Seu projeto “Raiz Sustentável” reduziu em 35% o uso de agrotóxicos nas propriedades participantes. Parte do lucro das feiras é revertida para escolas rurais da região.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-          <!-- Card 12 -->
-          <article class="causa-card">
-            <img src="" alt="Imagem Luz do Caminho">
-            <h3>Luz do Caminho</h3>
-            <p class="resumo">Defende pessoas em situação de rua, oferecendo apoio jurídico e psicológico. Seu programa “Nova Chance” já recolocou 120 pessoas no mercado de trabalho.</p>
-            <p class="descricao-completa" hidden>Fundada por advogados e assistentes sociais, atua na defesa de pessoas em situação de rua. O projeto “Nova Chance” oferece cursos de capacitação e apoio jurídico. Desde 2018, 120 pessoas conseguiram emprego formal e 40 foram reintegradas às suas famílias. A ONG mantém ainda uma casa de acolhimento com 30 vagas e atendimento psicológico diário.</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false">Saiba Mais</button>
-          </article>
-
-        </div>
+          </div>
       </div>
     </section>
 
-    <!-- Seção Apoie -->
     <section class="apoie">
       <div class="apoie__container">
-        <div class="apoie__content">
-          <h3>Apoie Nossas Causas</h3>
-          <p>As doações são a força que move projetos sociais e permite que organizações façam a diferença na vida de quem mais precisa. Cada contribuição, seja financeira, material ou de tempo, ajuda a fortalecer ações que promovem educação, saúde, inclusão e desenvolvimento comunitário. <br>
-          Os recursos arrecadados são cuidadosamente utilizados para maximizar o impacto, financiamento de projetos, compra de materiais, apoio a famílias e comunidades, treinamento de voluntários e manutenção de iniciativas que geram resultados reais e duradouros. Com transparência e responsabilidade, cada doação se transforma em oportunidades, esperança e transformação social.</p>
+        <form class="apoie__form">
+          <div class="apoie__content">
+            <h2>Apoie Nossas Causas</h2>
+            <p>As doações são a força que move projetos sociais...</p>
 
-          <div class="apoie__cards">
-            <div class="apoie-card">
-              <h4>Escolha uma causa</h4>
-              <p>Navegue pelos projetos e encontre a causa que mais toca seu coração.</p>
-            </div>
-            <div class="apoie-card">
-              <h4>Doe com segurança</h4>
-              <p>Utilizamos plataformas de pagamento seguras para proteger sua contribuição.</p>
-            </div>
-            <div class="apoie-card">
-              <h4>Acompanhe o impacto</h4>
-              <p>Receba atualizações da ONG e veja como sua ajuda está transformando realidades.</p>
-            </div>
+            <div class="apoie__cards">
+                </div>
+
+            <fieldset class="apoie__fieldset">
+              <legend class="apoie__legend">Faça a Diferença</legend>
+              <div class="apoie__valores">
+                <button type="button" class="btn btn--valor">R$ 10,00</button>
+                <button type="button" class="btn btn--valor">R$ 25,00</button>
+                <button type="button" class="btn btn--valor">R$ 50,00</button>
+                <button type="button" class="btn btn--valor">R$ 100,00</button>
+                <label for="valor">Outro Valor R$:</label>
+                <input type="number" id="valor" name="valor" placeholder="0,00" step="0.01" min="0">
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn--doar">Doar Agora</button>
           </div>
-
-          <h4>Faça a Diferença</h4>
-          <div class="apoie__valores">
-            <button class="btn btn--valor">R$ 10,00</button>
-            <button class="btn btn--valor">R$ 25,00</button>
-            <button class="btn btn--valor">R$ 50,00</button>
-            <button class="btn btn--valor">R$ 100,00</button>
-            <label for="valor">Valor R$:</label>
-            <input type="number" id="valor" name="valor" placeholder="R$ 0,00" step="0.01" min="0">
-          </div>
-
-          <button class="btn btn--doar">Doar Agora</button>
-        </div>
+        </form>
       </div>
     </section>
-    <!-- Seção FAQ -->
+    
     <section class="faq">
         <div class="faq__container">
           <h2>Perguntas Frequentes</h2>
       
-          <div class="faq__item">
-            <h3 class="faq__question">A minha doação é segura?</h3>
+          <details class="faq__item">
+            <summary class="faq__question"><h3>A minha doação é segura?</h3></summary>
             <p class="faq__answer">Sim. Todas as transações são protegidas e criptografadas.</p>
-          </div>
+          </details>
       
-          <div class="faq__item">
-            <h3 class="faq__question">O ONGHub fica com alguma parte da minha doação?</h3>
+          <details class="faq__item">
+            <summary class="faq__question"><h3>O ONGHub fica com alguma parte da minha doação?</h3></summary>
             <p class="faq__answer">Não. O valor é repassado integralmente à ONG escolhida.</p>
-          </div>
-      
-          <div class="faq__item">
-            <h3 class="faq__question">Para onde vai exatamente o meu dinheiro?</h3>
-            <p class="faq__answer">Diretamente para o projeto ou causa selecionada por você.</p>
-          </div>
-      
-          <div class="faq__item">
-            <h3 class="faq__question">Como posso ter certeza de que as ONGs na plataforma são confiáveis?</h3>
-            <p class="faq__answer">Todas passam por verificação e análise antes de serem publicadas.</p>
-          </div>
-      
-          <div class="faq__item">
-            <h3 class="faq__question">Vou receber um comprovante da minha doação?</h3>
-            <p class="faq__answer">Sim. Você recebe um comprovante digital logo após doar.</p>
-          </div>
+          </details>
           
-        </div>
-      </section>   
-    <!-- Seção Voluntários -->
+          </div>
+    </section>   
+
     <section class="voluntarios">
       <div class="voluntarios__container">
-        <h3>Seja um voluntário</h3>
-        <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas e comunidades. Cada gesto de solidariedade gera impacto, cria conexões e fortalece quem recebe e quem oferece ajuda. Ao se envolver, você contribui para construir um mundo mais justo, inclusivo e humano, enquanto descobre a alegria de ver o efeito real de suas ações. <br>
-        Faça parte dessa corrente do bem. Doe seu tempo, compartilhe suas habilidades e transforme pequenas atitudes em grandes mudanças. O poder de mudar o mundo está em suas mãos!</p>
+        <h2>Seja um voluntário</h2>
+        <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas...</p>
         <img src="assets/images/voluntarios2.webp" alt="Imagem inspiradora de voluntários">
-        <button class="btn btn--voluntario">Quero ser voluntário</button>
+        <a href="#" class="btn btn--voluntario">Quero ser voluntário</a>
       </div>
     </section>
   </main>
@@ -245,13 +114,11 @@
     <div class="footer__container">
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
-        <nav class="footer__links">
-          <a href="#">Como Funciona</a>
+        <nav class="footer__nav" aria-label="Links do rodapé"> <a href="#">Como Funciona</a>
           <a href="#">FAQ</a>
           <a href="#">Transparência</a>
         </nav>
-        <p>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank">Maycon Wos</a> — Todos os direitos reservados.</p>
-      </div>
+        <p><small>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank" rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p> </div>
     </div>
   </footer>
 
