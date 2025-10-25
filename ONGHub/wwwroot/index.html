@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONGHub</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <meta name="description" content="Unimos solidariedade e tecnologia para aproximar quem quer ajudar de quem mais precisa. Conheça nossos projetos e seja um voluntário.">
 </head>
 <body>
@@ -17,12 +17,12 @@
 
       <nav class="header__nav" aria-label="Menu principal">
         <ul class="nav__list">
-          <li><a href="#" aria-current="page">Início</a></li>
-          <li><a href="#">Nossos Projetos</a></li>
-          <li><a href="#">Seja Voluntário</a></li>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="projetos.html">Nossos Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
         </ul>
-        <a href="#" class="btn btn--login">Login</a>
       </nav>
+      <a href="#" class="btn btn--login">Login</a>
     </div>
   </header>
 
@@ -55,7 +55,7 @@
             Somos uma plataforma que conecta ONGs, voluntários e doadores em um só lugar, tornando mais fácil transformar boas intenções em impacto real. <br>
             Acreditamos que pequenas ações podem gerar grandes mudanças, e que cada pessoa, com seu tempo, talento ou contribuição, tem o poder de fazer a diferença. <br>                      
             Nosso objetivo é fortalecer o terceiro setor por meio da tecnologia e da transparência, oferecendo às organizações um espaço seguro e acessível para divulgar seus projetos e atrair o apoio necessário para continuar transformando vidas. <br>                         
-            Mais do que uma plataforma, o ONGHub é uma ponte de solidariedade — o ponto de encontro entre sonhos e oportunidades, entre quem quer ajudar e quem precisa ser ajudado.
+            Mais do que uma plataforma, o ONGHub é uma ponte de solidariedade, o ponto de encontro entre sonhos e oportunidades, entre quem quer ajudar e quem precisa ser ajudado.
           </p>
         </div>
       </div>
@@ -94,24 +94,52 @@
       </div>
     </section>
 
-    <section class="impacto">
+    <section class="impacto" id="impacto">
       <div class="impacto__container">
         <div class="impacto__content">
           <h2>Nosso Impacto Até Hoje</h2>
           <div class="impacto__cards">
 
             <article class="impacto__card">
-              <img src="assets/images/criancas.svg" alt="Ícone de crianças" loading="lazy">
+              <img src="assets/images/child-icon.svg" alt="Ícone de crianças" loading="lazy">
               <h3>Crianças alfabetizadas</h3>
               <p class="impacto__number">+850</p>
               <p>Através de projetos educacionais e parcerias com escolas públicas.</p>
             </article>
 
             <article class="impacto__card">
-              <img src="assets/images/familias.svg" alt="Ícone de famílias" loading="lazy">
+              <img src="assets/images/donations-icon.svg" alt="Ícone de famílias" loading="lazy">
               <h3>Famílias atendidas</h3>
               <p class="impacto__number">+1.200</p>
               <p>Com doações de alimentos, roupas e produtos de higiene.</p>
+            </article>
+
+            <article class="impacto__card">
+              <img src="assets/images/handshake-icon.svg" alt="Ícone de voluntários" loading="lazy">
+              <h3>Voluntários ativos</h3>
+              <p class="impacto__number">+300</p>
+              <p>Engajados em diversas causas sociais em todo o país.</p>
+            </article>
+
+            <article class="impacto__card">
+              <img src="assets/images/food-icon.svg" alt="Ícone de alimento" loading="lazy">
+              <h3>Refeições distribuídas</h3>
+              <p class="impacto__number">+15.000</p>
+              <p>Em ações solidarias e campanhas de combate a fome.</p>
+            </article>
+
+            <article class="impacto__card">
+              <img src="assets/images/home-icon.svg" alt="Ícone de casa" loading="lazy">
+              <h3>ONGs parceiras</h3>
+              <p class="impacto__number">+75</p>
+              <p>Cadastradas e ativas na nossa plataforma, transformando vidas diariamente.</p>
+            </article>
+
+            <article class="impacto__card">
+              <img src="assets/images/paw-icon.svg" alt="Ícone de pata" loading="lazy">
+              <h3>Animais resgatados</h3>
+              <p class="impacto__number">+2.000</p>
+              <p>Por organizações dedicadas à proteção e adoção responsável.</p>
             </article>
 
             </div>
@@ -147,14 +175,14 @@
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
         <nav class="footer__nav" aria-label="Links do rodapé">
-          <a href="#">Como Funciona</a>
-          <a href="#">FAQ</a>
-          <a href="#">Transparência</a>
+          <a href="projetos.html#apoie-passo">Como Funciona</a>
+          <a href="projetos.html#faq">FAQ</a>
+          <a href="index.html#impacto">Transparência</a>
         </nav>
         <p><small>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank" rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p>
       </div>
     </div>
   </footer>
-
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

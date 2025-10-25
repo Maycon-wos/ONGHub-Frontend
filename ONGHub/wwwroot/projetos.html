@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nossos Projetos - ONGHub</title> <meta name="description" content="Conheça os projetos e causas que apoiamos. Descubra como sua doação pode transformar vidas e apoiar iniciativas incríveis.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -16,8 +16,8 @@
       <nav class="header__nav" aria-label="Menu principal">
         <ul class="nav__list">
           <li><a href="index.html">Início</a></li>
-          <li><a href="#" aria-current="page">Nossos Projetos</a></li>
-          <li><a href="#">Seja Voluntário</a></li>
+          <li><a href="projetos.html" aria-current="page">Nossos Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
         </ul>
         <a href="#" class="btn btn--login">Login</a>
       </nav>
@@ -41,30 +41,460 @@
 
     <section class="causas">
       <div class="causas__container">
-        <h2>Apoie nossas causas</h2>
+        <h2>Conheça nossas causas</h2>
         <div class="causas__cards">
-          <article class="causa-card">
-            <img src="assets/images/sementes-amanha.webp" alt="Imagem Sementes do Amanhã">
-            <h3>Sementes do Amanhã</h3>
-            <p class="resumo">Criada por um grupo de professores da rede pública, a ONG oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social.</p>
-            <p class="descricao-completa" id="desc-sementes" hidden>Fundada em 2017 por um grupo de professores...</p>
-            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
-          </article>
+<!-- 1. Sementes do Amanhã -->
+<article class="causa-card">
+  <img src="assets/images/SementesDoAmanhaCapa.webp" alt="Imagem Sementes do Amanhã">
+  <h3>Sementes do Amanhã</h3>
+  <p class="resumo">Criada por um grupo de professores da rede pública, oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social.</p>
+  
+  <div class="conteudo-expandido" id="desc-sementes" hidden>
+    
+    <p class="descricao-completa">Fundada em 2017 por um grupo de professores da rede pública, a ONG nasceu do sonho de reduzir a evasão escolar em comunidades de baixa renda. Começou com 10 voluntários dando aulas de reforço em uma sala emprestada. Hoje, atende mais de 420 crianças por ano, oferecendo oficinas de robótica e acesso gratuito à internet.</p>
+    
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        
+        <img src="assets/images/galeria/SementesDoAmanha1.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SementesDoAmanha2.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SementesDoAmanha3.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SementesDoAmanha4.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SementesDoAmanha5.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
+        
+        <video controls 
+               preload="none"
+               poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/SementesDoAmanhaVideo.webm" type="video/webm">
+          <source src="assets/videos/sementes-institucional.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+        
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="sementes-do-amanha">
+      Apoiar esta Causa
+    </a>
+  </div> 
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
+
+  </article>
+
+<!-- 2. Patinhas do Bem -->
+<article class="causa-card">
+  <img src="assets/images/PatinhasDoBemCapa" alt="Imagem Patinhas do Bem">
+  <h3>Patinhas do Bem</h3>
+  <p class="resumo">Dedicada à proteção animal, resgatando cães e gatos abandonados e promovendo adoções responsáveis.</p>
+  
+  <div class="conteudo-expandido" id="desc-patinhas" hidden>
+    
+    <p class="descricao-completa">Fundada em 2019 por Larissa Nogueira, a ONG acolhe mais de 120 cães e 60 gatos, todos vacinados e castrados. Realiza feiras mensais de adoção, palestras em escolas e a campanha permanente “Adote Amor”.</p>
+    
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        
+        <img src="assets/images/galeria/PatinhasDoBem1.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/PatinhasDoBem2.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/PatinhasDoBem3.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/PatinhasDoBem4.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/PatinhasDoBem5.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
+        
+        <video controls 
+               preload="none"
+               poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/PatinhasDoBemVideo.webm" type="video/webm">
+          <source src="assets/videos/PatinhasDoBemVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+        
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="patinhas-do-bem">
+      Apoiar esta Causa
+    </a>
+
+  </div>
+   <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
+
+  </article>
+
+<!-- 3. Raízes da Terra -->
+<article class="causa-card">
+  <img src="assets/images/RaizesDaTerraCapa.webp" alt="Imagem Raízes da Terra">
+  <h3>Raízes da Terra</h3>
+  <p class="resumo">Iniciativa ambiental que atua na recuperação de áreas desmatadas e educação sobre práticas sustentáveis na Amazônia.</p>
+
+  <div class="conteudo-expandido" id="desc-raizes" hidden>
+    <p class="descricao-completa">Criada por jovens indígenas das etnias Tikuna e Baré, a iniciativa já plantou mais de 50 mil árvores nativas e capacitou 200 famílias ribeirinhas. Seu projeto “Floresta Viva” conecta doadores a áreas de reflorestamento, com árvores nomeadas pelos apoiadores.</p>
+    
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/RaizesDaTerra1.webp" alt="Plantio de árvores nativas." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/RaizesDaTerra2.webp" alt="Educação ambiental para famílias." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/RaizesDaTerra3.webp" alt="Projeto Floresta Viva em ação." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/RaizesDaTerra4.webp" alt="Comunidade ribeirinha envolvida." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/RaizesDaTerra5.webp" alt="Árvores nomeadas por apoiadores." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/RaizesDaTerraVideo.webm" type="video/webm">
+          <source src="assets/videos/RaizesDaTerraVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="raizes-da-terra">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-raizes">Saiba Mais</button>
+</article>
+
+<!-- 4. Mãos que Acolhem  -->
+<article class="causa-card">
+  <img src="assets/images/MaosQueAcolhemCapa.webp" alt="Imagem Mão Que Acolhem">
+  <h3>Mãos que Acolhem</h3>
+  <p class="resumo">Oferece assistência social, alimentação e cursos gratuitos para comunidades em vulnerabilidade.</p>
+  
+  <div class="conteudo-expandido" id="desc-maos" hidden>
+    
+    <p class="descricao-completa">Nascida durante a pandemia de 2020, começou distribuindo marmitas. Hoje mantém um centro comunitário com 3.000 refeições mensais e cursos de culinária e costura, formando mais de 80 mulheres que abriram pequenos negócios.</p>
+    
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        
+        <img src="assets/images/galeria/MaosQueAcolhem1.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MaosQueAcolhem2.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MaosQueAcolhem3.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MaosQueAcolhem4.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MaosQueAcolhem5.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
+        
+        <video controls 
+               preload="none"
+               poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/MaosQueAcolhemVideo.webm" type="video/webm">
+          <source src="assets/videos/MaosQueAcolhemVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+        
+      </div>
+      
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="maos-que-acolhem">
+      Apoiar esta Causa
+    </a>
+  </div> 
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
+
+  </article>
+
+
+<!-- 5. Viver com Dignidade -->
+<article class="causa-card">
+  <img src="assets/images/ViverComDignidadeCapa.webp" alt="Imagem Viver com Dignidade">
+  <h3>Viver com Dignidade</h3>
+  <p class="resumo">Voltada à inclusão e acessibilidade, desenvolvendo cadeiras de rodas modulares e oficinas inclusivas.</p>
+
+  <div class="conteudo-expandido" id="desc-viver" hidden>
+    <p class="descricao-completa">Criada por André Santos, conta com engenheiros e designers que desenvolveram cadeiras de rodas modulares de baixo custo. Beneficiou 150 pessoas e oferece oficinas de programação e robótica inclusiva, transformando barreiras em pontes.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/ViverComDignidade1.webp" alt="Oficina de robótica inclusiva." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/ViverComDignidade2.webp" alt="Cadeira de rodas modular em uso." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/ViverComDignidade3.webp" alt="Participantes em aula prática." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/ViverComDignidade4.webp" alt="Projeto beneficiando comunidade." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/ViverComDignidade5.webp" alt="Ações inclusivas em escola." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/ViverComDignidadeVideo.webm" type="video/webm">
+          <source src="assets/videos/ViverComDignidadeVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="viver-com-dignidade">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-viver">Saiba Mais</button>
+</article>
+
+<!-- 6. Cores da Vida -->
+<article class="causa-card">
+  <img src="assets/images/CoresDaVidaCapa.webp" alt="Imagem Cores da Vida">
+  <h3>Cores da Vida</h3>
+  <p class="resumo">Rede de cuidado e acolhimento dedicada a promover saúde emocional, diversidade e inclusão para a comunidade LGBTQIA+.</p>
+
+  <div class="conteudo-expandido" id="desc-cores" hidden>
+    <p class="descricao-completa">Fundada em 2018, realiza mais de 400 atendimentos psicológicos e 200 palestras. O projeto “Famílias de Coração” conecta jovens LGBTQIA+ expulsos de casa com famílias acolhedoras, promovendo empatia e segurança.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/CoresDaVida1.webp" alt="Atendimento psicológico em grupo." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CoresDaVida2.webp" alt="Palestra sobre inclusão." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CoresDaVida3.webp" alt="Famílias de coração acolhendo jovens." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CoresDaVida4.webp" alt="Evento comunitário de diversidade." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CoresDaVida5.webp" alt="Atividades de integração social." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/CoresDaVidaVideo.webm" type="video/webm">
+          <source src="assets/videos/CoresDaVidaVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cores-da-vida">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cores">Saiba Mais</button>
+</article>
+
+<!-- 7. Mulheres do Sol -->
+<article class="causa-card">
+  <img src="assets/images/MulheresDoSolCapa.webp" alt="Imagem Mulheres do Sol">
+  <h3>Mulheres do Sol</h3>
+  <p class="resumo">Iniciativa que desperta o potencial criativo e empreendedor de mulheres, unindo sustentabilidade, propósito e impacto global.</p>
+
+  <div class="conteudo-expandido" id="desc-mulheres" hidden>
+    <p class="descricao-completa">Criada por artesãs do sertão, capacita mais de 300 mulheres por ano em design sustentável e marketing digital. Seus produtos já foram exportados para França e Portugal, e oferece microcrédito para empreendedoras locais.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/MulheresDoSol1.webp" alt="Oficina de design sustentável." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MulheresDoSol2.webp" alt="Produtos sendo exportados." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MulheresDoSol3.webp" alt="Microcrédito para empreendedoras." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MulheresDoSol4.webp" alt="Mulheres em capacitação digital." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MulheresDoSol5.webp" alt="Equipe de artesãs locais." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/MulheresDoSolVideo.webm" type="video/webm">
+          <source src="assets/videos/MulheresDoSolVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mulheres-do-sol">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mulheres">Saiba Mais</button>
+</article>
+
+<!-- 8. Som das Ruas -->
+<article class="causa-card">
+  <img src="assets/images/SomDasRuasCapa.webp" alt="Imagem Som das Ruas">
+  <h3>Som das Ruas</h3>
+  <p class="resumo">Movimento que transforma espaços esquecidos em centros culturais vibrantes, promovendo arte, cultura e comunidade.</p>
+
+  <div class="conteudo-expandido" id="desc-som" hidden>
+    <p class="descricao-completa">Fundada por músicos de rua, oferece aulas de percussão, canto e dança para jovens. O projeto “Batuque da Esperança” revelou artistas que hoje vivem da música, transformando arte em liberdade.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/SomDasRuas1.webp" alt="Aula de percussão para jovens." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SomDasRuas2.webp" alt="Grupo de canto em ensaio." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SomDasRuas3.webp" alt="Dança comunitária em praça." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SomDasRuas4.webp" alt="Evento cultural com público." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/SomDasRuas5.webp" alt="Músicos de rua em apresentação." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/SomDasRuasVideo.webm" type="video/webm">
+          <source src="assets/videos/SomDasRuasVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="som-das-ruas">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-som">Saiba Mais</button>
+</article>
+
+<!-- 9. Cuidar é Viver -->
+<article class="causa-card">
+  <img src="assets/images/CuidarEViverCapa.webp" alt="Imagem Cuidar é Viver">
+  <h3>Cuidar é Viver</h3>
+  <p class="resumo">Rede de cuidado que percorre o interior do país, levando saúde, educação e dignidade a cada comunidade.</p>
+
+  <div class="conteudo-expandido" id="desc-cuidar" hidden>
+    <p class="descricao-completa">Formada por enfermeiros e médicos voluntários, realiza consultas, distribui kits de higiene e medicamentos. Durante a pandemia, criou unidade móvel atendendo até 200 pessoas por dia, com foco em prevenção e saúde mental.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/CuidarEViver1.webp" alt="Atendimento médico em unidade móvel." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CuidarEViver2.webp" alt="Distribuição de kits de higiene." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CuidarEViver3.webp" alt="Consultas comunitárias." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CuidarEViver4.webp" alt="Equipe de saúde voluntária." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/CuidarEViver5.webp" alt="Palestra de prevenção à saúde." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/CuidarEViverVideo.webm" type="video/webm">
+          <source src="assets/videos/CuidarEViverVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cuidar-e-viver">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cuidar">Saiba Mais</button>
+</article>
+
+<!-- 10. Mesa Solidária -->
+<article class="causa-card">
+  <img src="assets/images/MesaSolidariaCapa.webp" alt="Imagem Mesa Solidária">
+  <h3>Mesa Solidária</h3>
+  <p class="resumo">Iniciativa que combate a fome e o desperdício, recolhendo alimentos excedentes e transformando solidariedade em sustento.</p>
+
+  <div class="conteudo-expandido" id="desc-mesa" hidden>
+    <p class="descricao-completa">Surgiu recolhendo alimentos descartados por restaurantes. Hoje possui rede de 60 voluntários e 40 parceiros, salvando 10 toneladas de alimentos por mês e promovendo oficinas de aproveitamento integral, para que nenhuma comida boa vá para o lixo.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/MesaSolidaria1.webp" alt="Voluntários separando alimentos." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MesaSolidaria2.webp" alt="Distribuição de cestas básicas." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MesaSolidaria3.webp" alt="Oficina de aproveitamento integral." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MesaSolidaria4.webp" alt="Parceria com restaurantes locais." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/MesaSolidaria5.webp" alt="Comida sendo preparada para doação." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/MesaSolidariaVideo.webm" type="video/webm">
+          <source src="assets/videos/MesaSolidariaVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mesa-solidaria">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mesa">Saiba Mais</button>
+</article>
+
+<!-- 11. Flor do Campo -->
+<article class="causa-card">
+  <img src="assets/images/FlorDoCampoCapa.webp" alt="Imagem Flor do Campo">
+  <h3>Flor do Campo</h3>
+  <p class="resumo">Projeto que transforma o trabalho no campo em fonte de prosperidade e equilíbrio com a natureza.</p>
+
+  <div class="conteudo-expandido" id="desc-flor" hidden>
+    <p class="descricao-completa">Criada em 2014, promove práticas sustentáveis e feiras de venda direta. Apoia 120 famílias com irrigação ecológica e capacitação técnica, reduzindo em 35% o uso de agrotóxicos e revertendo parte do lucro para escolas rurais.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/FlorDoCampo1.webp" alt="Feira de produtos agrícolas." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/FlorDoCampo2.webp" alt="Sistema de irrigação sustentável." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/FlorDoCampo3.webp" alt="Capacitação de agricultores." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/FlorDoCampo4.webp" alt="Famílias rurais em atividade." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/FlorDoCampo5.webp" alt="Práticas sustentáveis no campo." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/FlorDoCampoVideo.webm" type="video/webm">
+          <source src="assets/videos/FlorDoCampoVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="flor-do-campo">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-flor">Saiba Mais</button>
+</article>
+
+<!-- 12. Luz do Caminho -->
+<article class="causa-card">
+  <img src="assets/images/LuzDoCaminhoCapa.webp" alt="Imagem Luz do Caminho">
+  <h3>Luz do Caminho</h3>
+  <p class="resumo">Iniciativa que defende a dignidade humana, promovendo acolhimento e reinserção social de pessoas em situação de rua.</p>
+
+  <div class="conteudo-expandido" id="desc-luz" hidden>
+    <p class="descricao-completa">Fundada por advogados e assistentes sociais, oferece cursos de capacitação, apoio jurídico e casa de acolhimento com 30 vagas. Desde 2018, 120 pessoas conseguiram emprego formal e 40 foram reintegradas às suas famílias.</p>
+
+    <div class="causa-galeria">
+      <h4>Nossas Ações em Foco</h4>
+      <div class="causa-galeria__grid">
+        <img src="assets/images/galeria/LuzDoCaminho1.webp" alt="Curso de capacitação para moradores de rua." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/LuzDoCaminho2.webp" alt="Apoio jurídico em ação." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/LuzDoCaminho3.webp" alt="Casa de acolhimento com vagas disponíveis." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/LuzDoCaminho4.webp" alt="Voluntários auxiliando moradores." loading="lazy" width="600" height="400">
+        <img src="assets/images/galeria/LuzDoCaminho5.webp" alt="Integração com a comunidade." loading="lazy" width="600" height="400">
+        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
+          <source src="assets/videos/LuzDoCaminhoVideo.webm" type="video/webm">
+          <source src="assets/videos/LuzDoCaminhoVideo.mp4" type="video/mp4">
+          Seu navegador não suporta o player de vídeo.
+        </video>
+      </div>
+    </div>
+    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="luz-do-caminho">
+      Apoiar esta Causa
+    </a>
+  </div>
+
+  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-luz">Saiba Mais</button>
+</article>
 
           </div>
       </div>
     </section>
 
-    <section class="apoie">
-      <div class="apoie__container">
+    <section class="apoie" id="doar-agora">
+      <div class="apoie__container" id="apoie-passo">
         <form class="apoie__form">
           <div class="apoie__content">
             <h2>Apoie Nossas Causas</h2>
-            <p>As doações são a força que move projetos sociais...</p>
-
-            <div class="apoie__cards">
-                </div>
-
+            <p>As doações são a força que move projetos sociais e permite que organizações façam a diferença na vida de quem mais precisa. Cada contribuição, seja financeira, material ou de tempo, ajuda a fortalecer ações que promovem educação, saúde, inclusão e desenvolvimento comunitário. <br>
+              Os recursos arrecadados são cuidadosamente utilizados para maximizar o impacto: financiamento de projetos, compra de materiais, apoio a famílias e comunidades, treinamento de voluntários e manutenção de iniciativas que geram resultados reais e duradouros. Com transparência e responsabilidade, cada doação se transforma em oportunidades, esperança e transformação social.</p>
+              <div class="apoie-passos" >
+  
+                <article class="apoie-passo">
+                  <h3>Escolha uma Causa</h3>
+                  <p>Navegue pelos projetos e encontre a causa que mais toca seu coração.</p>
+                </article>
+                
+                <article class="apoie-passo">
+                  <h3>Doe com segurança</h3>
+                  <p>Utilizamos plataformas de pagamento seguras para proteger sua contribuição.</p>
+                </article>
+                
+                <article class="apoie-passo">
+                  <h3>Acompanhe o impacto</h3>
+                  <p>Receba atualizações da ONG e veja como sua ajuda está transformando realidades.</p>
+                </article>
+                
+              </div>
+              <div class="form-group apoie__causa-select">
+                <label for="causa-doacao">Quero doar para:</label>
+                <select id="causa-doacao" name="causa">
+                  <option value="geral">Doação Geral (Distribuir onde for mais necessário)</option>
+                  <option value="sementes-do-amanha">Sementes do Amanhã</option>
+                  <option value="patinhas-do-bem">Patinhas do Bem</option>
+                  <option value="raizes-da-terra">Raízes da Terra</option>
+                  <option value="maos-que-acolhem">Mãos que Acolhem</option>
+                  <option value="viver-com-dignidade">Viver com Dignidade</option>
+                  <option value="cores-da-vida">Cores da Vida</option>
+                  <option value="mulheres-do-sol">Mulheres do Sol</option>
+                  <option value="som-das-ruas">Som das Ruas</option>
+                  <option value="cuidar-e-viver">Cuidar é Viver</option>
+                  <option value="mesa-solidaria">Mesa Solidária</option>
+                  <option value="flor-do-campo">Flor do Campo</option>
+                  <option value="luz-do-caminho">Luz do Caminho</option>
+                </select>
+              </div>
             <fieldset class="apoie__fieldset">
               <legend class="apoie__legend">Faça a Diferença</legend>
               <div class="apoie__valores">
@@ -83,19 +513,40 @@
       </div>
     </section>
     
-    <section class="faq">
+    <section class="faq" id="faq">
         <div class="faq__container">
           <h2>Perguntas Frequentes</h2>
       
           <details class="faq__item">
             <summary class="faq__question"><h3>A minha doação é segura?</h3></summary>
-            <p class="faq__answer">Sim. Todas as transações são protegidas e criptografadas.</p>
+            <p class="faq__answer">Sim. Todas as transações são protegidas e criptografadas, garantindo segurança total.</p>
           </details>
-      
+          
           <details class="faq__item">
-            <summary class="faq__question"><h3>O ONGHub fica com alguma parte da minha doação?</h3></summary>
-            <p class="faq__answer">Não. O valor é repassado integralmente à ONG escolhida.</p>
+            <summary class="faq__question"><h3>Para onde vai exatamente o meu dinheiro?</h3></summary>
+            <p class="faq__answer">O valor é destinado diretamente aos projetos da ONG escolhida, cobrindo custos de materiais, pessoal e manutenção das ações.</p>
           </details>
+          
+          <details class="faq__item">
+            <summary class="faq__question"><h3>Como posso ter certeza de que as ONGs na plataforma são confiáveis?</h3></summary>
+            <p class="faq__answer">Todas as ONGs passam por um processo de verificação, incluindo análise de estatutos, relatórios de atividades e registros legais.</p>
+          </details>
+          
+          <details class="faq__item">
+            <summary class="faq__question"><h3>Vou receber um comprovante da minha doação?</h3></summary>
+            <p class="faq__answer">Sim. Após a doação, você recebe um comprovante digital que pode ser usado para fins de declaração fiscal.</p>
+          </details>
+          
+          <details class="faq__item">
+            <summary class="faq__question"><h3>Posso escolher em qual projeto minha doação será aplicada?</h3></summary>
+            <p class="faq__answer">Sim. No momento da doação, você pode selecionar o projeto específico da ONG que deseja apoiar.</p>
+          </details>
+          
+          <details class="faq__item">
+            <summary class="faq__question"><h3>Existe algum valor mínimo para doar?</h3></summary>
+            <p class="faq__answer">Não. Você pode doar qualquer valor, grande ou pequeno, e toda contribuição faz diferença.</p>
+          </details>
+          
           
           </div>
     </section>   
@@ -103,7 +554,8 @@
     <section class="voluntarios">
       <div class="voluntarios__container">
         <h2>Seja um voluntário</h2>
-        <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas...</p>
+        <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas e comunidades. Cada gesto de solidariedade gera impacto, cria conexões e fortalece quem recebe e quem oferece ajuda. Ao se envolver, você contribui para construir um mundo mais justo, inclusivo e humano, enquanto descobre a alegria de ver o efeito real de suas ações.  <br>
+           Faça parte dessa corrente do bem. Doe seu tempo, compartilhe suas habilidades e transforme pequenas atitudes em grandes mudanças. O poder de mudar o mundo está em suas mãos!</p>
         <img src="assets/images/voluntarios2.webp" alt="Imagem inspiradora de voluntários">
         <a href="#" class="btn btn--voluntario">Quero ser voluntário</a>
       </div>
@@ -115,12 +567,13 @@
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
         <nav class="footer__nav" aria-label="Links do rodapé"> <a href="#">Como Funciona</a>
-          <a href="#">FAQ</a>
-          <a href="#">Transparência</a>
+          <a href="projetos.html#apoie-passo">Como Funciona</a>
+          <a href="projetos.html#faq">FAQ</a>
+          <a href="index.html#impacto">Transparência</a>
         </nav>
         <p><small>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank" rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p> </div>
     </div>
   </footer>
-
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
