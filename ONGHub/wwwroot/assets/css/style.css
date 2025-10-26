@@ -101,7 +101,7 @@ img {
 }
 
 
-/* Botão de Doação (Azul com hover Verde) */
+
 .btn--doar {
   background-color: var(--color-primary);
   color: #fff;
@@ -115,7 +115,7 @@ img {
   transform: translateY(-2px);
 }
 
-/* Botão de Valor (Borda Azul) */
+
 .btn--valor {
   background-color: #fff;
   border: 1px solid var(--color-primary);
@@ -178,8 +178,6 @@ img {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .header__logo {
@@ -219,7 +217,7 @@ img {
 
 .btn--login {
   flex: none;
-  text-align: center;
+  margin-left: auto; 
 }
   
 /* Header: Desktop */
@@ -227,19 +225,20 @@ img {
   
   .header__container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between; 
     align-items: center;
     padding: 1rem 5%;
   }
   
   .header__menu {
-    flex: 1;
-    justify-content: space-between; 
     display: flex; 
     align-items: center;
-    gap: 2rem; 
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+    position: relative;
   }
+}
   .header__nav {
     display: flex;
     align-items: center;
@@ -248,20 +247,21 @@ img {
   }
   
   .nav__list {
-    display: flex; 
-    flex: none; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 2.5rem; 
-    padding: 0;
-    margin: 0; 
-    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
   }
   
-  .header__logo, .btn--login {
-    flex: none; 
+  .header__logo {
+    flex: none;
   }
-}
+  .btn--login {
+    flex: none;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+  }
+
 
 /* --- Footer --- */
 .footer {
@@ -1344,11 +1344,10 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Cor de fundo levemente escura (opcional) */
+
   background-color: rgba(0, 0, 0, 0.2); 
-  z-index: 1; /* Deve estar acima do vídeo, mas abaixo das setas (z-index: 10) */
+  z-index: 1; 
   
-  /* Centraliza o botão de play dentro do overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1360,12 +1359,12 @@ img {
   background-color: rgba(0, 0, 0, 0.4); 
 }
 
-/* Estilo do Botão em si */
+/* Estilo do Botão */
 .gallery-media-item .play-button {
-  background-color: var(--color-primary); /* Use a cor principal do seu tema */
+  background-color: var(--color-primary); 
   color: white;
   border: none;
-  border-radius: 50%; /* Botão redondo */
+  border-radius: 50%; 
   width: 60px;
   height: 60px;
   font-size: 24px;
@@ -1376,7 +1375,7 @@ img {
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.3s, transform 0.3s;
-  /* Ajuste para centralizar o triângulo */
+
   padding-left: 5px; 
   
 }
@@ -1391,14 +1390,14 @@ img {
   display: none;
 }
 
-/* Botão Voltar ao Topo */
+
 .btn-topo {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 50px;
   height: 50px;
-  background: var(--color-primary); /* Cor verde - ajuste para combinar com seu site */
+  background: var(--color-primary); 
   color: white;
   border: none;
   border-radius: 50%;
@@ -1417,7 +1416,7 @@ img {
 }
 
 .btn-topo:hover {
-  background: var(--color-secondary); /* Cor mais escura no hover */
+  background: var(--color-secondary); 
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
@@ -1425,3 +1424,110 @@ img {
 .btn-topo:active {
   transform: translateY(0);
 }
+
+/* =========================
+   DROPDOWN SIMPLES - Mantendo estrutura original
+   ========================= */
+
+/* Seta do dropdown */
+.dropdown-arrow {
+  font-size: 0.7em;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Submenu */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: 1px solid var(--color-gray-light);
+}
+
+.submenu__link {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.submenu__link:hover {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+}
+
+/* Estados do dropdown no DESKTOP */
+@media (min-width: 768px) {
+  .nav__item--dropdown {
+    position: relative;
+  }
+
+  .nav__item--dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__item--dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+/* Estados do dropdown no MOBILE */
+@media (max-width: 767px) {
+  .submenu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding-left: 1rem;
+    opacity: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav__item--dropdown.active .submenu {
+    max-height: 200px;
+  }
+
+  .nav__item--dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+/* =========================
+   CORREÇÃO SCROLL PARA SECTIONS
+   ========================= */
+
+   html {
+    scroll-padding-top: 80px; 
+  }
+  
+
+  @media (max-width: 767px) {
+    html {
+      scroll-padding-top: 70px;
+    }
+  }
+  
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
+

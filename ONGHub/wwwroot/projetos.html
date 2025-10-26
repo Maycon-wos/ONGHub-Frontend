@@ -11,24 +11,50 @@
 
   <header class="header">
     <div class="header__container">
-        <div class="header__logo">
-          <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
-        </div>
-        <button class="header__btn-mobile" id="btn-mobile" aria-label="Abrir menu" aria-expanded="false">
-          <span class="hamburger-icon"></span> </button>
-      <div class="header__menu" id="header-menu">
-        <nav class="header__nav" aria-label="Menu principal">
-          <ul class="nav__list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="projetos.html" aria-current="page">Nossos Projetos</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
-          </ul>
-        </nav>
-        <a href="#" class="btn btn--login">Login</a>
+      <div class="header__logo">
+        <img src="assets/images/logoONGHub.svg" alt="ONGHub - Conectando causas a voluntários">
       </div>
+  
+      <button class="header__btn-mobile" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+        <span class="hamburger-icon"></span>
+      </button>
+  
+      <nav class="header__menu" id="main-menu">
+        <ul class="nav__list">
+          <li class="nav__item nav__item--dropdown">
+            <a href="index.html" class="nav__link" aria-expanded="false" aria-current="page">
+              Home 
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="index.html#sobre" class="submenu__link">Sobre</a></li>
+              <li><a href="index.html#pilares" class="submenu__link">Pilares</a></li>
+              <li><a href="index.html#impacto" class="submenu__link">Impacto</a></li>
+              <li><a href="index.html#contato" class="submenu__link">Contato</a></li>
+            </ul>
+          </li>
+  
+          <li class="nav__item nav__item--dropdown">
+            <a href="projetos.html" class="nav__link" aria-expanded="false" aria-current="page">
+              Projetos 
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="projetos.html#causas" class="submenu__link">Causas</a></li>
+              <li><a href="projetos.html#doar-agora" class="submenu__link">Apoie</a></li>
+              <li><a href="projetos.html#como-doar" class="submenu__link">Como Doar</a></li>
+              <li><a href="projetos.html#faq" class="submenu__link">FAQ</a></li>
+              <li><a href="projetos.html#seja-voluntario" class="submenu__link">Seja Voluntário</a></li>
+            </ul>
+          </li>
+  
+          <li class="nav__item"><a href="cadastro.html" class="nav__link">Cadastro</a></li>
+        </ul>
+
+        <a href="login.html" class="btn btn--login">Entrar</a>
+      </nav>
     </div>
   </header>
-
   <main>
     <section class="home">
       <div class="home__container">
@@ -578,7 +604,7 @@
                 </article>
                 
               </div>
-              <div class="form-group apoie__causa-select">
+              <div class="form-group apoie__causa-select" id="como-doar">
                 <label for="causa-doacao">Quero doar para:</label>
                 <select id="causa-doacao" name="causa">
                   <option value="geral">Doação Geral (Distribuir onde for mais necessário)</option>
@@ -596,7 +622,7 @@
                   <option value="luz-do-caminho">Luz do Caminho</option>
                 </select>
               </div>
-            <fieldset class="apoie__fieldset">
+            <fieldset class="apoie__fieldset" >
               <legend class="apoie__legend">Faça a Diferença</legend>
               <div class="apoie__valores">
                 <button type="button" class="btn btn--valor">R$ 10,00</button>
@@ -652,7 +678,7 @@
           </div>
     </section>   
 
-    <section class="voluntarios">
+    <section class="voluntarios" id="seja-voluntario">
       <div class="voluntarios__container">
         <h2>Seja um voluntário</h2>
         <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas e comunidades. Cada gesto de solidariedade gera impacto, cria conexões e fortalece quem recebe e quem oferece ajuda. Ao se envolver, você contribui para construir um mundo mais justo, inclusivo e humano, enquanto descobre a alegria de ver o efeito real de suas ações.  <br>

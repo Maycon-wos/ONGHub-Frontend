@@ -10,24 +10,51 @@
 <body class="pagina-cadastro">
   <header class="header">
     <div class="header__container">
-        <div class="header__logo">
-          <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
-        </div>
-        <button class="header__btn-mobile" id="btn-mobile" aria-label="Abrir menu" aria-expanded="false">
-          <span class="hamburger-icon"></span> </button>
-      <div class="header__menu" id="header-menu">
-        <nav class="header__nav" aria-label="Menu principal">
-          <ul class="nav__list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="projetos.html">Nossos Projetos</a></li>
-            <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
-          </ul>
-        </nav>
-        <a href="#" class="btn btn--login">Login</a>
+      <div class="header__logo">
+        <img src="assets/images/logoONGHub.svg" alt="ONGHub - Conectando causas a voluntários">
       </div>
+  
+      <button class="header__btn-mobile" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+        <span class="hamburger-icon"></span>
+      </button>
+  
+
+      <nav class="header__menu" id="main-menu">
+        <ul class="nav__list">
+          <li class="nav__item nav__item--dropdown">
+            <a href="index.html" class="nav__link" aria-expanded="false">
+              Home 
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="index.html#sobre" class="submenu__link">Sobre</a></li>
+              <li><a href="index.html#pilares" class="submenu__link">Pilares</a></li>
+              <li><a href="index.html#impacto" class="submenu__link">Impacto</a></li>
+              <li><a href="index.html#contato" class="submenu__link">Contato</a></li>
+            </ul>
+          </li>
+  
+          <li class="nav__item nav__item--dropdown">
+            <a href="projetos.html" class="nav__link" aria-expanded="false">
+              Projetos 
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="projetos.html#causas" class="submenu__link">Causas</a></li>
+              <li><a href="projetos.html#apoie" class="submenu__link">Apoie</a></li>
+              <li><a href="projetos.html#como-doar" class="submenu__link">Como Doar</a></li>
+              <li><a href="projetos.html#faq" class="submenu__link">FAQ</a></li>
+              <li><a href="projetos.html#seja-voluntario" class="submenu__link">Seja Voluntário</a></li>
+            </ul>
+          </li>
+  
+          <li class="nav__item"><a href="cadastro.html" class="nav__link" aria-current="page">Cadastro</a></li>
+        </ul>
+  
+        <a href="login.html" class="btn btn--login">Entrar</a>
+      </nav>
     </div>
   </header>
-
   <main>
     <section class="home">
       <div class="home__container">
@@ -148,7 +175,6 @@
       </div>
     </div>
   </footer>
-  <!-- Botão Voltar ao Topo -->
 <button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
   ↑
 </button>
