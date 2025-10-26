@@ -13,9 +13,17 @@
 :root {
   --color-primary: #1F6F8B;
   --color-secondary: #99E2B4;
+  --color-azure: #559ef6;
   --color-text: #333;
+  --color-dark: #2C3E50;
   --color-bg: #fff;
   --color-light: #f5f5f5;
+  --color-light: #F8F9FA;        
+  --color-white: #FFFFFF;        
+  --color-gray: #6C757D;         
+  --color-gray-light: #E9ECEF;   
+  --color-success: #28A745;      
+  --color-warning: #FFC107;    
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Roboto', sans-serif;
 }
@@ -51,7 +59,7 @@ img {
   padding: 0.8rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
   border: none;
 }
@@ -63,7 +71,7 @@ img {
 .btn--enviar,
 .btn--voluntario {
   background-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .btn--login:hover,
@@ -71,8 +79,27 @@ img {
 .btn--saiba-mais:hover,
 .btn--enviar:hover,
 .btn--voluntario:hover {
-  opacity: 0.9;
+  background-color: var(--color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 111, 139, 0.3);
 }
+.btn--login:focus,
+.btn--projetos:focus,
+.btn--saiba-mais:focus,
+.btn--enviar:focus,
+.btn--voluntario:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.btn--login:active,
+.btn--projetos:active,
+.btn--saiba-mais:active,
+.btn--enviar:active,
+.btn--voluntario:active {
+  transform: translateY(0);
+  background-color: var(--color-dark);
+}
+
 
 /* Botão de Doação (Azul com hover Verde) */
 .btn--doar {
@@ -83,9 +110,9 @@ img {
 }
 
 .btn--doar:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  font-weight: 700;
+  background-color: var(--color-success);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 
 /* Botão de Valor (Borda Azul) */
@@ -101,13 +128,44 @@ img {
   color: #fff;
 }
 
+.btn--doar:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn--doar:active {
+  transform: translateY(0);
+  background-color: #218838;
+}
+
+.btn:disabled {
+  background-color: var(--color-gray-light) !important;
+  color: var(--color-gray) !important;
+  border-color: var(--color-gray-light) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.6;
+}
+
+.btn:disabled {
+  background-color: var(--color-gray-light) !important;
+  color: var(--color-gray) !important;
+  border-color: var(--color-gray-light) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.6;
+}
+
 /* =========================
    Layout: Header & Footer
    ========================= */
 
 /* --- Header --- */
 .header {
-  background-color: #fff;
+  background-color: var(--color-white);
+  border-bottom: 2px solid var(--color-gray-light);
   padding: 1rem 2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: sticky;
@@ -153,6 +211,10 @@ img {
 
 .nav__list a[aria-current="page"] {
   color: var(--color-primary);
+
+}
+.nav__list a:hover {
+  color: var(--color-azure);
 }
 
 .btn--login {
@@ -241,6 +303,7 @@ img {
 
 .footer__nav a:hover {
   text-decoration: underline;
+  color: var(--color-dark);
 }
 
 .footer__content p {
