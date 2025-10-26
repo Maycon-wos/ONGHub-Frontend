@@ -1530,4 +1530,37 @@ img {
     scroll-margin-top: 80px;
   }
 
+/* Sistema de alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
 
+.alert--success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.alert--error {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.alert--warning {
+  background-color: var(--color-warning);
+  color: var(--color-dark);
+}
+
+/* Sistema de badges */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge--primary { background-color: var(--color-primary); color: white; }
+.badge--secondary { background-color: var(--color-secondary); color: var(--color-dark); }
+.badge--accent { background-color: var(--color-accent); color: white; }
