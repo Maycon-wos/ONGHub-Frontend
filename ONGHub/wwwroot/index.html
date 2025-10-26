@@ -11,18 +11,21 @@
 
   <header class="header">
     <div class="header__container">
-      <div class="header__logo">
-        <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
+        <div class="header__logo">
+          <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
+        </div>
+        <button class="header__btn-mobile" id="btn-mobile" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger-icon"></span> </button>
+      <div class="header__menu" id="header-menu">
+        <nav class="header__nav" aria-label="Menu principal">
+          <ul class="nav__list">
+            <li><a href="index.html" aria-current="page">Início</a></li>
+            <li><a href="projetos.html">Nossos Projetos</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+          </ul>
+        </nav>
+        <a href="#" class="btn btn--login">Login</a>
       </div>
-
-      <nav class="header__nav" aria-label="Menu principal">
-        <ul class="nav__list">
-          <li><a href="index.html" aria-current="page">Início</a></li>
-          <li><a href="projetos.html">Nossos Projetos</a></li>
-          <li><a href="cadastro.html">Cadastro</a></li>
-        </ul>
-      </nav>
-      <a href="#" class="btn btn--login">Login</a>
     </div>
   </header>
 
@@ -37,7 +40,7 @@
               Unimos solidariedade e tecnologia para aproximar quem quer ajudar de quem mais precisa, 
               tornando o apoio às ONGs simples, transparente e transformador.
             </p>
-            <a href="#" class="btn btn--projetos">Conheça nossos projetos</a>
+            <a href="projetos.html#causas" class="btn btn--projetos">Conheça nossos projetos</a>
           </div>
           <div class="home__right">
             <img src="assets/images/index.webp" alt="Ilustração de solidariedade e tecnologia" loading="lazy">
@@ -183,6 +186,10 @@
       </div>
     </div>
   </footer>
-  <script src="assets/js/main.js" defer></script>
+  <!-- Botão Voltar ao Topo -->
+<button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
+  ↑
+</button>
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>

@@ -10,17 +10,21 @@
 <body class="pagina-cadastro">
   <header class="header">
     <div class="header__container">
-      <div class="header__logo">
-        <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
-      </div>
-      <nav class="header__nav" aria-label="Menu principal">
-        <ul class="nav__list">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Nossos Projetos</a></li>
-          <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
-        </ul>
+        <div class="header__logo">
+          <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
+        </div>
+        <button class="header__btn-mobile" id="btn-mobile" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger-icon"></span> </button>
+      <div class="header__menu" id="header-menu">
+        <nav class="header__nav" aria-label="Menu principal">
+          <ul class="nav__list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Nossos Projetos</a></li>
+            <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+          </ul>
+        </nav>
         <a href="#" class="btn btn--login">Login</a>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -67,7 +71,7 @@
 
               <div class="form-group">
                 <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" maxlength="15" required pattern="\(\d{2}\) \d{4,5}-\d{4}" autocomplete="tel" inputmode="numeric" title="Digite o telefone com DDD no formato (XX) XXXXX-XXXX">
+                <input type="tel" id="telefone" name="telefone" placeholder="(XX)XXXXX-XXXX" maxlength="15" required pattern="\(\d{2}\) \d{4,5}-\d{4}" autocomplete="tel" inputmode="numeric" title="Digite o telefone com DDD no formato  (XX)XXXXX-XXXX">
               </div>
             </fieldset>
 
@@ -144,6 +148,12 @@
       </div>
     </div>
   </footer>
-  <script src="assets/js/main.js" defer></script>
+  <!-- Botão Voltar ao Topo -->
+<button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
+  ↑
+</button>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> 
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>

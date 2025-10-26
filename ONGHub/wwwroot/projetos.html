@@ -8,19 +8,24 @@
 </head>
 <body>
 
+
   <header class="header">
     <div class="header__container">
-      <div class="header__logo">
-        <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
-      </div>
-      <nav class="header__nav" aria-label="Menu principal">
-        <ul class="nav__list">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html" aria-current="page">Nossos Projetos</a></li>
-          <li><a href="cadastro.html">Cadastro</a></li>
-        </ul>
+        <div class="header__logo">
+          <img src="assets/images/logoONGHub.svg" alt="Logo da ONGHub">
+        </div>
+        <button class="header__btn-mobile" id="btn-mobile" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger-icon"></span> </button>
+      <div class="header__menu" id="header-menu">
+        <nav class="header__nav" aria-label="Menu principal">
+          <ul class="nav__list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html" aria-current="page">Nossos Projetos</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+          </ul>
+        </nav>
         <a href="#" class="btn btn--login">Login</a>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -39,414 +44,510 @@
       </div>
     </section>
 
-    <section class="causas">
+    <section class="causas" id="causas">
       <div class="causas__container">
         <h2>Conheça nossas causas</h2>
         <div class="causas__cards">
-<!-- 1. Sementes do Amanhã -->
-<article class="causa-card">
-  <img src="assets/images/SementesDoAmanhaCapa.webp" alt="Imagem Sementes do Amanhã">
-  <h3>Sementes do Amanhã</h3>
-  <p class="resumo">Criada por um grupo de professores da rede pública, oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social.</p>
-  
-  <div class="conteudo-expandido" id="desc-sementes" hidden>
-    
-    <p class="descricao-completa">Fundada em 2017 por um grupo de professores da rede pública, a ONG nasceu do sonho de reduzir a evasão escolar em comunidades de baixa renda. Começou com 10 voluntários dando aulas de reforço em uma sala emprestada. Hoje, atende mais de 420 crianças por ano, oferecendo oficinas de robótica e acesso gratuito à internet.</p>
-    
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        
-        <img src="assets/images/galeria/SementesDoAmanha1.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SementesDoAmanha2.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SementesDoAmanha3.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SementesDoAmanha4.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SementesDoAmanha5.webp" alt="Voluntário ensinando em sala de aula." loading="lazy" width="600" height="400">
-        
-        <video controls 
-               preload="none"
-               poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/SementesDoAmanhaVideo.webm" type="video/webm">
-          <source src="assets/videos/sementes-institucional.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-        
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="sementes-do-amanha">
-      Apoiar esta Causa
-    </a>
-  </div> 
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
-
-  </article>
-
-<!-- 2. Patinhas do Bem -->
-<article class="causa-card">
-  <img src="assets/images/PatinhasDoBemCapa" alt="Imagem Patinhas do Bem">
-  <h3>Patinhas do Bem</h3>
-  <p class="resumo">Dedicada à proteção animal, resgatando cães e gatos abandonados e promovendo adoções responsáveis.</p>
-  
-  <div class="conteudo-expandido" id="desc-patinhas" hidden>
-    
-    <p class="descricao-completa">Fundada em 2019 por Larissa Nogueira, a ONG acolhe mais de 120 cães e 60 gatos, todos vacinados e castrados. Realiza feiras mensais de adoção, palestras em escolas e a campanha permanente “Adote Amor”.</p>
-    
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        
-        <img src="assets/images/galeria/PatinhasDoBem1.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/PatinhasDoBem2.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/PatinhasDoBem3.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/PatinhasDoBem4.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/PatinhasDoBem5.webp" alt="Voluntário cuidando de animais." loading="lazy" width="600" height="400">
-        
-        <video controls 
-               preload="none"
-               poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/PatinhasDoBemVideo.webm" type="video/webm">
-          <source src="assets/videos/PatinhasDoBemVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-        
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="patinhas-do-bem">
-      Apoiar esta Causa
-    </a>
-
-  </div>
-   <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
-
-  </article>
-
-<!-- 3. Raízes da Terra -->
-<article class="causa-card">
-  <img src="assets/images/RaizesDaTerraCapa.webp" alt="Imagem Raízes da Terra">
-  <h3>Raízes da Terra</h3>
-  <p class="resumo">Iniciativa ambiental que atua na recuperação de áreas desmatadas e educação sobre práticas sustentáveis na Amazônia.</p>
-
-  <div class="conteudo-expandido" id="desc-raizes" hidden>
-    <p class="descricao-completa">Criada por jovens indígenas das etnias Tikuna e Baré, a iniciativa já plantou mais de 50 mil árvores nativas e capacitou 200 famílias ribeirinhas. Seu projeto “Floresta Viva” conecta doadores a áreas de reflorestamento, com árvores nomeadas pelos apoiadores.</p>
-    
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/RaizesDaTerra1.webp" alt="Plantio de árvores nativas." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/RaizesDaTerra2.webp" alt="Educação ambiental para famílias." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/RaizesDaTerra3.webp" alt="Projeto Floresta Viva em ação." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/RaizesDaTerra4.webp" alt="Comunidade ribeirinha envolvida." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/RaizesDaTerra5.webp" alt="Árvores nomeadas por apoiadores." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/RaizesDaTerraVideo.webm" type="video/webm">
-          <source src="assets/videos/RaizesDaTerraVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="raizes-da-terra">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-raizes">Saiba Mais</button>
-</article>
-
-<!-- 4. Mãos que Acolhem  -->
-<article class="causa-card">
-  <img src="assets/images/MaosQueAcolhemCapa.webp" alt="Imagem Mão Que Acolhem">
-  <h3>Mãos que Acolhem</h3>
-  <p class="resumo">Oferece assistência social, alimentação e cursos gratuitos para comunidades em vulnerabilidade.</p>
-  
-  <div class="conteudo-expandido" id="desc-maos" hidden>
-    
-    <p class="descricao-completa">Nascida durante a pandemia de 2020, começou distribuindo marmitas. Hoje mantém um centro comunitário com 3.000 refeições mensais e cursos de culinária e costura, formando mais de 80 mulheres que abriram pequenos negócios.</p>
-    
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        
-        <img src="assets/images/galeria/MaosQueAcolhem1.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MaosQueAcolhem2.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MaosQueAcolhem3.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MaosQueAcolhem4.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MaosQueAcolhem5.webp" alt="Voluntário Doando Alimentos." loading="lazy" width="600" height="400">
-        
-        <video controls 
-               preload="none"
-               poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/MaosQueAcolhemVideo.webm" type="video/webm">
-          <source src="assets/videos/MaosQueAcolhemVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-        
-      </div>
-      
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="maos-que-acolhem">
-      Apoiar esta Causa
-    </a>
-  </div> 
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
-
-  </article>
-
-
-<!-- 5. Viver com Dignidade -->
-<article class="causa-card">
-  <img src="assets/images/ViverComDignidadeCapa.webp" alt="Imagem Viver com Dignidade">
-  <h3>Viver com Dignidade</h3>
-  <p class="resumo">Voltada à inclusão e acessibilidade, desenvolvendo cadeiras de rodas modulares e oficinas inclusivas.</p>
-
-  <div class="conteudo-expandido" id="desc-viver" hidden>
-    <p class="descricao-completa">Criada por André Santos, conta com engenheiros e designers que desenvolveram cadeiras de rodas modulares de baixo custo. Beneficiou 150 pessoas e oferece oficinas de programação e robótica inclusiva, transformando barreiras em pontes.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/ViverComDignidade1.webp" alt="Oficina de robótica inclusiva." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/ViverComDignidade2.webp" alt="Cadeira de rodas modular em uso." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/ViverComDignidade3.webp" alt="Participantes em aula prática." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/ViverComDignidade4.webp" alt="Projeto beneficiando comunidade." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/ViverComDignidade5.webp" alt="Ações inclusivas em escola." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/ViverComDignidadeVideo.webm" type="video/webm">
-          <source src="assets/videos/ViverComDignidadeVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="viver-com-dignidade">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-viver">Saiba Mais</button>
-</article>
-
-<!-- 6. Cores da Vida -->
-<article class="causa-card">
-  <img src="assets/images/CoresDaVidaCapa.webp" alt="Imagem Cores da Vida">
-  <h3>Cores da Vida</h3>
-  <p class="resumo">Rede de cuidado e acolhimento dedicada a promover saúde emocional, diversidade e inclusão para a comunidade LGBTQIA+.</p>
-
-  <div class="conteudo-expandido" id="desc-cores" hidden>
-    <p class="descricao-completa">Fundada em 2018, realiza mais de 400 atendimentos psicológicos e 200 palestras. O projeto “Famílias de Coração” conecta jovens LGBTQIA+ expulsos de casa com famílias acolhedoras, promovendo empatia e segurança.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/CoresDaVida1.webp" alt="Atendimento psicológico em grupo." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CoresDaVida2.webp" alt="Palestra sobre inclusão." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CoresDaVida3.webp" alt="Famílias de coração acolhendo jovens." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CoresDaVida4.webp" alt="Evento comunitário de diversidade." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CoresDaVida5.webp" alt="Atividades de integração social." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/CoresDaVidaVideo.webm" type="video/webm">
-          <source src="assets/videos/CoresDaVidaVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cores-da-vida">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cores">Saiba Mais</button>
-</article>
-
-<!-- 7. Mulheres do Sol -->
-<article class="causa-card">
-  <img src="assets/images/MulheresDoSolCapa.webp" alt="Imagem Mulheres do Sol">
-  <h3>Mulheres do Sol</h3>
-  <p class="resumo">Iniciativa que desperta o potencial criativo e empreendedor de mulheres, unindo sustentabilidade, propósito e impacto global.</p>
-
-  <div class="conteudo-expandido" id="desc-mulheres" hidden>
-    <p class="descricao-completa">Criada por artesãs do sertão, capacita mais de 300 mulheres por ano em design sustentável e marketing digital. Seus produtos já foram exportados para França e Portugal, e oferece microcrédito para empreendedoras locais.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/MulheresDoSol1.webp" alt="Oficina de design sustentável." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MulheresDoSol2.webp" alt="Produtos sendo exportados." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MulheresDoSol3.webp" alt="Microcrédito para empreendedoras." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MulheresDoSol4.webp" alt="Mulheres em capacitação digital." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MulheresDoSol5.webp" alt="Equipe de artesãs locais." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/MulheresDoSolVideo.webm" type="video/webm">
-          <source src="assets/videos/MulheresDoSolVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mulheres-do-sol">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mulheres">Saiba Mais</button>
-</article>
-
-<!-- 8. Som das Ruas -->
-<article class="causa-card">
-  <img src="assets/images/SomDasRuasCapa.webp" alt="Imagem Som das Ruas">
-  <h3>Som das Ruas</h3>
-  <p class="resumo">Movimento que transforma espaços esquecidos em centros culturais vibrantes, promovendo arte, cultura e comunidade.</p>
-
-  <div class="conteudo-expandido" id="desc-som" hidden>
-    <p class="descricao-completa">Fundada por músicos de rua, oferece aulas de percussão, canto e dança para jovens. O projeto “Batuque da Esperança” revelou artistas que hoje vivem da música, transformando arte em liberdade.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/SomDasRuas1.webp" alt="Aula de percussão para jovens." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SomDasRuas2.webp" alt="Grupo de canto em ensaio." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SomDasRuas3.webp" alt="Dança comunitária em praça." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SomDasRuas4.webp" alt="Evento cultural com público." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/SomDasRuas5.webp" alt="Músicos de rua em apresentação." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/SomDasRuasVideo.webm" type="video/webm">
-          <source src="assets/videos/SomDasRuasVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="som-das-ruas">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-som">Saiba Mais</button>
-</article>
-
-<!-- 9. Cuidar é Viver -->
-<article class="causa-card">
-  <img src="assets/images/CuidarEViverCapa.webp" alt="Imagem Cuidar é Viver">
-  <h3>Cuidar é Viver</h3>
-  <p class="resumo">Rede de cuidado que percorre o interior do país, levando saúde, educação e dignidade a cada comunidade.</p>
-
-  <div class="conteudo-expandido" id="desc-cuidar" hidden>
-    <p class="descricao-completa">Formada por enfermeiros e médicos voluntários, realiza consultas, distribui kits de higiene e medicamentos. Durante a pandemia, criou unidade móvel atendendo até 200 pessoas por dia, com foco em prevenção e saúde mental.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/CuidarEViver1.webp" alt="Atendimento médico em unidade móvel." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CuidarEViver2.webp" alt="Distribuição de kits de higiene." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CuidarEViver3.webp" alt="Consultas comunitárias." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CuidarEViver4.webp" alt="Equipe de saúde voluntária." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/CuidarEViver5.webp" alt="Palestra de prevenção à saúde." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/CuidarEViverVideo.webm" type="video/webm">
-          <source src="assets/videos/CuidarEViverVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cuidar-e-viver">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cuidar">Saiba Mais</button>
-</article>
-
-<!-- 10. Mesa Solidária -->
-<article class="causa-card">
-  <img src="assets/images/MesaSolidariaCapa.webp" alt="Imagem Mesa Solidária">
-  <h3>Mesa Solidária</h3>
-  <p class="resumo">Iniciativa que combate a fome e o desperdício, recolhendo alimentos excedentes e transformando solidariedade em sustento.</p>
-
-  <div class="conteudo-expandido" id="desc-mesa" hidden>
-    <p class="descricao-completa">Surgiu recolhendo alimentos descartados por restaurantes. Hoje possui rede de 60 voluntários e 40 parceiros, salvando 10 toneladas de alimentos por mês e promovendo oficinas de aproveitamento integral, para que nenhuma comida boa vá para o lixo.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/MesaSolidaria1.webp" alt="Voluntários separando alimentos." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MesaSolidaria2.webp" alt="Distribuição de cestas básicas." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MesaSolidaria3.webp" alt="Oficina de aproveitamento integral." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MesaSolidaria4.webp" alt="Parceria com restaurantes locais." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/MesaSolidaria5.webp" alt="Comida sendo preparada para doação." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/MesaSolidariaVideo.webm" type="video/webm">
-          <source src="assets/videos/MesaSolidariaVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mesa-solidaria">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mesa">Saiba Mais</button>
-</article>
-
-<!-- 11. Flor do Campo -->
-<article class="causa-card">
-  <img src="assets/images/FlorDoCampoCapa.webp" alt="Imagem Flor do Campo">
-  <h3>Flor do Campo</h3>
-  <p class="resumo">Projeto que transforma o trabalho no campo em fonte de prosperidade e equilíbrio com a natureza.</p>
-
-  <div class="conteudo-expandido" id="desc-flor" hidden>
-    <p class="descricao-completa">Criada em 2014, promove práticas sustentáveis e feiras de venda direta. Apoia 120 famílias com irrigação ecológica e capacitação técnica, reduzindo em 35% o uso de agrotóxicos e revertendo parte do lucro para escolas rurais.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/FlorDoCampo1.webp" alt="Feira de produtos agrícolas." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/FlorDoCampo2.webp" alt="Sistema de irrigação sustentável." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/FlorDoCampo3.webp" alt="Capacitação de agricultores." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/FlorDoCampo4.webp" alt="Famílias rurais em atividade." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/FlorDoCampo5.webp" alt="Práticas sustentáveis no campo." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/FlorDoCampoVideo.webm" type="video/webm">
-          <source src="assets/videos/FlorDoCampoVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="flor-do-campo">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-flor">Saiba Mais</button>
-</article>
-
-<!-- 12. Luz do Caminho -->
-<article class="causa-card">
-  <img src="assets/images/LuzDoCaminhoCapa.webp" alt="Imagem Luz do Caminho">
-  <h3>Luz do Caminho</h3>
-  <p class="resumo">Iniciativa que defende a dignidade humana, promovendo acolhimento e reinserção social de pessoas em situação de rua.</p>
-
-  <div class="conteudo-expandido" id="desc-luz" hidden>
-    <p class="descricao-completa">Fundada por advogados e assistentes sociais, oferece cursos de capacitação, apoio jurídico e casa de acolhimento com 30 vagas. Desde 2018, 120 pessoas conseguiram emprego formal e 40 foram reintegradas às suas famílias.</p>
-
-    <div class="causa-galeria">
-      <h4>Nossas Ações em Foco</h4>
-      <div class="causa-galeria__grid">
-        <img src="assets/images/galeria/LuzDoCaminho1.webp" alt="Curso de capacitação para moradores de rua." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/LuzDoCaminho2.webp" alt="Apoio jurídico em ação." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/LuzDoCaminho3.webp" alt="Casa de acolhimento com vagas disponíveis." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/LuzDoCaminho4.webp" alt="Voluntários auxiliando moradores." loading="lazy" width="600" height="400">
-        <img src="assets/images/galeria/LuzDoCaminho5.webp" alt="Integração com a comunidade." loading="lazy" width="600" height="400">
-        <video controls preload="none" poster="assets/images/galeria/video-thumb.webp">
-          <source src="assets/videos/LuzDoCaminhoVideo.webm" type="video/webm">
-          <source src="assets/videos/LuzDoCaminhoVideo.mp4" type="video/mp4">
-          Seu navegador não suporta o player de vídeo.
-        </video>
-      </div>
-    </div>
-    <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="luz-do-caminho">
-      Apoiar esta Causa
-    </a>
-  </div>
-
-  <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-luz">Saiba Mais</button>
-</article>
+          <article class="causa-card">
+            <img src="assets/images/SementesDoAmanhaCapa.webp" alt="Imagem Sementes do Amanhã">
+            <h3>Sementes do Amanhã</h3>
+            <p class="resumo">Criada por um grupo de professores da rede pública, oferece reforço escolar e oficinas de tecnologia para crianças em vulnerabilidade social.</p>
+            <div class="conteudo-expandido" id="desc-sementes" hidden>
+              <p class="descricao-completa">Fundada em 2017 por um grupo de professores da rede pública, a ONG nasceu do sonho de reduzir a evasão escolar em comunidades de baixa renda. Hoje atende mais de 420 crianças por ano, oferecendo oficinas de robótica e acesso gratuito à internet.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/SementesDoAmanhaVideo-thumb.webp">
+                      <source src="assets/videos/SementesDoAmanhaVideo.webm" type="video/webm">
+                      <source src="assets/videos/SementesDoAmanhaVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/SementesDoAmanha1.webp" alt="Oficina de robótica" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/SementesDoAmanha2.webp" alt="Crianças estudando" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/SementesDoAmanha3.webp" alt="Professora ensinando" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/SementesDoAmanha4.webp" alt="Mural escolar" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/SementesDoAmanha5.webp" alt="Formatura" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/SementesDoAmanhaVideo-thumb.webp" alt="Miniatura do vídeo" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/SementesDoAmanha1.webp" alt="Miniatura Imagem 1" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/SementesDoAmanha2.webp" alt="Miniatura Imagem 2" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/SementesDoAmanha3.webp" alt="Miniatura Imagem 3" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/SementesDoAmanha4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/SementesDoAmanha5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="sementes-do-amanha">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-sementes">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/PatinhasDoBemCapa.webp" alt="Imagem Patinhas do Bem">
+            <h3>Patinhas do Bem</h3>
+            <p class="resumo">Resgate, reabilitação e adoção de animais abandonados, além de campanhas de castração e conscientização comunitária.</p>
+            <div class="conteudo-expandido" id="desc-patinhas" hidden>
+              <p class="descricao-completa">A Patinhas do Bem atua desde 2010 resgatando animais em situação de risco. Mantemos um abrigo com capacidade para 150 cães e gatos, e realizamos feiras de adoção mensais. Nosso foco é na saúde e bem-estar, proporcionando uma segunda chance a cada vida.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/PatinhasDoBemVideo-thumb.webp">
+                      <source src="assets/videos/PatinhasDoBemVideo.webm" type="video/webm">
+                      <source src="assets/videos/PatinhasDoBemVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/PatinhasDoBem1.webp" alt="Cachorro sendo adotado" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/PatinhasDoBem2.webp" alt="Gatos brincando" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/PatinhasDoBem3.webp" alt="Veterinário examinando" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/PatinhasDoBem4.webp" alt="Campanha de castração" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/PatinhasDoBem5.webp" alt="Voluntários alimentando" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/PatinhasDoBemVideo-thumb.webp" alt="Miniatura do vídeo" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/PatinhasDoBem1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/PatinhasDoBem2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/PatinhasDoBem3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/PatinhasDoBem4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/PatinhasDoBem5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="patinhas-do-bem">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-patinhas">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/RaizesDaTerraCapa.webp" alt="Imagem Raízes da Terra">
+            <h3>Raízes da Terra</h3>
+            <p class="resumo">Na Amazônia, jovens indígenas já plantaram 50 mil árvores e ensinam práticas sustentáveis a comunidades ribeirinhas para proteger o futuro da floresta.</p>
+            <div class="conteudo-expandido" id="desc-raizes" hidden>
+              <p class="descricao-completa">Criada por jovens indígenas das etnias Tikuna e Baré, a ONG atua na recuperação de áreas desmatadas e no ensino de práticas sustentáveis.
+                Desde 2016, já plantou mais de 50 mil árvores nativas e capacitou 200 famílias ribeirinhas em reflorestamento e coleta seletiva.
+                Seu projeto “Floresta Viva” conecta doadores a áreas específicas de reflorestamento, onde cada árvore recebe o nome de quem ajudou a plantá-la.
+                O grupo sonha em se tornar referência em educação ambiental na Amazônia.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/RaizesDaTerraVideo-thumb.webp">
+                      <source src="assets/videos/RaizesDaTerraVideo.webm" type="video/webm">
+                      <source src="assets/videos/RaizesDaTerraVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/RaizesDaTerra1.webp" alt="Plantação agroflorestal" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/RaizesDaTerra2.webp" alt="Viveiro de mudas" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/RaizesDaTerra3.webp" alt="Agricultor no campo" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/RaizesDaTerra4.webp" alt="Curso de agroecologia" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/RaizesDaTerra5.webp" alt="Mata recuperada" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/RaizesDaTerraVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/RaizesDaTerra1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/RaizesDaTerra2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/RaizesDaTerra3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/RaizesDaTerra4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/RaizesDaTerra5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="raizes-da-terra">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-raizes">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/MaosQueAcolhemCapa.webp" alt="Imagem Mãos que Acolhem">
+            <h3>Mãos que Acolhem</h3>
+            <p class="resumo">Apoio a refugiados e imigrantes, oferecendo aulas de português, assistência jurídica e integração ao mercado de trabalho.</p>
+            <div class="conteudo-expandido" id="desc-maos" hidden>
+              <p class="descricao-completa">A Mãos que Acolhem é uma ponte para a nova vida no Brasil. Nosso programa de integração de 6 meses inclui mentorias de carreira, aulas intensivas de idioma e suporte psicossocial, visando a plena autonomia e dignidade dos recém-chegados. Já auxiliamos mais de 800 famílias a se estabelecerem.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/MaosQueAcolhemVideo-thumb.webp">
+                      <source src="assets/videos/MaosQueAcolhemVideo.webm" type="video/webm">
+                      <source src="assets/videos/MaosQueAcolhemVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/MaosQueAcolhem1.webp" alt="Aula de português" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/MaosQueAcolhem2.webp" alt="Refugiados em entrevista" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/MaosQueAcolhem3.webp" alt="Reunião de apoio" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/MaosQueAcolhem4.webp" alt="Cozinha comunitária" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/MaosQueAcolhem5.webp" alt="Entrega de documentos" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/MaosQueAcolhemVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/MaosQueAcolhem1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/MaosQueAcolhem2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/MaosQueAcolhem3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/MaosQueAcolhem4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/MaosQueAcolhem5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="maos-que-acolhem">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-maos">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/ViverComDignidadeCapa.webp" alt="Imagem Viver com Dignidade">
+            <h3>Viver com Dignidade</h3>
+            <p class="resumo">Criada por pais de crianças com deficiência física, luta por acessibilidade urbana e promove oficinas de tecnologia assistiva. Desenvolveu uma cadeira de rodas de baixo custo impressa em 3D.</p>
+            <div class="conteudo-expandido" id="desc-viver" hidden>
+              <p class="descricao-completa">Criada por André Santos, pai de uma criança com paralisia cerebral, a ONG surgiu da necessidade de tornar a cidade mais acessível.
+                Hoje, conta com uma equipe de engenheiros e designers que desenvolveram uma cadeira de rodas modular de baixo custo, impressa em 3D.
+                O projeto já beneficiou 150 pessoas com mobilidade reduzida e oferece oficinas de programação e robótica inclusiva.
+                A missão da ONG é “transformar barreiras em pontes”.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/ViverComDignidadeVideo-thumb.webp">
+                      <source src="assets/videos/ViverComDignidadeVideo.webm" type="video/webm">
+                      <source src="assets/videos/ViverComDignidadeVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/ViverComDignidade1.webp" alt="Idosos em atividade" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/ViverComDignidade2.webp" alt="Enfermeira e paciente" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/ViverComDignidade3.webp" alt="Jardim da casa de repouso" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/ViverComDignidade4.webp" alt="Refeição em grupo" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/ViverComDignidade5.webp" alt="Sessão de fisioterapia" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/ViverComDignidadeVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/ViverComDignidade1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/ViverComDignidade2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/ViverComDignidade3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/ViverComDignidade4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/ViverComDignidade5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="viver-com-dignidade">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-viver">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/CoresDaVidaCapa.webp" alt="Imagem Cores da Vida">
+            <h3>Cores da Vida</h3>
+            <p class="resumo">Em Florianópolis, a ONG oferece atendimento psicológico gratuito e palestras sobre respeito e diversidade, acolhendo jovens LGBTQIA+ em situação de risco.</p>
+            <div class="conteudo-expandido" id="desc-cores" hidden>
+              <p class="descricao-completa">Fundada em 2018 por estudantes universitários, a ONG oferece apoio psicológico gratuito e palestras sobre respeito e diversidade. Já realizou mais de 400 atendimentos psicológicos e 200 palestras em escolas e empresas. Seu projeto “Famílias de Coração” conecta jovens LGBTQIA+ expulsos de casa com famílias acolhedoras. O impacto social da ONG tem sido reconhecido nacionalmente por promover empatia e segurança.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/CoresDaVidaVideo-thumb.webp">
+                      <source src="assets/videos/CoresDaVidaVideo.webm" type="video/webm">
+                      <source src="assets/videos/CoresDaVidaVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/CoresDaVida1.webp" alt="Oficina de pintura" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/CoresDaVida2.webp" alt="Pessoas tocando instrumentos" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/CoresDaVida3.webp" alt="Apresentação de teatro" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/CoresDaVida4.webp" alt="Exposição de arte" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/CoresDaVida5.webp" alt="Grupo de dança" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/CoresDaVidaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/CoresDaVida1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/CoresDaVida2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/CoresDaVida3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/CoresDaVida4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/CoresDaVida5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cores-da-vida">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cores">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/MulheresDoSolCapa.webp" alt="Imagem Mulheres do Sol">
+            <h3>Mulheres do Sol</h3>
+            <p class="resumo">Capacitação profissional e empoderamento feminino em comunidades de baixa renda, com foco em empreendedorismo e geração de renda.</p>
+            <div class="conteudo-expandido" id="desc-mulheres" hidden>
+              <p class="descricao-completa">Oferecemos cursos profissionalizantes em costura, culinária e artesanato, além de workshops sobre finanças e direitos. O projeto já formou mais de 350 mulheres, ajudando-as a abrir seus próprios negócios e conquistar a independência financeira. Nossa missão é transformar vidas através do conhecimento e da união.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/MulheresDoSolVideo-thumb.webp">
+                      <source src="assets/videos/MulheresDoSolVideo.webm" type="video/webm">
+                      <source src="assets/videos/MulheresDoSolVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/MulheresDoSol1.webp" alt="Oficina de costura" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/MulheresDoSol2.webp" alt="Empreendedoras em feira" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/MulheresDoSol3.webp" alt="Workshop de finanças" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/MulheresDoSol4.webp" alt="Grupo de mulheres sorrindo" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/MulheresDoSol5.webp" alt="Aulas de artesanato" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/MulheresDoSolVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/MulheresDoSol1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/MulheresDoSol2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/MulheresDoSol3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/MulheresDoSol4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/MulheresDoSol5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mulheres-do-sol">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mulheres">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/SomDasRuasCapa.webp" alt="Imagem Som das Ruas">
+            <h3>Som das Ruas</h3>
+            <p class="resumo">Inclusão social de jovens e adolescentes em situação de vulnerabilidade através de aulas de música, dança e produção cultural.</p>
+            <div class="conteudo-expandido" id="desc-som" hidden>
+              <p class="descricao-completa">O projeto oferece instrumentos e aulas gratuitas de violão, percussão, DJing e grafite. Nosso estúdio comunitário permite que os jovens gravem suas próprias músicas, incentivando o desenvolvimento de talentos e a construção de uma identidade positiva, afastando-os da criminalidade.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/SomDasRuasVideo-thumb.webp">
+                      <source src="assets/videos/SomDasRuasVideo.webm" type="video/webm">
+                      <source src="assets/videos/SomDasRuasVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/SomDasRuas1.webp" alt="Aula de violão" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/SomDasRuas2.webp" alt="Jovens dançando break" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/SomDasRuas3.webp" alt="Oficina de grafite" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/SomDasRuas4.webp" alt="Gravação em estúdio" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/SomDasRuas5.webp" alt="Apresentação musical" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/SomDasRuasVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/SomDasRuas1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/SomDasRuas2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/SomDasRuas3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/SomDasRuas4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/SomDasRuas5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="som-das-ruas">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-som">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/CuidarEViverCapa.webp" alt="Imagem Cuidar é Viver">
+            <h3>Cuidar é Viver</h3>
+            <p class="resumo">Foco em saúde mental e prevenção de doenças para comunidades de baixa renda, com consultas, palestras e grupos de apoio.</p>
+            <div class="conteudo-expandido" id="desc-cuidar" hidden>
+              <p class="descricao-completa">Nossa equipe multidisciplinar oferece atendimento psicológico e psiquiátrico acessível. Promovemos workshops sobre manejo de estresse, ansiedade e depressão, e realizamos check-ups de saúde preventiva. Cuidar é Viver busca desmistificar a saúde mental e torná-la prioridade em todos os lares.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/CuidarEViverVideo-thumb.webp">
+                      <source src="assets/videos/CuidarEViverVideo.webm" type="video/webm">
+                      <source src="assets/videos/CuidarEViverVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/CuidarEViver1.webp" alt="Sessão de terapia" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/CuidarEViver2.webp" alt="Palestra de saúde" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/CuidarEViver3.webp" alt="Médico e paciente" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/CuidarEViver4.webp" alt="Grupo de apoio" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/CuidarEViver5.webp" alt="Distribuição de kits de higiene" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/CuidarEViverVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/CuidarEViver1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/CuidarEViver2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/CuidarEViver3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/CuidarEViver4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/CuidarEViver5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cuidar-e-viver">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-cuidar">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/MesaSolidariaCapa.webp" alt="Imagem Mesa Solidária">
+            <h3>Mesa Solidária</h3>
+            <p class="resumo">Combate à insegurança alimentar com distribuição diária de refeições e arrecadação de alimentos não perecíveis para famílias carentes.</p>
+            <div class="conteudo-expandido" id="desc-mesa" hidden>
+              <p class="descricao-completa">Nossa cozinha comunitária prepara e distribui mais de 500 refeições nutritivas por dia. Além da alimentação imediata, promovemos hortas urbanas para ensinar as famílias a cultivar seus próprios alimentos, promovendo a sustentabilidade e a educação nutricional a longo prazo.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/MesaSolidariaVideo-thumb.webp">
+                      <source src="assets/videos/MesaSolidariaVideo.webm" type="video/webm">
+                      <source src="assets/videos/MesaSolidariaVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/MesaSolidaria1.webp" alt="Distribuição de marmitas" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/MesaSolidaria2.webp" alt="Voluntários cozinhando" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/MesaSolidaria3.webp" alt="Horta urbana" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/MesaSolidaria4.webp" alt="Estoque de alimentos" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/MesaSolidaria5.webp" alt="Família recebendo cesta básica" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/MesaSolidariaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/MesaSolidaria1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/MesaSolidaria2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/MesaSolidaria3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/MesaSolidaria4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/MesaSolidaria5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mesa-solidaria">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-mesa">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/FlorDoCampoCapa.webp" alt="Imagem Flor do Campo">
+            <h3>Flor do Campo</h3>
+            <p class="resumo">Ajuda agricultores familiares a adotarem práticas sustentáveis e venderem seus produtos em feiras locais. Parte do lucro é revertida para escolas rurais da região.</p>
+            <div class="conteudo-expandido" id="desc-flor" hidden>
+              <p class="descricao-completa">Criada em 2014 por um grupo de agricultores, promove práticas sustentáveis e a venda direta dos produtos em feiras.
+                A ONG já apoiou 120 famílias com capacitação técnica e estrutura de irrigação ecológica.
+                Seu projeto “Raiz Sustentável” reduziu em 35% o uso de agrotóxicos nas propriedades participantes.
+                Parte do lucro das feiras é revertido para escolas rurais da região.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/FlorDoCampoVideo-thumb.webp">
+                      <source src="assets/videos/FlorDoCampoVideo.webm" type="video/webm">
+                      <source src="assets/videos/FlorDoCampoVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/FlorDoCampo1.webp" alt="Roda de conversa na aldeia" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/FlorDoCampo2.webp" alt="Crianças na escola bilíngue" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/FlorDoCampo3.webp" alt="Artesanato indígena" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/FlorDoCampo4.webp" alt="Ritual cultural" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/FlorDoCampo5.webp" alt="Plantação sustentável" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/FlorDoCampoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/FlorDoCampo1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/FlorDoCampo2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/FlorDoCampo3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/FlorDoCampo4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/FlorDoCampo5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="flor-do-campo">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-flor">Saiba Mais</button>
+          </article>
+          
+          <article class="causa-card">
+            <img src="assets/images/LuzDoCaminhoCapa.webp" alt="Imagem Luz do Caminho">
+            <h3>Luz do Caminho</h3>
+            <p class="resumo">Reintegração social de ex-detentos e pessoas em situação de rua, através de moradia de transição, cursos e apoio psicossocial.</p>
+            <div class="conteudo-expandido" id="desc-luz" hidden>
+              <p class="descricao-completa">Nosso programa de 12 meses oferece moradia assistida, mentorias de recolocação profissional e cursos técnicos. O foco é na reconstrução da autoestima e da cidadania, ajudando os indivíduos a superar o estigma e a construir um futuro estável e produtivo na sociedade.</p>
+              <div class="gallery-component">
+                <div class="gallery-main-view">
+                  <div class="gallery-media-item active" data-index="0">
+                    <div class="custom-play-overlay">
+                      <button class="play-button" aria-label="Reproduzir vídeo">
+                          ▶
+                      </button>
+                  </div>
+                    <video controls preload="none" poster="assets/images/galeria/LuzDoCaminhoVideo-thumb.webp">
+                      <source src="assets/videos/LuzDoCaminhoVideo.webm" type="video/webm">
+                      <source src="assets/videos/LuzDoCaminhoVideo.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="gallery-media-item" data-index="1"><img src="assets/images/galeria/LuzDoCaminho1.webp" alt="Pessoa em entrevista de emprego" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="2"><img src="assets/images/galeria/LuzDoCaminho2.webp" alt="Moradia de transição" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="3"><img src="assets/images/galeria/LuzDoCaminho3.webp" alt="Curso profissionalizante" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="4"><img src="assets/images/galeria/LuzDoCaminho4.webp" alt="Grupo de apoio em terapia" loading="lazy"></div>
+                  <div class="gallery-media-item" data-index="5"><img src="assets/images/galeria/LuzDoCaminho5.webp" alt="Voluntário e ex-detento" loading="lazy"></div>
+                  <button class="gallery-arrow prev" aria-label="Mídia anterior">&lt;</button>
+                  <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
+                </div>
+                <div class="gallery-thumbnails">
+                  <img src="assets/images/galeria/LuzDoCaminhoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
+                  <img src="assets/images/galeria/LuzDoCaminho1.webp" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/LuzDoCaminho2.webp" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/LuzDoCaminho3.webp" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/LuzDoCaminho4.webp" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/LuzDoCaminho5.webp" class="gallery-thumb-item" data-index="5">
+                </div>
+              </div>
+              <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="luz-do-caminho">Apoiar esta Causa</a>
+            </div>
+            <button class="btn btn--saiba-mais" aria-expanded="false" aria-controls="desc-luz">Saiba Mais</button>
+          </article>
 
           </div>
       </div>
@@ -557,7 +658,7 @@
         <p>Ser voluntário é mais do que doar tempo ou esforço, é transformar vidas e comunidades. Cada gesto de solidariedade gera impacto, cria conexões e fortalece quem recebe e quem oferece ajuda. Ao se envolver, você contribui para construir um mundo mais justo, inclusivo e humano, enquanto descobre a alegria de ver o efeito real de suas ações.  <br>
            Faça parte dessa corrente do bem. Doe seu tempo, compartilhe suas habilidades e transforme pequenas atitudes em grandes mudanças. O poder de mudar o mundo está em suas mãos!</p>
         <img src="assets/images/voluntarios2.webp" alt="Imagem inspiradora de voluntários">
-        <a href="#" class="btn btn--voluntario">Quero ser voluntário</a>
+        <a href="cadastro.html" class="btn btn--voluntario">Quero ser voluntário</a>
       </div>
     </section>
   </main>
@@ -566,7 +667,7 @@
     <div class="footer__container">
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
-        <nav class="footer__nav" aria-label="Links do rodapé"> <a href="#">Como Funciona</a>
+        <nav class="footer__nav" aria-label="Links do rodapé">
           <a href="projetos.html#apoie-passo">Como Funciona</a>
           <a href="projetos.html#faq">FAQ</a>
           <a href="index.html#impacto">Transparência</a>
@@ -574,6 +675,20 @@
         <p><small>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank" rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p> </div>
     </div>
   </footer>
-  <script src="assets/js/main.js" defer></script>
+  <button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
+    ↑
+  </button>
+  <script src="assets/js/scripts.js" defer></script>
+  <div class="modal-overlay" id="project-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      
+      <button class="modal-close-btn" id="modal-close" aria-label="Fechar janela">
+        &times; </button>
+      
+      <div class="modal-body" id="modal-body">
+        </div>
+  
+    </div>
+  </div>
 </body>
 </html>

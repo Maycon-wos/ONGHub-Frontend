@@ -159,30 +159,45 @@ img {
   flex: none;
   text-align: center;
 }
-
+  
 /* Header: Desktop */
 @media (min-width: 768px) {
+  
   .header__container {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
+    padding: 1rem 5%;
   }
-  .header__logo {
-    flex: 0 0 auto;
+  
+  .header__menu {
+    flex: 1;
+    justify-content: space-between; 
+    display: flex; 
+    align-items: center;
+    gap: 2rem; 
   }
   .header__nav {
-    flex: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-left: 2rem;
+    flex: none; 
+    margin: 0 auto; 
   }
+  
   .nav__list {
-    flex: 1;
-    justify-content: center;
+    display: flex; 
+    flex: none; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 2.5rem; 
+    padding: 0;
+    margin: 0; 
+    list-style: none;
   }
-  .btn--login {
-    flex: 0 0 auto;
+  
+  .header__logo, .btn--login {
+    flex: none; 
   }
 }
 
@@ -261,7 +276,6 @@ img {
   display: flex;
   align-items: center;
   gap: 2rem;
-  /* Mobile: Imagem em cima, Texto embaixo */
   flex-direction: column-reverse;
   text-align: center;
 }
@@ -341,7 +355,7 @@ img {
 .sobre__content p {
   font-size: 1rem;
   line-height: 1.8;
-  text-align: left; 
+  text-align: center; 
   max-width: 800px; 
   margin-left: auto; 
   margin-right: auto; 
@@ -682,6 +696,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  
 }
 
 @media (max-width: 767px) {
@@ -989,4 +1004,361 @@ img {
     margin-left: auto;
     margin-right: auto;
   }
+}
+/* =========================
+   Layout: Header (Mobile)
+   ========================= */
+
+   .header__btn-mobile {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .hamburger-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger-icon::before {
+    top: -7px; 
+  }
+  
+  .hamburger-icon::after {
+    bottom: -7px; 
+  }
+  
+  /* --- Media Query para Mobile --- */
+  @media (max-width: 767px) {
+    .header__container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header__btn-mobile {
+      display: block; 
+      z-index: 101; 
+    }
+  
+    .header__menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.98); 
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .header__menu.nav-open {
+      display: flex; 
+    }
+  
+    .header__nav {
+      margin-left: 0; 
+    }
+    
+    .nav__list {
+      flex-direction: column; 
+      align-items: center;
+      gap: 2rem;
+    }
+  
+    .nav__list a {
+      font-size: 1.5rem; 
+    }
+    .header__btn-mobile[aria-expanded="true"] .hamburger-icon {
+      background-color: transparent; 
+    }
+    .header__btn-mobile[aria-expanded="true"] .hamburger-icon::before {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .header__btn-mobile[aria-expanded="true"] .hamburger-icon::after {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+  /* =========================
+   Componente: Modal (Projetos)
+   ========================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  
+  background-color: rgba(0, 0, 0, 0.7);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%; 
+  max-width: 900px; 
+  max-height: 90vh; 
+  overflow-y: auto; 
+  position: relative;
+  
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-primary);
+}
+
+.modal-body h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-body .descricao-completa {
+  margin-bottom: 1.5rem;
+}
+.modal-body .causa-galeria {
+  margin-top: 0;
+}
+.modal-body .btn--doar-especifico {
+  width: auto; 
+  display: inline-block; 
+}
+   .modal-body {
+    text-align: center;
+  }
+  .modal-body .descricao-completa {
+    text-align: left;
+  }
+.gallery-component {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-main-view {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-media-item {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-media-item.active {
+  display: block;
+}
+
+.gallery-media-item img,
+.gallery-media-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+/* --- Setas --- */
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.75rem 0.5rem;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.gallery-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-arrow.prev {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.gallery-arrow.next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* --- Thumbnails --- */
+.gallery-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.gallery-thumb-item {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: border-color 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.gallery-thumb-item:hover {
+  opacity: 1;
+}
+
+.gallery-thumb-item.active {
+  border-color: var(--color-primary);
+  opacity: 1;
+}
+.gallery-media-item .custom-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Cor de fundo levemente escura (opcional) */
+  background-color: rgba(0, 0, 0, 0.2); 
+  z-index: 1; /* Deve estar acima do vídeo, mas abaixo das setas (z-index: 10) */
+  
+  /* Centraliza o botão de play dentro do overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gallery-media-item .custom-play-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Estilo do Botão em si */
+.gallery-media-item .play-button {
+  background-color: var(--color-primary); /* Use a cor principal do seu tema */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botão redondo */
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s, transform 0.3s;
+  /* Ajuste para centralizar o triângulo */
+  padding-left: 5px; 
+  
+}
+
+.gallery-media-item .play-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Estado de escondido (para usar com JS) */
+.gallery-media-item .custom-play-overlay.hidden {
+  display: none;
+}
+
+/* Botão Voltar ao Topo */
+.btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary); /* Cor verde - ajuste para combinar com seu site */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-topo.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-topo:hover {
+  background: var(--color-secondary); /* Cor mais escura no hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-topo:active {
+  transform: translateY(0);
 }
