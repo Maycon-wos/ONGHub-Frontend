@@ -362,6 +362,71 @@ const App = (function() {
   };
 })();
 
+// Sistema de roteamento simples
+class SimpleSPA {
+    constructor() {
+      this.routes = {
+        '/': 'home.html',
+        '/projetos': 'projetos.html', 
+        '/cadastro': 'cadastro.html'
+      };
+      this.init();
+    }
+    
+    async navigate(path) {
+      // Carrega conteúdo dinamicamente
+      const content = await this.loadPage(path);
+      document.getElementById('main-content').innerHTML = content;
+      window.history.pushState({}, path, window.location.origin + path);
+    }
+  }
+  // Template engine simples
+class TemplateSystem {
+    static render(templateId, data) {
+      const template = document.getElementById(templateId);
+      let html = template.innerHTML;
+      
+      // Substitui {{var}} por dados
+      Object.keys(data).forEach(key => {
+        html = html.replace(new RegExp(`{{${key}}}`, 'g'), data[key]);
+      });
+      
+      return html;
+    }
+  }
+  
+  // Uso:
+  // TemplateSystem.render('causa-template', { titulo: 'Educação', descricao: '...' });
+  class FormValidator {
+    constructor(formId) {
+      this.form = document.getElementById(formId);
+      this.errors = {};
+      this.init();
+    }
+    
+    init() {
+      this.form.addEventListener('submit', (e) => {
+        if (!this.validate()) {
+          e.preventDefault();
+          this.showErrors();
+        }
+      });
+    }
+    
+    validate() {
+      // Validações customizadas
+      this.validateCPF();
+      this.validateDataNascimento();
+      this.validateEmail();
+      return Object.keys(this.errors).length === 0;
+    }
+    
+    showErrors() {
+      // Mostra errors específicos para cada campo
+      this.showAlert('Por favor, corrija os erros destacados em vermelho.');
+    }
+  }
+
 // =======================================================
 // INICIALIZAR APLICAÇÃO QUANDO DOM ESTIVER PRONTO
 // =======================================================
