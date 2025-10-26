@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang=pt-BR>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>ONGHub - Cadastro de Voluntários</title>
+<meta name=description content="Junte-se a nós! Preencha o formulário e faça parte da nossa rede de voluntários para transformar realidades.">
+<link rel=stylesheet href=assets/css/style.min.css>
+</head>
+<body class=pagina-cadastro>
+<header class=header>
+<div class=header__container>
+<div class=header__logo>
+<img src=assets/images/logoONGHub.svg alt="ONGHub - Conectando causas a voluntários">
+</div>
+<button class=header__btn-mobile aria-label="Abrir menu" aria-expanded=false aria-controls=main-menu>
+<span class=hamburger-icon></span>
+</button>
+<nav class=header__menu id=main-menu>
+<ul class=nav__list>
+<li class="nav__item nav__item--dropdown">
+<a href=index.html class=nav__link aria-expanded=false>
+Home
+<span class=dropdown-arrow>▼</span>
+</a>
+<ul class=submenu>
+<li><a href=index.html#sobre class=submenu__link>Sobre</a></li>
+<li><a href=index.html#pilares class=submenu__link>Pilares</a></li>
+<li><a href=index.html#impacto class=submenu__link>Impacto</a></li>
+<li><a href=index.html#contato class=submenu__link>Contato</a></li>
+</ul>
+</li>
+<li class="nav__item nav__item--dropdown">
+<a href=projetos.html class=nav__link aria-expanded=false>
+Projetos
+<span class=dropdown-arrow>▼</span>
+</a>
+<ul class=submenu>
+<li><a href=projetos.html#causas class=submenu__link>Causas</a></li>
+<li><a href=projetos.html#apoie class=submenu__link>Apoie</a></li>
+<li><a href=projetos.html#como-doar class=submenu__link>Como Doar</a></li>
+<li><a href=projetos.html#faq class=submenu__link>FAQ</a></li>
+<li><a href=projetos.html#seja-voluntario class=submenu__link>Seja Voluntário</a></li>
+</ul>
+</li>
+<li class=nav__item><a href=cadastro.html class=nav__link aria-current=page>Cadastro</a></li>
+</ul>
+<a href=login.html class="btn btn--login">Entrar</a>
+</nav>
+</div>
+</header>
+<main>
+<section class=home>
+<div class=home__container>
+<div class=home__content>
+<div class=home__left>
+<h1>Cadastro de Voluntários</h1>
+<h2>Seja a mudança que o mundo precisa</h2>
+<p>Os voluntários são a alma dos projetos sociais, pessoas que transformam empatia em ação e fazem a diferença todos os dias. Com seu tempo e dedicação, é possível apoiar causas, mudar realidades e inspirar outros a fazer o mesmo. Junte-se a essa rede de solidariedade e descubra o poder de ajudar!</p>
+</div>
+<div class=home__right>
+<img src=assets/images/voluntariosa1.webp alt="Ilustração de solidariedade e tecnologia">
+</div>
+</div>
+</div>
+</section>
+<section class=cadastro>
+<div class=cadastro__container>
+<h2>Faça parte da nossa rede</h2>
+<p>Ficamos felizes com seu interesse! Preencha o formulário abaixo para fazer parte do nosso banco de talentos.</p>
+<div class=cadastro__form-container>
+<form action=/enviar-formulario method=post class=cadastro__form>
+<fieldset>
+<legend>Dados Pessoais</legend>
+<div class=form-group>
+<label for=nome>Nome Completo:</label>
+<input type=text id=nome name=nome placeholder="Digite seu nome completo" required autocomplete=name>
+</div>
+<div class=form-group>
+<label for=email>Email:</label>
+<input type=email id=email name=email placeholder=seu.email@exemplo.com required autocomplete=email>
+</div>
+<div class=form-group>
+<label for=nascimento>Data de Nascimento:</label>
+<input type=text id=nascimento name=nascimento placeholder=DD/MM/AAAA maxlength=10 required pattern=(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4} inputmode=numeric title="Digite a data de nascimento no formato DD/MM/AAAA">
+</div>
+<div class=form-group>
+<label for=cpf>CPF:</label>
+<input type=text id=cpf name=cpf placeholder=000.000.000-00 maxlength=14 required pattern=\d{3}\.\d{3}\.\d{3}-\d{2} inputmode="numeric"title="Digite o CPF no formato 000.000.000-00"oninput=formatarCPF(this)>
+</div>
+<div class=form-group>
+<label for=telefone>Telefone:</label>
+<input type=tel id=telefone name=telefone placeholder=(XX)XXXXX-XXXX maxlength=15 required pattern="\(\d{2}\) \d{4,5}-\d{4}" autocomplete=tel inputmode=numeric title="Digite o telefone com DDD no formato  (XX)XXXXX-XXXX">
+</div>
+</fieldset>
+<fieldset>
+<legend>Endereço</legend>
+<div class=form-group>
+<label for=cep>CEP:</label>
+<input type=text id=cep name=cep placeholder=00000-000 maxlength=9 required pattern=\d{5}-\d{3} autocomplete=postal-code inputmode=numeric title="Digite o CEP no formato 00000-000">
+</div>
+<div class=form-group>
+<label for=endereco>Endereço:</label>
+<input type=text id=endereco name=endereco placeholder="Rua, número, complemento" required autocomplete=street-address>
+</div>
+<div class=form-group>
+<label for=cidade>Cidade:</label>
+<input type=text id=cidade name=cidade placeholder="Sua cidade" required autocomplete=address-level2>
+</div>
+<div class=form-group>
+<label for=estado>Estado:</label>
+<select id=estado name=estado required autocomplete=address-level1>
+<option value disabled selected>Selecione seu estado</option>
+<option value=AC>Acre</option>
+<option value=AL>Alagoas</option>
+<option value=AP>Amapá</option>
+<option value=AM>Amazonas</option>
+<option value=BA>Bahia</option>
+<option value=CE>Ceará</option>
+<option value=DF>Distrito Federal</option>
+<option value=ES>Espírito Santo</option>
+<option value=GO>Goiás</option>
+<option value=MA>Maranhão</option>
+<option value=MT>Mato Grosso</option>
+<option value=MS>Mato Grosso do Sul</option>
+<option value=MG>Minas Gerais</option>
+<option value=PA>Pará</option>
+<option value=PB>Paraíba</option>
+<option value=PR>Paraná</option>
+<option value=PE>Pernambuco</option>
+<option value=PI>Piauí</option>
+<option value=RJ>Rio de Janeiro</option>
+<option value=RN>Rio Grande do Norte</option>
+<option value=RS>Rio Grande do Sul</option>
+<option value=RO>Rondônia</option>
+<option value=RR>Roraima</option>
+<option value=SC>Santa Catarina</option>
+<option value=SP>São Paulo</option>
+<option value=SE>Sergipe</option>
+<option value=TO>Tocantins</option>
+</select>
+</div>
+</fieldset>
+<button type=submit class="btn btn--enviar">Quero ser voluntário!</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class=footer>
+<div class=footer__container>
+<div class=footer__content>
+<img src=assets/images/logoONGHub.svg alt="Logo ONGHub">
+<nav class=footer__nav aria-label="Links do rodapé">
+<a href=projetos.html#apoie-passo>Como Funciona</a>
+<a href=projetos.html#faq>FAQ</a>
+<a href=index.html#impacto>Transparência</a>
+</nav>
+<p><small>© 2025 <a href=https://www.linkedin.com/in/maycon-wos/ target=_blank rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p>
+</div>
+</div>
+</footer>
+<button id=btnTopo class=btn-topo aria-label="Voltar ao topo da página">
+↑
+</button>
+<script src=https://code.jquery.com/jquery-3.7.1.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js></script>
+<script src=assets/js/scripts.min.js defer></script>
+</body>
+</html>
