@@ -82,7 +82,7 @@ const App = (function() {
           const title = card.querySelector('h3').innerHTML;
 
           if (content) {
-              DOM.modalBody.innerHTML = `<h3>${title}</h3>` + content.innerHTML;
+            DOM.modalBody.innerHTML = '<h3>' + title + '</h3>' + content.innerHTML;
               DOM.modal.classList.add('visible');
               DOM.modal.setAttribute('aria-hidden', 'false');
               document.body.style.overflow = 'hidden';
