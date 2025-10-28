@@ -4,10 +4,11 @@
 <meta charset=UTF-8>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <title>Nossos Projetos - ONGHub</title> <meta name=description content="Conheça os projetos e causas que apoiamos. Descubra como sua doação pode transformar vidas e apoiar iniciativas incríveis.">
-<link rel=stylesheet href=assets/css/style.min.css>
+<link rel=stylesheet href=assets/css/style.css>
 </head>
 <body>
-<header class=header>
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+<header class=header role="banner">
 <div class=header__container>
 <div class=header__logo>
 <img src=assets/images/logoONGHub.svg alt="ONGHub - Conectando causas a voluntários">
@@ -15,10 +16,10 @@
 <button class=header__btn-mobile aria-label="Abrir menu" aria-expanded=false aria-controls=main-menu>
 <span class=hamburger-icon></span>
 </button>
-<nav class=header__menu id=main-menu>
-<ul class=nav__list>
-<li class="nav__item nav__item--dropdown">
-<a href=index.html class=nav__link aria-expanded=false aria-current=page>
+<nav class=header__menu id=main-menu aria-label="Navegação principal">
+<ul class=nav__list role="menubar">
+<li class="nav__item nav__item--dropdown" role="none">
+<a href=index.html class=nav__link aria-expanded=false role="menuitem" aria-current=page>
 Home
 <span class=dropdown-arrow>▼</span>
 </a>
@@ -48,7 +49,7 @@ Projetos
 </nav>
 </div>
 </header>
-<main>
+<main id="main-content" role="main">
 <section class=home>
 <div class=home__container>
 <div class=home__content>
@@ -811,7 +812,7 @@ Faça parte dessa corrente do bem. Doe seu tempo, compartilhe suas habilidades e
 </div>
 </section>
 </main>
-<footer class=footer>
+<footer class=footer role="contentinfo">
 <div class=footer__container>
 <div class=footer__content>
 <img src=assets/images/logoONGHub.svg alt="Logo ONGHub">
@@ -826,7 +827,7 @@ Faça parte dessa corrente do bem. Doe seu tempo, compartilhe suas habilidades e
 <button id=btnTopo class=btn-topo aria-label="Voltar ao topo da página">
 ↑
 </button>
-<script src=assets/js/scripts.min.js defer></script>
+<script src=assets/js/scripts.js defer></script>
 <div class=modal-overlay id=project-modal aria-hidden=true>
 <div class=modal-content role=dialog aria-modal=true>
 <button class=modal-close-btn id=modal-close aria-label="Fechar janela">

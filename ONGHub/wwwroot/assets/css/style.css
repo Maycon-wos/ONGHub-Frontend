@@ -12,15 +12,15 @@
 /* --- Variáveis --- */
 :root {
   --color-primary: #1F6F8B;
-  --color-secondary: #99E2B4;
-  --color-azure: #559ef6;
+  --color-secondary: #66BB6A;;
+  --color-azure: #1976D2;
   --color-text: #333;
   --color-dark: #2C3E50;
   --color-bg: #fff;
   --color-light: #f5f5f5;
   --color-light: #F8F9FA;        
   --color-white: #FFFFFF;        
-  --color-gray: #6C757D;         
+  --color-gray: #5A6268;         
   --color-gray-light: #E9ECEF;   
   --color-success: #28A745;      
   --color-warning: #FFC107;   
@@ -466,7 +466,7 @@ img {
   font-size: var(--space-2);
   line-height: 1.8;
   text-align: center; 
-  max-width: 800px; 
+  max-width: 900px; 
   margin-left: auto; 
   margin-right: auto; 
 }
@@ -1799,5 +1799,64 @@ img {
 .tag--pandemia { background-color: var(--color-pandemia); color: white; }
 .tag--longo-prazo { background-color: var(--color-longo-prazo); color: white; }
 .tag--3d { background-color: var(--color-3d); color: white; }
+/* =========================
+   ACESSIBILIDADE - FOXUS STATES
+   ========================= */
 
+/* Focus visible para todos os elementos interativos */
+.btn:focus-visible,
+.nav__link:focus-visible,
+.tag:focus-visible,
+.filtro-tag:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 
+/* Remove outline padrão e mantém focus-visible */
+.btn:focus:not(:focus-visible),
+.nav__link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Focus para cards interativos */
+.causa-card:focus-within {
+  box-shadow: 0 0 0 3px var(--color-primary);
+  border-radius: var(--space-2);
+}
+
+/* =========================
+   SKIP LINK - ACESSIBILIDADE
+   ========================= */
+
+   .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 10000;
+    font-weight: 600;
+    transition: top 0.2s ease;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Garante que fique visível apenas para navegação por teclado */
+  .skip-link:not(:focus) {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }

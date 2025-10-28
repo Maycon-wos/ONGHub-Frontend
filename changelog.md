@@ -27,8 +27,32 @@ O formato segue o **Versionamento Semântico (SemVer)**.
 
 **Melhorias gerais**
 - Ajustes de layout e responsividade para integração com o sistema de grid
+## [1.3.0] - 2025-10-27
+
+
+**Melhorias de Acessibilidade (WCAG)**
+- Ajustadas cores para contraste mínimo de 4.5:1
+  - Corrige `--color-secondary` para `#66BB6A` (4.8:1)
+  - Corrige `--color-azure` para `#1976D2` (5.8:1)
+  - Ajusta `--color-gray` para `#5A6268` (6.2:1)
+  - Garante contraste mínimo AA em todos os textos
+
+**Navegação por Teclado**
+- Adicionado *skip-link* para pular direto ao conteúdo
+- Implementados estados `:focus-visible` customizados
+- Adicionada navegação por teclado em dropdowns
+- Gerenciado foco em modais e componentes interativos
+
+**Suporte a Leitores de Tela**
+- Implementadas *roles ARIA* (`banner`, `main`, `contentinfo`)
+- Adicionadas *labels* descritivas para *badges* e *tags*
+- Estrutura semântica aprimorada com *articles* e *landmarks*
+- Atributos `aria-label`, `aria-describedby` e `aria-current` aplicados
+
+
 
 **Melhorias futuras planejadas**
 - Adição do modo escuro
-- Adição do alto contraste acessível
-- Ajustes de layout e acessibilidade relacionados
+- compressão de imagens.
+
+
