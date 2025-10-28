@@ -23,7 +23,31 @@
   --color-gray: #6C757D;         
   --color-gray-light: #E9ECEF;   
   --color-success: #28A745;      
-  --color-warning: #FFC107;    
+  --color-warning: #FFC107;   
+/* Cores para Categorias/Badges */
+  --color-educacao: #4CAF50;      /* Verde Educação */
+  --color-ambiente: #2196F3;      /* Azul Meio Ambiente */
+  --color-saude: #F44336;         /* Vermelho Saúde */
+  --color-emergencia: #FF9800;    /* Laranja Emergência */
+  --color-cultura: #9C27B0;       /* Roxo Cultura */
+  --color-animais: #795548;       /* Marrom Animais */
+  --color-tecnologia: #607D8B;    /* Cinza Tecnologia */
+  --color-inclusao: #9C27B0;        /* Roxo - Inclusão */
+  --color-tecnologia: #607D8B;      /* Cinza azulado - Tecnologia */
+  --color-lgbtqia: #E91E63;         /* Rosa - LGBTQIA+ */
+  --color-diversidade: #FF5722;     /* Laranja - Diversidade */
+  --color-feminino: #EC407A;        /* Rosa claro - Feminino */
+  --color-juventude: #00BCD4;       /* Ciano - Juventude */
+  --color-prevencao: #4CAF50;       /* Verde - Prevenção */
+  --color-workshops: #FF9800;       /* Laranja - Workshops */
+  --color-diario: #795548;          /* Marrom - Diário */
+  --color-reintegracao: #673AB7;    /* Roxo escuro - Reintegração */
+  --color-social: #3F51B5;          /* Índigo - Social */
+  --color-rural: #388E3C;           /* Verde escuro - Rural */
+  --color-pandemia: #F44336;        /* Vermelho - Pandemia */
+  --color-longo-prazo: #009688;     /* Verde água - Longo Prazo */
+  --color-3d: #2196F3;              /* Azul - 3D */
+   
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Roboto', sans-serif;
 
@@ -187,7 +211,7 @@ img {
 .header {
   background-color: var(--color-white);
   border-bottom: 2px solid var(--color-gray-light);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-05) var(--space-4);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
@@ -199,6 +223,7 @@ img {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: var(--space-1);
 }
 
 .header__logo {
@@ -206,7 +231,7 @@ img {
 }
 
 .header__logo img {
-  width: 100px;
+  width: 120px;
   height: auto;
 }
 
@@ -1611,7 +1636,7 @@ img {
 /* Sistema de badges */
 .badge {
   display: inline-block;
-  padding: 0.var(--space-5) 0.8rem;
+  padding: var(--space-5) 0.8rem;
   border-radius: var(--space-2);
   font-size: 0.8rem;
   font-weight: 600;
@@ -1624,9 +1649,6 @@ img {
 /* ================================================
    RESET DE LISTAS - User Agent Stylesheet Override
    ================================================
-   Remove marcadores padrão do navegador (circle, disc, decimal)
-   que são aplicados automaticamente em listas <ul> e <ol>
-   dentro de elementos semânticos como <nav>, <menu>, etc.
    ================================================ */
 
    nav ul,
@@ -1638,3 +1660,144 @@ img {
      list-style-type: none !important;
      list-style: none !important;
    }
+
+   /* =========================
+   SISTEMA DE BADGES 
+   ========================= */
+/* Header do card com posição relativa para badges absolutas */
+.causa-card__header {
+  position: relative;
+  padding: 0 var(--space-3);
+  margin-top: var(--space-3);
+  min-height: 40px;
+}
+
+.causa-card__header h3 {
+  margin-bottom: var(--space-1);
+  padding: 0;
+}
+
+/* Badge de categoria no canto superior direito */
+.causa-card__categoria {
+  position: absolute;
+  top: 0;
+  right: var(--space-3);
+  z-index: 10;
+}
+
+/* Badges de status no canto superior esquerdo */
+.causa-card__badges {
+  position: absolute;
+  top: 0.2rem; 
+  left: var(--space-3);
+  display: flex;
+  flex-wrap:column;
+  gap: var(--space-05);
+  z-index: 10;
+}
+
+/* Tags abaixo do título */
+.causa-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-05);
+  padding: 0 var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+/* =========================
+   SISTEMA DE TAGS SUPER OTIMIZADO
+   ========================= */
+
+/* Base da Tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-05) var(--space-1);
+  border-radius: var(--space-1);
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Sistema de Cores por Atributo */
+.tag[class*="educacao"],
+.tag[class*="veterinario"] { background-color: var(--color-educacao); color: white; }
+
+.tag[class*="animais"] { background-color: var(--color-animais); color: white; }
+
+.tag[class*="ambiente"],
+.tag[class*="plantio"],
+.tag[class*="sustentabilidade"] { background-color: var(--color-ambiente); color: white; }
+
+.tag[class*="saude"],
+.tag[class*="medicos"],
+.tag[class*="enfermeiros"] { background-color: var(--color-saude); color: white; }
+
+.tag[class*="cultura"],
+.tag[class*="arte"],
+.tag[class*="oficinas"] { background-color: var(--color-cultura); color: white; }
+
+.tag[class*="emergencia"],
+.tag[class*="resgate"] { background-color: var(--color-emergencia); color: white; }
+
+/* Cores Específicas */
+.tag--voluntario,
+.tag--instrutores,
+.tag--comunidade { background-color: var(--color-primary); color: white; }
+
+.tag--doacao,
+.tag--materiais { background-color: var(--color-secondary); color: var(--color-dark); }
+
+.tag--parceria { background-color: var(--color-azure); color: white; }
+
+/* Modificadores */
+.tag--opacity-90 { opacity: 0.9; }
+.tag--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-gray);
+  color: var(--color-gray);
+}
+.badge {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 12px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  margin:  0 4px;
+  border: 2px solid currentColor;
+}
+
+.badge--educacao { color: var(--color-educacao); }
+.badge--ambiente { color: var(--color-ambiente); }
+.badge--saude { color: var(--color-saude); }
+.badge--emergencia { color: var(--color-emergencia); }
+.badge--cultura { color: var(--color-cultura); }
+.badge--animais { color: var(--color-animais); }
+.badge--inclusao { color: var(--color-inclusao); }
+.badge--popular { color: var(--color-social); }
+.badge--juventude { color: var(--color-juventude); }
+.badge--prevencao { color: var(--color-prevencao); }
+
+.tag--inclusao { background-color: var(--color-inclusao); color: white; }
+.tag--tecnologia { background-color: var(--color-tecnologia); color: white; }
+.tag--lgbtqia { background-color: var(--color-lgbtqia); color: white; }
+.tag--diversidade { background-color: var(--color-diversidade); color: white; }
+.tag--feminino { background-color: var(--color-feminino); color: white; }
+.tag--juventude { background-color: var(--color-juventude); color: white; }
+.tag--prevencao { background-color: var(--color-prevencao); color: white; }
+.tag--workshops { background-color: var(--color-workshops); color: white; }
+.tag--diario { background-color: var(--color-diario); color: white; }
+.tag--reintegracao { background-color: var(--color-reintegracao); color: white; }
+.tag--social { background-color: var(--color-social); color: white; }
+.tag--rural { background-color: var(--color-rural); color: white; }
+.tag--pandemia { background-color: var(--color-pandemia); color: white; }
+.tag--longo-prazo { background-color: var(--color-longo-prazo); color: white; }
+.tag--3d { background-color: var(--color-3d); color: white; }
+
+
