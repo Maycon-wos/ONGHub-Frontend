@@ -1,0 +1,649 @@
+[33mcommit 14d809f0b85c4380e04d9da5c5f018f499dc8f00[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/ultimos-ajustes[m[33m, [m[1;33mtag: [m[1;33mv1.3.0-beta[m[33m, [m[1;31morigin/feature/ultimos-ajustes[m[33m)[m
+Author: Maycon-wos <106624512+Maycon-wos@users.noreply.github.com>
+Date:   Tue Oct 28 13:51:34 2025 -0300
+
+    Release 1.3.0-beta - melhorias de acessibilidade (WCAG, teclado e leitores de)
+
+[1mdiff --git a/ONGHub/wwwroot/assets/js/scripts.js b/ONGHub/wwwroot/assets/js/scripts.js[m
+[1mindex 55f4005..200dcf4 100644[m
+[1m--- a/ONGHub/wwwroot/assets/js/scripts.js[m
+[1m+++ b/ONGHub/wwwroot/assets/js/scripts.js[m
+[36m@@ -42,310 +42,248 @@[m [mconst App = (function() {[m
+       }[m
+   };[m
+ [m
+[31m-  // =======================================================[m
+[31m-  // MÓDULO: MODAL E GALERIA[m
+[31m-  // =======================================================[m
+[31m-  const Modal = {[m
+[31m-      currentIndex: 0,[m
+[31m-      [m
+[31m-      init() {[m
+[31m-          if (!DOM.modal) return;[m
+[31m-          [m
+[31m-          this.setupEventListeners();[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupEventListeners() {[m
+[31m-          // Botões Saiba Mais[m
+[31m-          document.querySelectorAll('.btn--saiba-mais').forEach(botao => {[m
+[31m-              botao.addEventListener('click', () => this.open(botao));[m
+[31m-          });[m
+[31m-          [m
+[31m-          // Fechar modal[m
+[31m-          DOM.modalCloseBtn.addEventListener('click', () => this.close());[m
+[31m-          DOM.modal.addEventListener('click', (e) => {[m
+[31m-              if (e.target === DOM.modal) this.close();[m
+[31m-          });[m
+[31m-          [m
+[31m-          // Delegação para botões dentro do modal[m
+[31m-          document.addEventListener('click', (e) => {[m
+[31m-              if (e.target.classList.contains('btn--doar-especifico') && [m
+[31m-                  DOM.modal.contains(e.target)) {[m
+[31m-                  this.handleDonationClick(e.target);[m
+[31m-              }[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      open(botao) {[m
+[31m-          const contentId = botao.getAttribute('aria-controls');[m
+[31m-          const content = document.getElementById(contentId);[m
+[31m-          const card = botao.closest('.causa-card');[m
+[31m-          const title = card.querySelector('h3').innerHTML;[m
+[32m+[m[32m // =======================================================[m
+[32m+[m[32m// MÓDULO: MODAL E GALERIA COM FOCUS TRAP[m
+[32m+[m[32m// =======================================================[m
+[32m+[m[32mconst Modal = {[m
+[32m+[m[32m    currentIndex: 0,[m
+[32m+[m[32m    focusableElements: [],[m
+[32m+[m[32m    firstFocusableElement: null,[m
+[32m+[m[32m    lastFocusableElement: null,[m
+[32m+[m[41m    [m
+[32m+[m[32m    init() {[m
+[32m+[m[32m        if (!DOM.modal) return;[m
+[32m+[m[41m        [m
+[32m+[m[32m        this.setupEventListeners();[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    setupEventListeners() {[m
+[32m+[m[32m        // Botões Saiba Mais[m
+[32m+[m[32m        document.querySelectorAll('.btn--saiba-mais').forEach(botao => {[m
+[32m+[m[32m            botao.addEventListener('click', () => this.open(botao));[m
+[32m+[m[32m        });[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Fechar modal[m
+[32m+[m[32m        DOM.modalCloseBtn.addEventListener('click', () => this.close());[m
+[32m+[m[32m        DOM.modal.addEventListener('click', (e) => {[m
+[32m+[m[32m            if (e.target === DOM.modal) this.close();[m
+[32m+[m[32m        });[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Delegação para botões dentro do modal[m
+[32m+[m[32m        document.addEventListener('click', (e) => {[m
+[32m+[m[32m            if (e.target.classList.contains('btn--doar-especifico') &&[m[41m [m
+[32m+[m[32m                DOM.modal.contains(e.target)) {[m
+[32m+[m[32m                this.handleDonationClick(e.target);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        });[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    open(botao) {[m
+[32m+[m[32m        const contentId = botao.getAttribute('aria-controls');[m
+[32m+[m[32m        const content = document.getElementById(contentId);[m
+[32m+[m[32m        const card = botao.closest('.causa-card');[m
+[32m+[m[32m        const title = card.querySelector('h3').innerHTML;[m
+ [m
+[31m-          if (content) {[m
+[32m+[m[32m        if (content) {[m
+             DOM.modalBody.innerHTML = '<h3>' + title + '</h3>' + content.innerHTML;[m
+[31m-              DOM.modal.classList.add('visible');[m
+[31m-              DOM.modal.setAttribute('aria-hidden', 'false');[m
+[31m-              document.body.style.overflow = 'hidden';[m
+[32m+[m[32m            DOM.modal.classList.add('visible');[m
+[32m+[m[32m            DOM.modal.setAttribute('aria-hidden', 'false');[m
+[32m+[m[32m            document.body.style.overflow = 'hidden';[m
+ [m
+[31m-              this.initializeGallery();[m
+[31m-              this.setupCustomVideoPlay();[m
+[31m-          }[m
+[31m-      },[m
+[31m-      [m
+[31m-      close() {[m
+[31m-          // Pausa vídeos[m
+[31m-          const video = DOM.modalBody.querySelector('video');[m
+[31m-          if (video) video.pause();[m
+[31m-          [m
+[31m-          DOM.modal.classList.remove('visible');[m
+[31m-          DOM.modal.setAttribute('aria-hidden', 'true');[m
+[31m-          DOM.modalBody.innerHTML = '';[m
+[31m-          document.body.style.overflow = 'auto';[m
+[31m-      },[m
+[31m-      [m
+[31m-      initializeGallery() {[m
+[31m-          const mainView = DOM.modalBody.querySelector('.gallery-main-view');[m
+[31m-          const mediaItems = DOM.modalBody.querySelectorAll('.gallery-media-item');[m
+[31m-          const thumbnails = DOM.modalBody.querySelectorAll('.gallery-thumb-item');[m
+[31m-          const nextBtn = DOM.modalBody.querySelector('.gallery-arrow.next');[m
+[31m-          const prevBtn = DOM.modalBody.querySelector('.gallery-arrow.prev');[m
+[31m-          const video = DOM.modalBody.querySelector('video');[m
+[32m+[m[32m            // ✅ FOCUS TRAP - ABORDAGEM DIRETA[m
+[32m+[m[32m            this.setupFocusTrap();[m
+[32m+[m[41m            [m
+[32m+[m[32m            this.initializeGallery();[m
+[32m+[m[32m            this.setupCustomVideoPlay();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    close() {[m
+[32m+[m[32m        // Pausa vídeos[m
+[32m+[m[32m        const video = DOM.modalBody.querySelector('video');[m
+[32m+[m[32m        if (video) video.pause();[m
+[32m+[m[41m        [m
+[32m+[m[32m        // ✅ REMOVE FOCUS TRAP[m
+[32m+[m[32m        this.removeFocusTrap();[m
+[32m+[m[41m        [m
+[32m+[m[32m        DOM.modal.classList.remove('visible');[m
+[32m+[m[32m        DOM.modal.setAttribute('aria-hidden', 'true');[m
+[32m+[m[32m        DOM.modalBody.innerHTML = '';[m
+[32m+[m[32m        document.body.style.overflow = 'auto';[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    // ✅ FOCUS TRAP SIMPLIFICADO E FUNCIONAL[m
+[32m+[m[32m    setupFocusTrap() {[m
+[32m+[m[32m        // Encontra elementos focáveis[m
+[32m+[m[32m        this.focusableElements = Array.from(DOM.modal.querySelectorAll([m
+[32m+[m[32m            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'[m
+[32m+[m[32m        ));[m
+ [m
+[31m-          if (!mainView || mediaItems.length === 0) return;[m
+[32m+[m[32m        if (this.focusableElements.length === 0) return;[m
+ [m
+[31m-          this.currentIndex = 0;[m
+[32m+[m[32m        this.firstFocusableElement = this.focusableElements[0];[m
+[32m+[m[32m        this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];[m
+ [m
+[31m-          // Configura thumbnails[m
+[31m-          thumbnails.forEach(thumb => {[m
+[31m-              thumb.addEventListener('click', () => {[m
+[31m-                  this.showMedia(parseInt(thumb.dataset.index), video);[m
+[31m-              });[m
+[31m-          });[m
+[32m+[m[32m        // Foca no primeiro elemento[m
+[32m+[m[32m        setTimeout(() => {[m
+[32m+[m[32m            this.firstFocusableElement.focus();[m
+[32m+[m[32m        }, 100);[m
+ [m
+[31m-          // Configura setas[m
+[31m-          if (nextBtn) nextBtn.addEventListener('click', () => this.nextMedia(mediaItems.length, video));[m
+[31m-          if (prevBtn) prevBtn.addEventListener('click', () => this.prevMedia(mediaItems.length, video));[m
+[31m-      },[m
+[31m-      [m
+[31m-      showMedia(index, video) {[m
+[31m-          // Pausa vídeo se estiver trocando[m
+[31m-          if (this.currentIndex === 0 && index !== 0 && video) {[m
+[31m-              video.pause();[m
+[31m-          }[m
+[32m+[m[32m        // ✅ ADICIONA EVENT LISTENER DIRETAMENTE NO DOCUMENT[m
+[32m+[m[32m        document.addEventListener('keydown', this.handleKeydown.bind(this));[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    handleKeydown(e) {[m
+[32m+[m[32m        // Só processa se modal estiver aberto[m
+[32m+[m[32m        if (!DOM.modal.classList.contains('visible')) return;[m
+[32m+[m[41m        [m
+[32m+[m[32m        if (e.key === 'Escape') {[m
+[32m+[m[32m            this.close();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m        if (e.key !== 'Tab') return;[m
+ [m
+[31m-          this.currentIndex = index;[m
+[32m+[m[32m        // ✅ VERIFICA SE O ELEMENTO ATUAL ESTÁ DENTRO DO MODAL[m
+[32m+[m[32m        const activeElement = document.activeElement;[m
+[32m+[m[32m        const isInModal = DOM.modal.contains(activeElement);[m
+ [m
+[31m-          // Remove active de todos[m
+[31m-          DOM.modalBody.querySelectorAll('.gallery-media-item, .gallery-thumb-item')[m
+[31m-              .forEach(item => item.classList.remove('active'));[m
+[32m+[m[32m        if (!isInModal) {[m
+[32m+[m[32m            e.preventDefault();[m
+[32m+[m[32m            this.firstFocusableElement.focus();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+ [m
+[31m-          // Adiciona active aos atuais[m
+[31m-          const currentMedia = DOM.modalBody.querySelector(`.gallery-media-item[data-index="${index}"]`);[m
+[31m-          const currentThumb = DOM.modalBody.querySelector(`.gallery-thumb-item[data-index="${index}"]`);[m
+[31m-          [m
+[31m-          if (currentMedia) currentMedia.classList.add('active');[m
+[31m-          if (currentThumb) currentThumb.classList.add('active');[m
+[31m-      },[m
+[31m-      [m
+[31m-      nextMedia(totalItems, video) {[m
+[31m-          let nextIndex = this.currentIndex + 1;[m
+[31m-          if (nextIndex >= totalItems) nextIndex = 0;[m
+[31m-          this.showMedia(nextIndex, video);[m
+[31m-      },[m
+[31m-      [m
+[31m-      prevMedia(totalItems, video) {[m
+[31m-          let prevIndex = this.currentIndex - 1;[m
+[31m-          if (prevIndex < 0) prevIndex = totalItems - 1;[m
+[31m-          this.showMedia(prevIndex, video);[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupCustomVideoPlay() {[m
+[31m-          const playOverlays = DOM.modalBody.querySelectorAll('.custom-play-overlay');[m
+[32m+[m[32m        // Shift + Tab (voltar)[m
+[32m+[m[32m        if (e.shiftKey) {[m
+[32m+[m[32m            if (activeElement === this.firstFocusableElement) {[m
+[32m+[m[32m                e.preventDefault();[m
+[32m+[m[32m                this.lastFocusableElement.focus();[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m[41m [m
+[32m+[m[32m        // Tab (avançar)[m
+[32m+[m[32m        else {[m
+[32m+[m[32m            if (activeElement === this.lastFocusableElement) {[m
+[32m+[m[32m                e.preventDefault();[m
+[32m+[m[32m                this.firstFocusableElement.focus();[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    removeFocusTrap() {[m
+[32m+[m[32m        // ✅ REMOVE O EVENT LISTENER[m
+[32m+[m[32m        document.removeEventListener('keydown', this.handleKeydown.bind(this));[m
+[32m+[m[32m        this.focusableElements = [];[m
+[32m+[m[32m        this.firstFocusableElement = null;[m
+[32m+[m[32m        this.lastFocusableElement = null;[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    // ... (mantenha o resto das funções existentes: initializeGallery, showMedia, etc.)[m
+[32m+[m[32m    initializeGallery() {[m
+[32m+[m[32m        const mainView = DOM.modalBody.querySelector('.gallery-main-view');[m
+[32m+[m[32m        const mediaItems = DOM.modalBody.querySelectorAll('.gallery-media-item');[m
+[32m+[m[32m        const thumbnails = DOM.modalBody.querySelectorAll('.gallery-thumb-item');[m
+[32m+[m[32m        const nextBtn = DOM.modalBody.querySelector('.gallery-arrow.next');[m
+[32m+[m[32m        const prevBtn = DOM.modalBody.querySelector('.gallery-arrow.prev');[m
+[32m+[m[32m        const video = DOM.modalBody.querySelector('video');[m
+ [m
+[31m-          playOverlays.forEach(overlay => {[m
+[31m-              const videoElement = overlay.closest('.gallery-media-item').querySelector('video');[m
+[31m-              const playButton = overlay.querySelector('.play-button');[m
+[32m+[m[32m        if (!mainView || mediaItems.length === 0) return;[m
+ [m
+[31m-              if (videoElement && playButton) {[m
+[31m-                  playButton.addEventListener('click', () => {[m
+[31m-                      videoElement.play();[m
+[31m-                      overlay.classList.add('hidden');[m
+[31m-                  });[m
+[31m-                  [m
+[31m-                  videoElement.addEventListener('ended', () => {[m
+[31m-                      overlay.classList.remove('hidden');[m
+[31m-                  });[m
+[32m+[m[32m        this.currentIndex = 0;[m
+ [m
+[31m-                  videoElement.addEventListener('pause', () => {[m
+[31m-                      if (!videoElement.ended) overlay.classList.remove('hidden');[m
+[31m-                  });[m
+[32m+[m[32m        // Configura thumbnails[m
+[32m+[m[32m        thumbnails.forEach(thumb => {[m
+[32m+[m[32m            thumb.addEventListener('click', () => {[m
+[32m+[m[32m                this.showMedia(parseInt(thumb.dataset.index), video);[m
+[32m+[m[32m            });[m
+[32m+[m[32m        });[m
+ [m
+[31m-                  videoElement.addEventListener('play', () => {[m
+[31m-                      overlay.classList.add('hidden');[m
+[31m-                  });[m
+[31m-              }[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      handleDonationClick(botao) {[m
+[31m-          const causa = botao.dataset.causa;[m
+[31m-          if (DOM.selectCausa) {[m
+[31m-              DOM.selectCausa.value = causa;[m
+[31m-              this.close();[m
+[31m-              this.scrollToDonation();[m
+[31m-          }[m
+[31m-      },[m
+[31m-      [m
+[31m-      scrollToDonation() {[m
+[31m-          const doacaoSection = document.getElementById('doar-agora');[m
+[31m-          if (doacaoSection) {[m
+[31m-              setTimeout(() => {[m
+[31m-                  doacaoSection.scrollIntoView({ [m
+[31m-                      behavior: 'smooth',[m
+[31m-                      block: 'start'[m
+[31m-                  });[m
+[31m-              }, 300);[m
+[31m-          }[m
+[31m-      }[m
+[31m-  };[m
+[32m+[m[32m        // Configura setas[m
+[32m+[m[32m        if (nextBtn) nextBtn.addEventListener('click', () => this.nextMedia(mediaItems.length, video));[m
+[32m+[m[32m        if (prevBtn) prevBtn.addEventListener('click', () => this.prevMedia(mediaItems.length, video));[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    showMedia(index, video) {[m
+[32m+[m[32m        // Pausa vídeo se estiver trocando[m
+[32m+[m[32m        if (this.currentIndex === 0 && index !== 0 && video) {[m
+[32m+[m[32m            video.pause();[m
+[32m+[m[32m        }[m
+ [m
+[31m-  // =======================================================[m
+[31m-  // MÓDULO: FORMULÁRIOS E SIMULAÇÕES[m
+[31m-  // =======================================================[m
+[31m-  const Forms = {[m
+[31m-      init() {[m
+[31m-          this.setupLoginButtons();[m
+[31m-          this.setupDonationForm();[m
+[31m-          this.setupCadastroForm();[m
+[31m-          this.setupMascaras();[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupLoginButtons() {[m
+[31m-          document.querySelectorAll('.btn--login').forEach(botao => {[m
+[31m-              botao.addEventListener('click', (e) => {[m
+[31m-                  e.preventDefault();[m
+[31m-                  this.showAlert('Sistema de login em desenvolvimento.\n\n(Isso é uma simulação para o projeto da faculdade)');[m
+[31m-              });[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupDonationForm() {[m
+[31m-          if (!DOM.formDoacao) return;[m
+[31m-          [m
+[31m-          DOM.formDoacao.addEventListener('submit', (e) => {[m
+[31m-              e.preventDefault();[m
+[31m-              this.showAlert('Doação recebida com sucesso!\n\nMuito obrigado por sua contribuição.\n(Isso é uma simulação para o projeto da faculdade)');[m
+[31m-              DOM.formDoacao.reset();[m
+[31m-              if (DOM.selectCausa) DOM.selectCausa.value = 'geral';[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupCadastroForm() {[m
+[31m-          if (!DOM.formCadastro) return;[m
+[31m-          [m
+[31m-          DOM.formCadastro.addEventListener('submit', (e) => {[m
+[31m-              e.preventDefault();[m
+[31m-              this.showAlert('Cadastro efetuado com sucesso!\n\nEm breve entraremos em contato.\n(Isso é uma simulação para o projeto da faculdade)');[m
+[31m-              DOM.formCadastro.reset();[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupMascaras() {[m
+[31m-          if (typeof jQuery === 'undefined') return;[m
+[31m-          [m
+[31m-          jQuery(document).ready(function($) {[m
+[31m-              $('#cpf').mask('000.000.000-00', {reverse: true});[m
+[31m-              $('#cep').mask('00000-000');[m
+[31m-              [m
+[31m-              var SPMaskBehavior = function (val) {[m
+[31m-                  return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';[m
+[31m-              };[m
+[31m-              [m
+[31m-              var spOptions = {[m
+[31m-                  onKeyPress: function(val, e, field, options) {[m
+[31m-                      field.mask(SPMaskBehavior.apply({}, arguments), options);[m
+[31m-                  }[m
+[31m-              };[m
+[31m-              [m
+[31m-              $('#telefone').mask(SPMaskBehavior, spOptions);[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      showAlert(message) {[m
+[31m-          alert(message);[m
+[31m-      }[m
+[31m-  };[m
+[32m+[m[32m        this.currentIndex = index;[m
+ [m
+[31m-  // =======================================================[m
+[31m-  // MÓDULO: NAVEGAÇÃO E SCROLL[m
+[31m-  // =======================================================[m
+[31m-  const Navigation = {[m
+[31m-      init() {[m
+[31m-          this.setupLogoClick();[m
+[31m-          this.setupBackToTop();[m
+[31m-          this.setupDonationButtons();[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupLogoClick() {[m
+[31m-          if (!DOM.logo) return;[m
+[31m-          [m
+[31m-          DOM.logo.style.cursor = 'pointer';[m
+[31m-          DOM.logo.addEventListener('click', () => {[m
+[31m-              window.location.href = 'index.html';[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupBackToTop() {[m
+[31m-          if (!DOM.btnTopo) return;[m
+[31m-          [m
+[31m-          window.addEventListener('scroll', () => {[m
+[31m-              const isVisible = window.scrollY > 300;[m
+[31m-              DOM.btnTopo.classList.toggle('visible', isVisible);[m
+[31m-          });[m
+[31m-          [m
+[31m-          DOM.btnTopo.addEventListener('click', () => {[m
+[31m-              window.scrollTo({[m
+[31m-                  top: 0,[m
+[31m-                  behavior: 'smooth'[m
+[31m-              });[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      setupDonationButtons() {[m
+[31m-          document.addEventListener('click', (e) => {[m
+[31m-              if (e.target.classList.contains('btn--doar-especifico')) {[m
+[31m-                  e.preventDefault();[m
+[31m-                  this.handleDonationButton(e.target);[m
+[31m-              }[m
+[31m-          });[m
+[31m-      },[m
+[31m-      [m
+[31m-      handleDonationButton(botao) {[m
+[31m-          const causa = botao.dataset.causa;[m
+[31m-          if (DOM.selectCausa) {[m
+[31m-              DOM.selectCausa.value = causa;[m
+[31m-              [m
+[31m-              // Fecha modal se estiver aberto[m
+[31m-              if (typeof Modal.close === 'function') {[m
+[31m-                  Modal.close();[m
+[31m-              }[m
+[31m-              [m
+[31m-              this.scrollToDonation();[m
+[31m-          }[m
+[31m-      },[m
+[31m-      [m
+[31m-      scrollToDonation() {[m
+[31m-          const doacaoSection = document.getElementById('doar-agora');[m
+[31m-          if (doacaoSection) {[m
+[31m-              setTimeout(() => {[m
+[31m-                  doacaoSection.scrollIntoView({ [m
+[31m-                      behavior: 'smooth',[m
+[31m-                      block: 'start'[m
+[31m-                  });[m
+[31m-              }, 300);[m
+[31m-          }[m
+[31m-      }[m
+[31m-  };[m
+[32m+[m[32m        // Remove active de todos[m
+[32m+[m[32m        DOM.modalBody.querySelectorAll('.gallery-media-item, .gallery-thumb-item')[m
+[32m+[m[32m            .forEach(item => item.classList.remove('active'));[m
+[32m+[m
+[32m+[m[32m        // Adiciona active aos atuais[m
+[32m+[m[32m        const currentMedia = DOM.modalBody.querySelector(`.gallery-media-item[data-index="${index}"]`);[m
+[32m+[m[32m        const currentThumb = DOM.modalBody.querySelector(`.gallery-thumb-item[data-index="${index}"]`);[m
+[32m+[m[41m        [m
+[32m+[m[32m        if (currentMedia) currentMedia.classList.add('active');[m
+[32m+[m[32m        if (currentThumb) currentThumb.classList.add('active');[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    nextMedia(totalItems, video) {[m
+[32m+[m[32m        let nextIndex = this.currentIndex + 1;[m
+[32m+[m[32m        if (nextIndex >= totalItems) nextIndex = 0;[m
+[32m+[m[32m        this.showMedia(nextIndex, video);[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    prevMedia(totalItems, video) {[m
+[32m+[m[32m        let prevIndex = this.currentIndex - 1;[m
+[32m+[m[32m        if (prevIndex < 0) prevIndex = totalItems - 1;[m
+[32m+[m[32m        this.showMedia(prevIndex, video);[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    setupCustomVideoPlay() {[m
+[32m+[m[32m        const playOverlays = DOM.modalBody.querySelectorAll('.custom-play-overlay');[m
+[32m+[m
+[32m+[m[32m        playOverlays.forEach(overlay => {[m
+[32m+[m[32m            const videoElement = overlay.closest('.gallery-media-item').querySelector('video');[m
+[32m+[m[32m            const playButton = overlay.querySelector('.play-button');[m
+[32m+[m
+[32m+[m[32m            if (videoElement && playButton) {[m
+[32m+[m[32m                playButton.addEventListener('click', () => {[m
+[32m+[m[32m                    videoElement.play();[m
+[32m+[m[32m                    overlay.classList.add('hidden');[m
+[32m+[m[32m                });[m
+[32m+[m[41m                [m
+[32m+[m[32m                videoElement.addEventListener('ended', () => {[m
+[32m+[m[32m                    overlay.classList.remove('hidden');[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                videoElement.addEventListener('pause', () => {[m
+[32m+[m[32m                    if (!videoElement.ended) overlay.classList.remove('hidden');[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                videoElement.addEventListener('play', () => {[m
+[32m+[m[32m                    overlay.classList.add('hidden');[m
+[32m+[m[32m                });[m
+[32m+[m[32m            }[m
+[32m+[m[32m        });[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    handleDonationClick(botao) {[m
+[32m+[m[32m        const causa = botao.dataset.causa;[m
+[32m+[m[32m        if (DOM.selectCausa) {[m
+[32m+[m[32m            DOM.selectCausa.value = causa;[m
+[32m+[m[32m            this.close();[m
+[32m+[m[32m            this.scrollToDonation();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[32m    scrollToDonation() {[m
+[32m+[m[32m        const doacaoSection = document.getElementById('doar-agora');[m
+[32m+[m[32m        if (doacaoSection) {[m
+[32m+[m[32m            setTimeout(() => {[m
+[32m+[m[32m                doacaoSection.scrollIntoView({[m[41m [m
+[32m+[m[32m                    behavior: 'smooth',[m
+[32m+[m[32m                    block: 'start'[m
+[32m+[m[32m                });[m
+[32m+[m[32m            }, 300);[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m};[m
+ [m
+   // =======================================================[m
+   // INICIALIZAÇÃO DA APLICAÇÃO[m
+[36m@@ -430,4 +368,98 @@[m [mclass TemplateSystem {[m
+ // =======================================================[m
+ // INICIALIZAR APLICAÇÃO QUANDO DOM ESTIVER PRONTO[m
+ // =======================================================[m
+[31m-document.addEventListener('DOMContentLoaded', App.init);[m
+\ No newline at end of file[m
+[32m+[m[32mdocument.addEventListener('DOMContentLoaded', App.init);[m
+[32m+[m
+[32m+[m[32m// acessibilidade.js[m
+[32m+[m[32mclass Acessibilidade {[m
+[32m+[m[32m    constructor() {[m
+[32m+[m[32m      this.init();[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    init() {[m
+[32m+[m[32m      this.manageFocus();[m
+[32m+[m[32m      this.addAriaLabels();[m
+[32m+[m[32m      this.keyboardNavigation();[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    // Gerenciamento de foco em modais[m
+[32m+[m[32m    manageFocus() {[m
+[32m+[m[32m      const modals = document.querySelectorAll('.modal-overlay');[m
+[32m+[m[41m      [m
+[32m+[m[32m      modals.forEach(modal => {[m
+[32m+[m[32m        modal.addEventListener('show', () => {[m
+[32m+[m[32m          const focusableElements = modal.querySelectorAll([m
+[32m+[m[32m            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'[m
+[32m+[m[32m          );[m
+[32m+[m[41m          [m
+[32m+[m[32m          if (focusableElements.length > 0) {[m
+[32m+[m[32m            focusableElements[0].focus();[m
+[32m+[m[32m          }[m
+[32m+[m[32m        });[m
+[32m+[m[32m      });[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    // Navegação por teclado nos dropdowns[m
+[32m+[m[32m    keyboardNavigation() {[m
+[32m+[m[32m      const dropdowns = document.querySelectorAll('.nav__item--dropdown');[m
+[32m+[m[41m      [m
+[32m+[m[32m      dropdowns.forEach(dropdown => {[m
+[32m+[m[32m        const link = dropdown.querySelector('.nav__link');[m
+[32m+[m[32m        const submenu = dropdown.querySelector('.submenu');[m
+[32m+[m[41m        [m
+[32m+[m[32m        link.addEventListener('keydown', (e) => {[m
+[32m+[m[32m          if (e.key === 'Enter' || e.key === ' ') {[m
+[32m+[m[32m            e.preventDefault();[m
+[32m+[m[32m            this.toggleDropdown(dropdown);[m
+[32m+[m[32m          } else if (e.key === 'Escape') {[m
+[32m+[m[32m            this.closeDropdown(dropdown);[m
+[32m+[m[32m          }[m
+[32m+[m[32m        });[m
+[32m+[m[32m      });[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    toggleDropdown(dropdown) {[m
+[32m+[m[32m      const isExpanded = dropdown.classList.contains('active');[m
+[32m+[m[41m      [m
+[32m+[m[32m      // Fecha outros dropdowns[m
+[32m+[m[32m      document.querySelectorAll('.nav__item--dropdown.active').forEach(item => {[m
+[32m+[m[32m        if (item !== dropdown) this.closeDropdown(item);[m
+[32m+[m[32m      });[m
+[32m+[m[41m      [m
+[32m+[m[32m      if (!isExpanded) {[m
+[32m+[m[32m        dropdown.classList.add('active');[m
+[32m+[m[32m        dropdown.querySelector('.nav__link').setAttribute('aria-expanded', 'true');[m
+[32m+[m[32m      } else {[m
+[32m+[m[32m        this.closeDropdown(dropdown);[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    closeDropdown(dropdown) {[m
+[32m+[m[32m      dropdown.classList.remove('active');[m
+[32m+[m[32m      dropdown.querySelector('.nav__link').setAttribute('aria-expanded', 'false');[m
+[32m+[m[32m    }[m
+[32m+[m[41m  [m
+[32m+[m[32m    // Adiciona labels ARIA dinamicamente[m
+[32m+[m[32m    addAriaLabels() {[m
+[32m+[m[32m      // Labels para badges[m
+[32m+[m[32m      document.querySelectorAll('.badge').forEach(badge => {[m
+[32m+[m[32m        if (!badge.getAttribute('aria-label')) {[m
+[32m+[m[32m          const text = badge.textContent;[m
+[32m+[m[32m          badge.setAttribute('aria-label', `Categoria: ${text}`);[m
+[32m+[m[32m        }[m
+[32m+[m[32m      });[m
+[32m+[m[41m  [m
+[32m+[m[32m      // Labels para tags[m
+[32m+[m[32m      document.querySelectorAll('.tag').forEach(tag => {[m
+[32m+[m[32m        if (!tag.getAttribute('aria-label')) {[m
+[32m+[m[32m          const text = tag.textContent;[m
+[32m+[m[32m          tag.setAttribute('aria-label', `Tag: ${text}`);[m
+[32m+[m[32m        }[m
+[32m+[m[32m      });[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  // Inicializar quando DOM estiver pronto[m
+[32m+[m[32m  document.addEventListener('DOMContentLoaded', () => {[m
+[32m+[m[32m    new Acessibilidade();[m
+[32m+[m[32m  });[m
+\ No newline at end of file[m

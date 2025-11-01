@@ -49,10 +49,29 @@ O formato segue o **Versionamento Semântico (SemVer)**.
 - Estrutura semântica aprimorada com *articles* e *landmarks*
 - Atributos `aria-label`, `aria-describedby` e `aria-current` aplicados
 
+## [1.4.0-beta] - 2025-10-27
+*(Em fase de testes)*
+
+**Novas funcionalidades**
+- Implementado novo sistema de alertas em arquivo JS separado
+- Implementado sistema de temas (Theme Mode) com suporte a:
+  - Modo escuro (Dark Mode)
+  - Modo de alto contraste (High Contrast)
+- Ajustadas cores e layout para adaptação automática ao tema selecionado
+
+**Melhorias gerais**
+- Organização do código JS em módulos separados para melhor manutenção
+
+**Arquivos removidos**
+- `menu.js` (substituído por novo sistema de navegação centralizado)
+- `index.min.html`
+- `projetos.min.html`
+- `cadastro.min.html`
+  > *Arquivos `.min.html` foram removidos para padronização e manutenção do fluxo de build e versionamento.*
+
 
 
 **Melhorias futuras planejadas**
-- Adição do modo escuro
 - compressão de imagens.
 
 

@@ -1,12 +1,15 @@
 // =======================================================
-// APP PRINCIPAL - ORGANIZADO POR MÓDULOS
+// APP PRINCIPAL - ORGANIZADO POR MÓDULOS 
 // =======================================================
 const App = (function() {
   // Cache de elementos DOM
-  const DOM = {
+  let DOM = {};
+
+  const initDOM = () => {
+    DOM = {
       // Menu Mobile
-      btnMobile: document.getElementById('btn-mobile'),
-      headerMenu: document.getElementById('header-menu'),
+      btnMobile: document.querySelector('.header__btn-mobile'),
+      headerMenu: document.getElementById('main-menu'),
       
       // Modal
       modal: document.getElementById('project-modal'),
@@ -20,446 +23,828 @@ const App = (function() {
       
       // Botões
       btnTopo: document.getElementById('btnTopo'),
-      logo: document.querySelector('.logo, .header__logo, [class*="logo"], header img')
-  };
-
-  // =======================================================
-  // MÓDULO: MENU MOBILE
-  // =======================================================
-  const MobileMenu = {
-      init() {
-          if (!DOM.btnMobile || !DOM.headerMenu) return;
-          
-          DOM.btnMobile.addEventListener('click', this.toggleMenu.bind(this));
-      },
+      logo: document.querySelector('.header__logo img'),
       
-      toggleMenu() {
-          const isNavOpen = DOM.headerMenu.classList.toggle('nav-open');
-          
-          // Atualiza acessibilidade
-          DOM.btnMobile.setAttribute('aria-expanded', isNavOpen);
-          DOM.btnMobile.setAttribute('aria-label', isNavOpen ? 'Fechar menu' : 'Abrir menu');
-      }
+      // Sistema de Temas
+      themeButtons: document.querySelectorAll('.theme-btn'),
+      
+      // Navegação
+      navLinks: document.querySelectorAll('a[href^="#"]')
+    };
   };
 
- // =======================================================
-// MÓDULO: MODAL E GALERIA COM FOCUS TRAP
+  // =======================================================
+  // MÓDULO: SISTEMA DE TEMAS
+  // =======================================================
+  const ThemeManager = {
+    init() {
+      if (!document.querySelector('.theme-option')) {
+        console.warn('⚠ Botões de tema não encontrados');
+        return;
+      }
+      
+      this.setupThemeButtons();
+      this.loadSavedTheme();
+      this.setupDropdown();
+      console.log('🎨 Sistema de temas (dropdown) inicializado');
+    },
+
+    setupThemeButtons() {
+      const themeOptions = document.querySelectorAll('.theme-option');
+      
+      themeOptions.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const theme = e.currentTarget.dataset.theme;
+          this.setTheme(theme);
+          this.updateButtonStates(theme);
+          this.updateCurrentThemeIcon(theme);
+          this.closeDropdown();
+        });
+      });
+    },
+
+    setupDropdown() {
+      const dropdown = document.querySelector('.theme-selector-dropdown');
+      const dropdownBtn = document.querySelector('.theme-dropdown-btn');
+      
+      if (!dropdown || !dropdownBtn) return;
+      
+      // Fechar dropdown ao clicar fora
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          this.closeDropdown();
+        }
+      });
+      
+      // Alternar dropdown
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleDropdown();
+      });
+      
+      // Teclado: ESC fecha dropdown
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          this.closeDropdown();
+        }
+      });
+    },
+
+    toggleDropdown() {
+      const dropdownBtn = document.querySelector('.theme-dropdown-btn');
+      const isExpanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
+      dropdownBtn.setAttribute('aria-expanded', !isExpanded);
+    },
+
+    closeDropdown() {
+      const dropdownBtn = document.querySelector('.theme-dropdown-btn');
+      dropdownBtn.setAttribute('aria-expanded', 'false');
+    },
+
+    updateCurrentThemeIcon(theme) {
+      const currentIcon = document.querySelector('.theme-current-icon');
+      const icons = {
+        'light': '☀️',
+        'dark': '🌙', 
+        'high-contrast': '⚫'
+      };
+      
+      if (currentIcon) {
+        currentIcon.textContent = icons[theme] || '🎨';
+      }
+    },
+
+    setTheme(theme) {
+      // Remove todos os temas primeiro
+      document.documentElement.removeAttribute('data-theme');
+      
+      // Aplica apenas se não for o tema light padrão
+      if (theme !== 'light') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      
+      // Salva preferência
+      localStorage.setItem('preferred-theme', theme);
+    },
+
+    loadSavedTheme() {
+      const savedTheme = localStorage.getItem('preferred-theme');
+      
+      if (savedTheme) {
+        this.setTheme(savedTheme);
+        this.updateButtonStates(savedTheme);
+        this.updateCurrentThemeIcon(savedTheme);
+      } else {
+        // Define tema padrão como light
+        this.setTheme('light');
+        this.updateButtonStates('light');
+        this.updateCurrentThemeIcon('light');
+      }
+    },
+
+    updateButtonStates(selectedTheme) {
+      const themeOptions = document.querySelectorAll('.theme-option');
+      
+      themeOptions.forEach(btn => {
+        const isSelected = btn.dataset.theme === selectedTheme;
+        btn.setAttribute('aria-pressed', isSelected);
+      });
+    },
+
+    // Método utilitário para debug
+    getCurrentTheme() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    },
+
+    // Método para resetar tema
+    resetTheme() {
+      localStorage.removeItem('preferred-theme');
+      this.setTheme('light');
+      this.updateButtonStates('light');
+      this.updateCurrentThemeIcon('light');
+    }
+  };
+
+  // =======================================================
+  // MÓDULO: NAVEGAÇÃO
+  // =======================================================
+  const Navigation = {
+    init() {
+      this.setupSmoothScroll();
+      this.setupBackToTop();
+      console.log('🧭 Navegação inicializada');
+    },
+    
+    setupSmoothScroll() {
+      if (!DOM.navLinks.length) return;
+      
+      DOM.navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    },
+    
+    setupBackToTop() {
+      if (!DOM.btnTopo) return;
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          DOM.btnTopo.classList.add('visible');
+        } else {
+          DOM.btnTopo.classList.remove('visible');
+        }
+      });
+      
+      DOM.btnTopo.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  };
+
+  // =======================================================
+  // MÓDULO: FORMULÁRIOS
+  // =======================================================
+  const Forms = {
+    init() {
+      this.setupDonationForm();
+      this.setupRegistrationForm();
+      console.log('📝 Formulários inicializados');
+    },
+    
+    setupDonationForm() {
+      if (!DOM.formDoacao) return;
+      
+      const valueButtons = DOM.formDoacao.querySelectorAll('.btn--valor');
+      const customValueInput = DOM.formDoacao.querySelector('#valor');
+      
+      valueButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          valueButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (customValueInput) customValueInput.value = '';
+        });
+      });
+      
+      if (customValueInput) {
+        customValueInput.addEventListener('input', () => {
+          valueButtons.forEach(b => b.classList.remove('active'));
+        });
+      }
+    },
+    
+    setupRegistrationForm() {
+      if (!DOM.formCadastro) return;
+      
+      DOM.formCadastro.addEventListener('submit', (e) => {
+        if (!this.validateRegistration()) {
+          e.preventDefault();
+          this.showFormError('Por favor, preencha todos os campos obrigatórios.');
+        }
+      });
+    },
+    
+    validateRegistration() {
+      const requiredFields = DOM.formCadastro.querySelectorAll('[required]');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = 'var(--color-accent)';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      return isValid;
+    },
+    
+    showFormError(message) {
+      alert(message);
+    }
+  };
+
 // =======================================================
-const Modal = {
+// MÓDULO: MENU MOBILE 
+// =======================================================
+const MobileMenu = {
+  init() {
+    this.menuButton = document.querySelector('.header__btn-mobile');
+    this.menu = document.querySelector('.header__menu');
+    
+    if (!this.menuButton || !this.menu) {
+      console.warn('⚠ Elementos do menu mobile não encontrados');
+      return;
+    }
+    
+    this.setupEventListeners();
+    console.log('📱 Menu mobile inicializado');
+  },
+
+  setupEventListeners() {
+    // Botão hamburger
+    this.menuButton.addEventListener('click', () => this.toggleMenu());
+    
+    // Event listener para lidar com todos os cliques DENTRO do menu
+    this.menu.addEventListener('click', (e) => this.handleMenuClicks(e));
+    
+    // Fechar menu ao redimensionar para desktop (usando 768px como breakpoint)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        this.closeMenu();
+      }
+    });
+  },
+
+// =======================================================
+// MÉTODO handleMenuClicks 
+// =======================================================
+handleMenuClicks(e) {
+  const link = e.target.closest('a');
+  
+  
+  if (!link) return; 
+
+  const parentDropdownLi = link.closest('li.nav__item--dropdown');
+  
+  // 1. Lógica do Dropdown
+  if (parentDropdownLi && link.classList.contains('nav__link')) {
+      
+     
+      const isMobileScreen = window.innerWidth <= 767; 
+
+      if (isMobileScreen) {
+          
+          e.preventDefault();
+          this.toggleDropdown(parentDropdownLi, link);
+      }
+      
+      
+  } else if (link.classList.contains('submenu__link')) {
+      // 2. Links internos do Submenu
+      this.closeMenu();
+      
+  } else if (link.getAttribute('href') && !parentDropdownLi && !link.closest('.theme-selector-dropdown')) {
+      // 3. Links normais 
+      this.closeMenu();
+  }
+  
+  
+},
+  
+  toggleDropdown(liElement, linkElement) {
+      const isCurrentlyOpen = liElement.classList.contains('dropdown-open');
+
+      // Se estiver aberto, fecha. Se estiver fechado, abre.
+      if (isCurrentlyOpen) {
+          liElement.classList.remove('dropdown-open');
+          linkElement.setAttribute('aria-expanded', 'false');
+      } else {
+          // Fecha todos os outros dropdowns para evitar múltiplos abertos
+          this.menu.querySelectorAll('li.nav__item--dropdown.dropdown-open').forEach(openLi => {
+              openLi.classList.remove('dropdown-open');
+              const openLink = openLi.querySelector('.nav__link');
+              if (openLink) openLink.setAttribute('aria-expanded', 'false');
+          });
+          
+          // Abre o dropdown atual
+          liElement.classList.add('dropdown-open');
+          linkElement.setAttribute('aria-expanded', 'true');
+      }
+  },
+
+  toggleMenu() {
+    const isExpanded = this.menuButton.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
+    }
+  },
+
+  openMenu() {
+    this.menuButton.setAttribute('aria-expanded', 'true');
+    this.menu.classList.add('nav-open');
+    document.body.style.overflow = 'hidden';
+  },
+
+  closeMenu() {
+    this.menuButton.setAttribute('aria-expanded', 'false');
+    this.menu.classList.remove('nav-open');
+    document.body.style.overflow = '';
+    
+    // Fecha todos os dropdowns abertos ao fechar o menu principal
+    this.menu.querySelectorAll('li.nav__item--dropdown.dropdown-open').forEach(li => {
+      li.classList.remove('dropdown-open');
+      const link = li.querySelector('.nav__link');
+      if (link) link.setAttribute('aria-expanded', 'false');
+    });
+  }
+};
+
+  // =======================================================
+  // MÓDULO: MODAL E GALERIA
+  // =======================================================
+  const Modal = {
     currentIndex: 0,
     focusableElements: [],
     firstFocusableElement: null,
     lastFocusableElement: null,
     
     init() {
-        if (!DOM.modal) return;
-        
-        this.setupEventListeners();
+      if (!DOM.modal) {
+        console.log('ℹ️ Modal não encontrado - provavelmente não está nesta página');
+        return;
+      }
+      
+      const saibaMaisButtons = document.querySelectorAll('.btn--saiba-mais');
+      if (saibaMaisButtons.length === 0) {
+        console.log('ℹ️ Nenhum botão "Saiba Mais" encontrado');
+        return;
+      }
+      
+      this.setupEventListeners();
+      console.log('🖼️ Modal inicializado com', saibaMaisButtons.length, 'botões');
     },
     
     setupEventListeners() {
-        // Botões Saiba Mais
-        document.querySelectorAll('.btn--saiba-mais').forEach(botao => {
-            botao.addEventListener('click', () => this.open(botao));
-        });
-        
-        // Fechar modal
-        DOM.modalCloseBtn.addEventListener('click', () => this.close());
-        DOM.modal.addEventListener('click', (e) => {
-            if (e.target === DOM.modal) this.close();
-        });
-        
-        // Delegação para botões dentro do modal
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('btn--doar-especifico') && 
-                DOM.modal.contains(e.target)) {
-                this.handleDonationClick(e.target);
-            }
-        });
+      document.querySelectorAll('.btn--saiba-mais').forEach(botao => {
+        botao.addEventListener('click', () => this.open(botao));
+      });
+      
+      DOM.modalCloseBtn.addEventListener('click', () => this.close());
+      DOM.modal.addEventListener('click', (e) => {
+        if (e.target === DOM.modal) this.close();
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn--doar-especifico') && 
+            DOM.modal.contains(e.target)) {
+          this.handleDonationClick(e.target);
+        }
+      });
     },
     
     open(botao) {
-        const contentId = botao.getAttribute('aria-controls');
-        const content = document.getElementById(contentId);
-        const card = botao.closest('.causa-card');
-        const title = card.querySelector('h3').innerHTML;
+      const contentId = botao.getAttribute('aria-controls');
+      const content = document.getElementById(contentId);
+      const card = botao.closest('.causa-card');
+      const title = card.querySelector('h3').innerHTML;
 
-        if (content) {
-            DOM.modalBody.innerHTML = '<h3>' + title + '</h3>' + content.innerHTML;
-            DOM.modal.classList.add('visible');
-            DOM.modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
+      if (content) {
+        DOM.modalBody.innerHTML = '<h3>' + title + '</h3>' + content.innerHTML;
+        DOM.modal.classList.add('visible');
+        DOM.modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
 
-            // ✅ FOCUS TRAP - ABORDAGEM DIRETA
-            this.setupFocusTrap();
-            
-            this.initializeGallery();
-            this.setupCustomVideoPlay();
-        }
+        this.setupFocusTrap();
+        this.initializeGallery();
+        this.setupCustomVideoPlay();
+      }
     },
     
     close() {
-        // Pausa vídeos
-        const video = DOM.modalBody.querySelector('video');
-        if (video) video.pause();
-        
-        // ✅ REMOVE FOCUS TRAP
-        this.removeFocusTrap();
-        
-        DOM.modal.classList.remove('visible');
-        DOM.modal.setAttribute('aria-hidden', 'true');
-        DOM.modalBody.innerHTML = '';
-        document.body.style.overflow = 'auto';
+      const video = DOM.modalBody.querySelector('video');
+      if (video) video.pause();
+      
+      this.removeFocusTrap();
+      DOM.modal.classList.remove('visible');
+      DOM.modal.setAttribute('aria-hidden', 'true');
+      DOM.modalBody.innerHTML = '';
+      document.body.style.overflow = 'auto';
     },
     
-    // ✅ FOCUS TRAP SIMPLIFICADO E FUNCIONAL
     setupFocusTrap() {
-        // Encontra elementos focáveis
-        this.focusableElements = Array.from(DOM.modal.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        ));
+      this.focusableElements = Array.from(DOM.modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      ));
 
-        if (this.focusableElements.length === 0) return;
+      if (this.focusableElements.length === 0) return;
 
-        this.firstFocusableElement = this.focusableElements[0];
-        this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
+      this.firstFocusableElement = this.focusableElements[0];
+      this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
 
-        // Foca no primeiro elemento
-        setTimeout(() => {
-            this.firstFocusableElement.focus();
-        }, 100);
+      setTimeout(() => {
+        this.firstFocusableElement.focus();
+      }, 100);
 
-        // ✅ ADICIONA EVENT LISTENER DIRETAMENTE NO DOCUMENT
-        document.addEventListener('keydown', this.handleKeydown.bind(this));
+      document.addEventListener('keydown', this.handleKeydown.bind(this));
     },
     
     handleKeydown(e) {
-        // Só processa se modal estiver aberto
-        if (!DOM.modal.classList.contains('visible')) return;
-        
-        if (e.key === 'Escape') {
-            this.close();
-            return;
-        }
-        
-        if (e.key !== 'Tab') return;
+      if (!DOM.modal.classList.contains('visible')) return;
+      
+      if (e.key === 'Escape') {
+        this.close();
+        return;
+      }
+      
+      if (e.key !== 'Tab') return;
 
-        // ✅ VERIFICA SE O ELEMENTO ATUAL ESTÁ DENTRO DO MODAL
-        const activeElement = document.activeElement;
-        const isInModal = DOM.modal.contains(activeElement);
+      const activeElement = document.activeElement;
+      const isInModal = DOM.modal.contains(activeElement);
 
-        if (!isInModal) {
-            e.preventDefault();
-            this.firstFocusableElement.focus();
-            return;
-        }
+      if (!isInModal) {
+        e.preventDefault();
+        this.firstFocusableElement.focus();
+        return;
+      }
 
-        // Shift + Tab (voltar)
-        if (e.shiftKey) {
-            if (activeElement === this.firstFocusableElement) {
-                e.preventDefault();
-                this.lastFocusableElement.focus();
-            }
-        } 
-        // Tab (avançar)
-        else {
-            if (activeElement === this.lastFocusableElement) {
-                e.preventDefault();
-                this.firstFocusableElement.focus();
-            }
+      if (e.shiftKey) {
+        if (activeElement === this.firstFocusableElement) {
+          e.preventDefault();
+          this.lastFocusableElement.focus();
         }
+      } else {
+        if (activeElement === this.lastFocusableElement) {
+          e.preventDefault();
+          this.firstFocusableElement.focus();
+        }
+      }
     },
     
     removeFocusTrap() {
-        // ✅ REMOVE O EVENT LISTENER
-        document.removeEventListener('keydown', this.handleKeydown.bind(this));
-        this.focusableElements = [];
-        this.firstFocusableElement = null;
-        this.lastFocusableElement = null;
+      document.removeEventListener('keydown', this.handleKeydown.bind(this));
+      this.focusableElements = [];
+      this.firstFocusableElement = null;
+      this.lastFocusableElement = null;
     },
     
-    // ... (mantenha o resto das funções existentes: initializeGallery, showMedia, etc.)
     initializeGallery() {
-        const mainView = DOM.modalBody.querySelector('.gallery-main-view');
-        const mediaItems = DOM.modalBody.querySelectorAll('.gallery-media-item');
-        const thumbnails = DOM.modalBody.querySelectorAll('.gallery-thumb-item');
-        const nextBtn = DOM.modalBody.querySelector('.gallery-arrow.next');
-        const prevBtn = DOM.modalBody.querySelector('.gallery-arrow.prev');
-        const video = DOM.modalBody.querySelector('video');
+      const mainView = DOM.modalBody.querySelector('.gallery-main-view');
+      const mediaItems = DOM.modalBody.querySelectorAll('.gallery-media-item');
+      const thumbnails = DOM.modalBody.querySelectorAll('.gallery-thumb-item');
+      const nextBtn = DOM.modalBody.querySelector('.gallery-arrow.next');
+      const prevBtn = DOM.modalBody.querySelector('.gallery-arrow.prev');
+      const video = DOM.modalBody.querySelector('video');
 
-        if (!mainView || mediaItems.length === 0) return;
+      if (!mainView || mediaItems.length === 0) return;
 
-        this.currentIndex = 0;
+      this.currentIndex = 0;
 
-        // Configura thumbnails
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                this.showMedia(parseInt(thumb.dataset.index), video);
-            });
+      thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          this.showMedia(parseInt(thumb.dataset.index), video);
         });
+      });
 
-        // Configura setas
-        if (nextBtn) nextBtn.addEventListener('click', () => this.nextMedia(mediaItems.length, video));
-        if (prevBtn) prevBtn.addEventListener('click', () => this.prevMedia(mediaItems.length, video));
+      if (nextBtn) nextBtn.addEventListener('click', () => this.nextMedia(mediaItems.length, video));
+      if (prevBtn) prevBtn.addEventListener('click', () => this.prevMedia(mediaItems.length, video));
     },
     
     showMedia(index, video) {
-        // Pausa vídeo se estiver trocando
-        if (this.currentIndex === 0 && index !== 0 && video) {
-            video.pause();
-        }
+      if (this.currentIndex === 0 && index !== 0 && video) {
+        video.pause();
+      }
 
-        this.currentIndex = index;
+      this.currentIndex = index;
 
-        // Remove active de todos
-        DOM.modalBody.querySelectorAll('.gallery-media-item, .gallery-thumb-item')
-            .forEach(item => item.classList.remove('active'));
+      DOM.modalBody.querySelectorAll('.gallery-media-item, .gallery-thumb-item')
+        .forEach(item => item.classList.remove('active'));
 
-        // Adiciona active aos atuais
-        const currentMedia = DOM.modalBody.querySelector(`.gallery-media-item[data-index="${index}"]`);
-        const currentThumb = DOM.modalBody.querySelector(`.gallery-thumb-item[data-index="${index}"]`);
-        
-        if (currentMedia) currentMedia.classList.add('active');
-        if (currentThumb) currentThumb.classList.add('active');
+      const currentMedia = DOM.modalBody.querySelector(`.gallery-media-item[data-index="${index}"]`);
+      const currentThumb = DOM.modalBody.querySelector(`.gallery-thumb-item[data-index="${index}"]`);
+      
+      if (currentMedia) currentMedia.classList.add('active');
+      if (currentThumb) currentThumb.classList.add('active');
     },
     
     nextMedia(totalItems, video) {
-        let nextIndex = this.currentIndex + 1;
-        if (nextIndex >= totalItems) nextIndex = 0;
-        this.showMedia(nextIndex, video);
+      let nextIndex = this.currentIndex + 1;
+      if (nextIndex >= totalItems) nextIndex = 0;
+      this.showMedia(nextIndex, video);
     },
     
     prevMedia(totalItems, video) {
-        let prevIndex = this.currentIndex - 1;
-        if (prevIndex < 0) prevIndex = totalItems - 1;
-        this.showMedia(prevIndex, video);
+      let prevIndex = this.currentIndex - 1;
+      if (prevIndex < 0) prevIndex = totalItems - 1;
+      this.showMedia(prevIndex, video);
     },
     
     setupCustomVideoPlay() {
-        const playOverlays = DOM.modalBody.querySelectorAll('.custom-play-overlay');
+      const playOverlays = DOM.modalBody.querySelectorAll('.custom-play-overlay');
 
-        playOverlays.forEach(overlay => {
-            const videoElement = overlay.closest('.gallery-media-item').querySelector('video');
-            const playButton = overlay.querySelector('.play-button');
+      playOverlays.forEach(overlay => {
+        const videoElement = overlay.closest('.gallery-media-item').querySelector('video');
+        const playButton = overlay.querySelector('.play-button');
 
-            if (videoElement && playButton) {
-                playButton.addEventListener('click', () => {
-                    videoElement.play();
-                    overlay.classList.add('hidden');
-                });
-                
-                videoElement.addEventListener('ended', () => {
-                    overlay.classList.remove('hidden');
-                });
+        if (videoElement && playButton) {
+          playButton.addEventListener('click', () => {
+            videoElement.play();
+            overlay.classList.add('hidden');
+          });
+          
+          videoElement.addEventListener('ended', () => {
+            overlay.classList.remove('hidden');
+          });
 
-                videoElement.addEventListener('pause', () => {
-                    if (!videoElement.ended) overlay.classList.remove('hidden');
-                });
+          videoElement.addEventListener('pause', () => {
+            if (!videoElement.ended) overlay.classList.remove('hidden');
+          });
 
-                videoElement.addEventListener('play', () => {
-                    overlay.classList.add('hidden');
-                });
-            }
-        });
+          videoElement.addEventListener('play', () => {
+            overlay.classList.add('hidden');
+          });
+        }
+      });
     },
     
     handleDonationClick(botao) {
-        const causa = botao.dataset.causa;
-        if (DOM.selectCausa) {
-            DOM.selectCausa.value = causa;
-            this.close();
-            this.scrollToDonation();
-        }
+      const causa = botao.dataset.causa;
+      if (DOM.selectCausa) {
+        DOM.selectCausa.value = causa;
+        this.close();
+        this.scrollToDonation();
+      }
     },
     
     scrollToDonation() {
-        const doacaoSection = document.getElementById('doar-agora');
-        if (doacaoSection) {
-            setTimeout(() => {
-                doacaoSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 300);
-        }
+      const doacaoSection = document.getElementById('doar-agora');
+      if (doacaoSection) {
+        setTimeout(() => {
+          doacaoSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
+      }
     }
-};
+  };
+
+  // =======================================================
+  // MÓDULO: SISTEMA DE ALERTAS E FEEDBACK
+  // =======================================================
+  const Alerts = {
+    init() {
+      this.setupLoginAlert();
+      this.setupDonationAlert();
+      this.setupRegistrationAlert();
+      console.log('💬 Sistema de alertas inicializado');
+    },
+    
+    setupLoginAlert() {
+      const loginBtn = document.querySelector('.btn--login');
+      if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.showAlert('Sistema de login em desenvolvimento! <br> Em breve você poderá fazer login na plataforma.', 'info');
+        });
+      }
+    },
+    
+    setupDonationAlert() {
+      const donationForm = document.querySelector('.apoie__form');
+      if (donationForm) {
+        donationForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const causaSelect = document.getElementById('causa-doacao');
+          const valorInput = document.getElementById('valor') || document.querySelector('.btn--valor.active');
+          
+          let causa = causaSelect ? causaSelect.options[causaSelect.selectedIndex].text : 'Geral';
+          let valor = '0,00';
+          
+          if (valorInput) {
+            if (valorInput.value) {
+              valor = parseFloat(valorInput.value).toFixed(2);
+            } else if (valorInput.textContent) {
+              valor = valorInput.textContent.replace('R$ ', '');
+            }
+          }
+          
+          this.showAlert(
+            `👍 Obrigado pela sua doação!<br><br>
+            <strong>Causa:</strong> ${causa}<br>
+            Em um ambiente real, você seria redirecionado para o pagamento.`,
+            'success'
+          );
+          
+          // Limpa o formulário
+          donationForm.reset();
+          document.querySelectorAll('.btn--valor').forEach(btn => btn.classList.remove('active'));
+        });
+      }
+    },
+    
+    setupRegistrationAlert() {
+      const registrationForm = document.querySelector('.cadastro__form');
+      if (registrationForm) {
+        registrationForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          if (this.validateRegistrationForm()) {
+            this.showAlert(
+              `🎉 Cadastro realizado com sucesso!<br><br>
+              <strong>Em breve entraremos em contato</strong> para conversarmos sobre as oportunidades de voluntariado.<br><br>
+              Obrigado por querer fazer a diferença!`,
+              'success'
+            );
+            
+            registrationForm.reset();
+          }
+        });
+      }
+    },
+    
+    validateRegistrationForm() {
+      const requiredFields = document.querySelectorAll('.cadastro__form [required]');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = 'var(--color-accent)';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      if (!isValid) {
+        this.showAlert('Por favor, preencha todos os campos obrigatórios marcados em vermelho.', 'error');
+      }
+      
+      return isValid;
+    },
+    
+    showAlert(message, type = 'info') {
+      // Remove alerta anterior se existir
+      const existingAlert = document.querySelector('.custom-alert');
+      if (existingAlert) {
+        existingAlert.remove();
+      }
+      
+      // Cria o alerta
+      const alert = document.createElement('div');
+      alert.className = `custom-alert alert--${type}`;
+      alert.innerHTML = `
+        <div class="alert-content">
+          <span class="alert-message">${message}</span>
+          <button class="alert-close" aria-label="Fechar mensagem">×</button>
+        </div>
+      `;
+      
+      // Adiciona ao DOM
+      document.body.appendChild(alert);
+      
+      
+      setTimeout(() => alert.classList.add('show'), 100);
+      
+      
+      alert.querySelector('.alert-close').addEventListener('click', () => {
+        alert.classList.remove('show');
+        setTimeout(() => alert.remove(), 300);
+      });
+      
+      
+      if (type === 'success' || type === 'info') {
+        setTimeout(() => {
+          if (alert.parentElement) {
+            alert.classList.remove('show');
+            setTimeout(() => alert.remove(), 300);
+          }
+        }, 8000);
+      }
+    }
+  };
 
   // =======================================================
   // INICIALIZAÇÃO DA APLICAÇÃO
   // =======================================================
   return {
-      init() {
-          MobileMenu.init();
-          Modal.init();
-          Forms.init();
-          Navigation.init();
-          
-          console.log('🚀 Aplicação inicializada com sucesso!');
-      }
+    init() {
+      initDOM();
+      
+      console.log('🔍 Elementos encontrados:', {
+        btnMobile: !!DOM.btnMobile,
+        headerMenu: !!DOM.headerMenu,
+        modal: !!DOM.modal,
+        btnTopo: !!DOM.btnTopo,
+        themeButtons: DOM.themeButtons.length,
+        navLinks: DOM.navLinks.length
+      });
+      
+      ThemeManager.init();
+      MobileMenu.init();
+      Modal.init();
+      Forms.init();
+      Navigation.init();
+      Alerts.init();
+      
+      console.log('🚀 Aplicação ONGHub inicializada com sucesso!');
+    }
   };
+  
 })();
 
-// Sistema de roteamento simples
-class SimpleSPA {
-    constructor() {
-      this.routes = {
-        '/': 'home.html',
-        '/projetos': 'projetos.html', 
-        '/cadastro': 'cadastro.html'
-      };
-      this.init();
-    }
-    
-    async navigate(path) {
-      // Carrega conteúdo dinamicamente
-      const content = await this.loadPage(path);
-      document.getElementById('main-content').innerHTML = content;
-      window.history.pushState({}, path, window.location.origin + path);
-    }
-  }
-  // Template engine simples
-class TemplateSystem {
-    static render(templateId, data) {
-      const template = document.getElementById(templateId);
-      let html = template.innerHTML;
-      
-      // Substitui {{var}} por dados
-      Object.keys(data).forEach(key => {
-        html = html.replace(new RegExp(`{{${key}}}`, 'g'), data[key]);
-      });
-      
-      return html;
-    }
-  }
-  
-  // Uso:
-  // TemplateSystem.render('causa-template', { titulo: 'Educação', descricao: '...' });
-  class FormValidator {
-    constructor(formId) {
-      this.form = document.getElementById(formId);
-      this.errors = {};
-      this.init();
-    }
-    
-    init() {
-      this.form.addEventListener('submit', (e) => {
-        if (!this.validate()) {
-          e.preventDefault();
-          this.showErrors();
-        }
-      });
-    }
-    
-    validate() {
-      // Validações customizadas
-      this.validateCPF();
-      this.validateDataNascimento();
-      this.validateEmail();
-      return Object.keys(this.errors).length === 0;
-    }
-    
-    showErrors() {
-      // Mostra errors específicos para cada campo
-      this.showAlert('Por favor, corrija os erros destacados em vermelho.');
-    }
-  }
-
 // =======================================================
-// INICIALIZAR APLICAÇÃO QUANDO DOM ESTIVER PRONTO
+// AUTO-COMPLET FORMULÁRIO PATTERN
 // =======================================================
-document.addEventListener('DOMContentLoaded', App.init);
 
-// acessibilidade.js
-class Acessibilidade {
-    constructor() {
-      this.init();
-    }
-  
-    init() {
-      this.manageFocus();
-      this.addAriaLabels();
-      this.keyboardNavigation();
-    }
-  
-    // Gerenciamento de foco em modais
-    manageFocus() {
-      const modals = document.querySelectorAll('.modal-overlay');
-      
-      modals.forEach(modal => {
-        modal.addEventListener('show', () => {
-          const focusableElements = modal.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
-          
-          if (focusableElements.length > 0) {
-            focusableElements[0].focus();
-          }
-        });
-      });
-    }
-  
-    // Navegação por teclado nos dropdowns
-    keyboardNavigation() {
-      const dropdowns = document.querySelectorAll('.nav__item--dropdown');
-      
-      dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('.nav__link');
-        const submenu = dropdown.querySelector('.submenu');
-        
-        link.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.toggleDropdown(dropdown);
-          } else if (e.key === 'Escape') {
-            this.closeDropdown(dropdown);
-          }
-        });
-      });
-    }
-  
-    toggleDropdown(dropdown) {
-      const isExpanded = dropdown.classList.contains('active');
-      
-      // Fecha outros dropdowns
-      document.querySelectorAll('.nav__item--dropdown.active').forEach(item => {
-        if (item !== dropdown) this.closeDropdown(item);
-      });
-      
-      if (!isExpanded) {
-        dropdown.classList.add('active');
-        dropdown.querySelector('.nav__link').setAttribute('aria-expanded', 'true');
-      } else {
-        this.closeDropdown(dropdown);
-      }
-    }
-  
-    closeDropdown(dropdown) {
-      dropdown.classList.remove('active');
-      dropdown.querySelector('.nav__link').setAttribute('aria-expanded', 'false');
-    }
-  
-    // Adiciona labels ARIA dinamicamente
-    addAriaLabels() {
-      // Labels para badges
-      document.querySelectorAll('.badge').forEach(badge => {
-        if (!badge.getAttribute('aria-label')) {
-          const text = badge.textContent;
-          badge.setAttribute('aria-label', `Categoria: ${text}`);
+const telInput = document.getElementById('telefone');
+// Verifica se o elemento existe antes de adicionar o listener
+if (telInput) {
+    telInput.addEventListener('input', function (e) {
+        //  código de formatação do telefone
+        let value = e.target.value.replace(/\D/g, ''); 
+        if (value.length > 11) value = value.slice(0, 11);
+        if (value.length > 6) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1)$2-$3');
+        } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})/, '($1)$2');
+        } else {
+            value = value.replace(/^(\d*)/, '($1');
         }
-      });
-  
-      // Labels para tags
-      document.querySelectorAll('.tag').forEach(tag => {
-        if (!tag.getAttribute('aria-label')) {
-          const text = tag.textContent;
-          tag.setAttribute('aria-label', `Tag: ${text}`);
+        e.target.value = value;
+    });
+}
+
+const cpfInput = document.getElementById('cpf');
+// Verifica se o elemento existe antes de adicionar o listener
+if (cpfInput) {
+    cpfInput.addEventListener('input', function (e) {
+        //  código de formatação do CPF
+        let value = e.target.value.replace(/\D/g, ''); 
+        if (value.length > 11) value = value.slice(0, 11);
+        if (value.length > 9) {
+            value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{0,2}).*/, '$1.$2.$3-$4');
+        } else if (value.length > 6) {
+            value = value.replace(/^(\d{3})(\d{3})(\d{0,3}).*/, '$1.$2.$3');
+        } else if (value.length > 3) {
+            value = value.replace(/^(\d{3})(\d{0,3})/, '$1.$2');
         }
-      });
-    }
-  }
-  
-  // Inicializar quando DOM estiver pronto
-  document.addEventListener('DOMContentLoaded', () => {
-    new Acessibilidade();
-  });
+        e.target.value = value;
+    });
+}
+
+const nascInput = document.getElementById('nascimento');
+if (nascInput) {
+    nascInput.addEventListener('input', function (e) {
+        //  código de formatação da data de nascimento
+        let value = e.target.value.replace(/\D/g, ''); 
+        if (value.length > 8) value = value.slice(0, 8);
+        if (value.length > 4) {
+            value = value.replace(/^(\d{2})(\d{2})(\d{0,4}).*/, '$1/$2/$3');
+        } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,2})/, '$1/$2');
+        }
+        e.target.value = value;
+    });
+}
+// Inicializa a aplicação quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Inicializando aplicação ONGHub...');
+  App.init();
+});

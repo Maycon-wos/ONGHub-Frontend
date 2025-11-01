@@ -22,7 +22,7 @@
       <nav class="header__menu" id="main-menu" aria-label="Navegação principal">
         <ul class="nav__list" role="menubar">
           <li class="nav__item nav__item--dropdown" aria-rowindex="none">
-            <a href="index.html" class="nav__link" aria-expanded="false" role="menuitem" aria-current="page">
+            <a href="index.html" class="nav__link" aria-expanded="false" role="menuitem" >
               Home 
               <span class="dropdown-arrow">▼</span>
             </a>
@@ -50,9 +50,32 @@
   
           <li class="nav__item"><a href="cadastro.html" class="nav__link">Cadastro</a></li>
         </ul>
-
-        <a href="login.html" class="btn btn--login">Entrar</a>
+        <div class="header__actions">
+          <a href="login.html" class="btn btn--login">Entrar</a>
+          <div class="theme-selector-dropdown">
+            <button class="theme-dropdown-btn" aria-expanded="false" aria-label="Selecionar tema" title="Alterar tema">
+              <span class="theme-current-icon">🌙</span>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            
+            <div class="theme-dropdown-menu">
+              <button class="theme-option" data-theme="light" aria-pressed="true">
+                <span class="theme-icon">☀️</span>
+                <span>Tema Claro</span>
+              </button>
+              
+              <button class="theme-option" data-theme="dark" aria-pressed="false">
+                <span class="theme-icon">🌙</span>
+                <span>Tema Escuro</span>
+              </button>
+              
+              <button class="theme-option" data-theme="high-contrast" aria-pressed="false">
+                <span class="theme-icon">⚫</span>
+                <span>Alto Contraste</span>
+              </button>
+            </div>
       </nav>
+      
     </div>
   </header>
   <main id="main-content" role="main">
@@ -776,7 +799,7 @@
               </div>
               <div class="form-group apoie__causa-select" id="como-doar">
                 <label for="causa-doacao">Quero doar para:</label>
-                <select id="causa-doacao" name="causa">
+                <select class="select-causa" id="causa-doacao" name="causa">
                   <option value="geral">Doação Geral (Distribuir onde for mais necessário)</option>
                   <option value="sementes-do-amanha">Sementes do Amanhã</option>
                   <option value="patinhas-do-bem">Patinhas do Bem</option>
@@ -874,7 +897,7 @@
   <button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
     ↑
   </button>
-  <script src="assets/js/scripts.js" defer></script>
+  
   <div class="modal-overlay" id="project-modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true">
       
@@ -886,5 +909,8 @@
   
     </div>
   </div>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/onghub-validator.js"></script>
+
 </body>
 </html>
