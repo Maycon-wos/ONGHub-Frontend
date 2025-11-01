@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nossos Projetos - ONGHub</title> <meta name="description" content="Conheça os projetos e causas que apoiamos. Descubra como sua doação pode transformar vidas e apoiar iniciativas incríveis.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
 
   <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
-  <header class="header" role="banner">
+  <header class="header">
     <div class="header__container">
       <div class="header__logo">
         <img src="assets/images/logoONGHub.svg" alt="ONGHub - Conectando causas a voluntários">
@@ -21,7 +21,7 @@
   
       <nav class="header__menu" id="main-menu" aria-label="Navegação principal">
         <ul class="nav__list" role="menubar">
-          <li class="nav__item nav__item--dropdown" aria-rowindex="none">
+          <li class="nav__item nav__item--dropdown">
             <a href="index.html" class="nav__link" aria-expanded="false" role="menuitem" >
               Home 
               <span class="dropdown-arrow">▼</span>
@@ -73,12 +73,14 @@
                 <span class="theme-icon">⚫</span>
                 <span>Alto Contraste</span>
               </button>
+              </div>
             </div>
+          </div>
       </nav>
       
     </div>
   </header>
-  <main id="main-content" role="main">
+  <main >
     <section class="home">
       <div class="home__container">
         <div class="home__content">
@@ -102,14 +104,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-1">Sementes do Amanhã</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--educacao" aria-label="Categoria: Educação">Educação</span>
+                <span class="badge badge--educacao" >Educação</span>
               </div>
             </div>
             <div class="causa-card__badges">
               <span class="badge badge--nova">Nova</span>
               <span class="badge badge--popular">Popular</span>
             </div>
-            <div class="causa-card__tags" aria-label="Voluntários, Doações, Longo prazo">
+            <div class="causa-card__tags">
               <span class="tag tag--voluntario">Voluntários</span>
               <span class="tag tag--doacao">Doações</span>
               <span class="tag tag--longo-prazo">Longo Prazo</span>
@@ -143,8 +145,8 @@
                   <img src="assets/images/galeria/SementesDoAmanha1.webp" alt="Miniatura Imagem 1" class="gallery-thumb-item" data-index="1">
                   <img src="assets/images/galeria/SementesDoAmanha2.webp" alt="Miniatura Imagem 2" class="gallery-thumb-item" data-index="2">
                   <img src="assets/images/galeria/SementesDoAmanha3.webp" alt="Miniatura Imagem 3" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/SementesDoAmanha4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/SementesDoAmanha5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/SementesDoAmanha4.webp" alt="Miniatura Imagem 4" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/SementesDoAmanha5.webp" alt="Miniatura Imagem 5" class="gallery-thumb-item" data-index="5">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="sementes-do-amanha">Apoiar esta Causa</a>
@@ -157,14 +159,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-2">Patinhas do Bem</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--animais" aria-label="Categoria: Animais" >Animais</span>
+                <span class="badge badge--animais">Animais</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--urgente">Urgente</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Voluntários, Doações, Veterinário, Resgate">
+            <div class="causa-card__tags">
               <span class="tag tag--voluntario">Voluntários</span>
               <span class="tag tag--doacao">Doações</span>
               <span class="tag tag--veterinario">Veterinário</span>
@@ -196,11 +198,11 @@
                 </div>
                 <div class="gallery-thumbnails">
                   <img src="assets/images/galeria/PatinhasDoBemVideo-thumb.webp" alt="Miniatura do vídeo" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/PatinhasDoBem1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/PatinhasDoBem2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/PatinhasDoBem3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/PatinhasDoBem4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/PatinhasDoBem5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/PatinhasDoBem1.webp" alt="Cachorro sendo adotado" class="gallery-thumb-item" data-index="1">
+                  <img src="assets/images/galeria/PatinhasDoBem2.webp" alt="Gatos brincando" class="gallery-thumb-item" data-index="2">
+                  <img src="assets/images/galeria/PatinhasDoBem3.webp" alt="Veterinário examinando" class="gallery-thumb-item" data-index="3">
+                  <img src="assets/images/galeria/PatinhasDoBem4.webp" alt="Campanha de castração" class="gallery-thumb-item" data-index="4">
+                  <img src="assets/images/galeria/PatinhasDoBem5.webp" alt="Voluntários alimentando" class="gallery-thumb-item" data-index="5">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="patinhas-do-bem">Apoiar esta Causa</a>
@@ -213,11 +215,11 @@
             <div class="causa-card__header">
               <h3 id="card-title-3">Raízes da Terra</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--ambiente" aria-label= "Categoria: Meio Ambiente">Meio Ambiente</span>
+                <span class="badge badge--ambiente">Meio Ambiente</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Voluntários, Plantio">
+            <div class="causa-card__tags">
               <span class="tag tag--voluntario">Voluntários</span>
               <span class="tag tag--plantio">Plantio</span>
               <span class="tag tag--sustentabilidade tag--opacity-90">Sustentabilidade</span>
@@ -251,12 +253,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/RaizesDaTerraVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/RaizesDaTerra1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/RaizesDaTerra2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/RaizesDaTerra3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/RaizesDaTerra4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/RaizesDaTerra5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/RaizesDaTerraVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail video Plantação agroflorestal" >
+                  <img src="assets/images/galeria/RaizesDaTerra1.webp" class="gallery-thumb-item" data-index="1" alt="Plantação agroflorestal">
+                  <img src="assets/images/galeria/RaizesDaTerra2.webp" class="gallery-thumb-item" data-index="2" alt="Viveiro de mudas">
+                  <img src="assets/images/galeria/RaizesDaTerra3.webp" class="gallery-thumb-item" data-index="3" alt="Agricultor no campo">
+                  <img src="assets/images/galeria/RaizesDaTerra4.webp" class="gallery-thumb-item" data-index="4" alt="Curso de agroecologia">
+                  <img src="assets/images/galeria/RaizesDaTerra5.webp" class="gallery-thumb-item" data-index="5" alt="Mata recuperada">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="raizes-da-terra">Apoiar esta Causa</a>
@@ -269,14 +271,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-4">Mãos que Acolhem</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--emergencia" aria-label="Categoria: Emergência">Emergência</span>
+                <span class="badge badge--emergencia">Emergência</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--popular">Popular</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Alimentação, Cursor, Geração de Renda, Pandemia">
+            <div class="causa-card__tags">
               <span class="tag tag--emergencia">Alimentação</span>
               <span class="tag tag--voluntario">Cursos</span>
               <span class="tag tag--comunidade">Geração de Renda</span>
@@ -310,12 +312,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/MaosQueAcolhemVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/MaosQueAcolhem1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/MaosQueAcolhem2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/MaosQueAcolhem3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/MaosQueAcolhem4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/MaosQueAcolhem5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/MaosQueAcolhemVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Aula de português">
+                  <img src="assets/images/galeria/MaosQueAcolhem1.webp" class="gallery-thumb-item" data-index="1" alt="Aula de português">
+                  <img src="assets/images/galeria/MaosQueAcolhem2.webp" class="gallery-thumb-item" data-index="2" alt="Refugiados em entrevista">
+                  <img src="assets/images/galeria/MaosQueAcolhem3.webp" class="gallery-thumb-item" data-index="3" alt="Reunião de apoio">
+                  <img src="assets/images/galeria/MaosQueAcolhem4.webp" class="gallery-thumb-item" data-index="4" alt="Cozinha comunitária" >
+                  <img src="assets/images/galeria/MaosQueAcolhem5.webp" class="gallery-thumb-item" data-index="5" alt="Entrega de documentos">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="maos-que-acolhem">Apoiar esta Causa</a>
@@ -328,9 +330,9 @@
             <div class="causa-card__header">
             <h3 id="card-title-5">Viver com Dignidade</h3>
             <div class="causa-card__categoria">
-              <span class="badge badge--saude" aria-label="Categoria: Saúde">Saúde</span>
+              <span class="badge badge--saude">Saúde</span>
             </div>
-            <div class="causa-card__tags" aria-label="Acessibilidade, Tecnologia, inclusão, 3D">
+            <div class="causa-card__tags">
               <span class="tag tag--saude">Acessibilidade</span>
               <span class="tag tag--tecnologia">Tecnologia</span>
               <span class="tag tag--inclusao">Inclusão</span>
@@ -366,12 +368,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/ViverComDignidadeVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/ViverComDignidade1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/ViverComDignidade2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/ViverComDignidade3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/ViverComDignidade4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/ViverComDignidade5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/ViverComDignidadeVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Idosos em atividade">
+                  <img src="assets/images/galeria/ViverComDignidade1.webp" class="gallery-thumb-item" data-index="1" alt="Idosos em atividade">
+                  <img src="assets/images/galeria/ViverComDignidade2.webp" class="gallery-thumb-item" data-index="2" alt="Enfermeira e paciente">
+                  <img src="assets/images/galeria/ViverComDignidade3.webp" class="gallery-thumb-item" data-index="3" alt="Jardim da casa de repouso">
+                  <img src="assets/images/galeria/ViverComDignidade4.webp" class="gallery-thumb-item" data-index="4" alt="Refeição em grupo">
+                  <img src="assets/images/galeria/ViverComDignidade5.webp" class="gallery-thumb-item" data-index="5" alt="Sessão de fisioterapia">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="viver-com-dignidade">Apoiar esta Causa</a>
@@ -384,14 +386,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-6">Cores da Vida</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--saude" aria-label="Categoria: Saúde">Saúde</span>
+                <span class="badge badge--saude">Saúde</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--urgente">Urgente</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Saúde mental, LGBTQIA+, Acolimento, Diversidade">
+            <div class="causa-card__tags">
               <span class="tag tag--saude">Saúde Mental</span>
               <span class="tag tag--lgbtqia">LGBTQIA+</span>
               <span class="tag tag--comunidade">Acolhimento</span>
@@ -422,12 +424,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/CoresDaVidaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/CoresDaVida1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/CoresDaVida2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/CoresDaVida3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/CoresDaVida4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/CoresDaVida5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/CoresDaVidaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt=" thumbnail de video Oficina de pintura">
+                  <img src="assets/images/galeria/CoresDaVida1.webp" class="gallery-thumb-item" data-index="1" alt="Oficina de pintura">
+                  <img src="assets/images/galeria/CoresDaVida2.webp" class="gallery-thumb-item" data-index="2" alt="Pessoas tocando instrumentos">
+                  <img src="assets/images/galeria/CoresDaVida3.webp" class="gallery-thumb-item" data-index="3" alt="Apresentação de teatro">
+                  <img src="assets/images/galeria/CoresDaVida4.webp" class="gallery-thumb-item" data-index="4" alt="Exposição de arte">
+                  <img src="assets/images/galeria/CoresDaVida5.webp" class="gallery-thumb-item" data-index="5" alt="Grupo de dança">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cores-da-vida">Apoiar esta Causa</a>
@@ -440,14 +442,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-7">Mulheres do Sol</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--educacao" aria-label="Categoria: Educação">Educação</span>
+                <span class="badge badge--educacao">Educação</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--popular">Popular</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Capacitação, Em´poderamento, Empreendedorismo, Feminino">
+            <div class="causa-card__tags">
               <span class="tag tag--voluntario">Capacitação</span>
               <span class="tag tag--comunidade">Empoderamento</span>
               <span class="tag tag--doacao">Empreendedorismo</span>
@@ -478,12 +480,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/MulheresDoSolVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/MulheresDoSol1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/MulheresDoSol2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/MulheresDoSol3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/MulheresDoSol4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/MulheresDoSol5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/MulheresDoSolVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Oficina de costura">
+                  <img src="assets/images/galeria/MulheresDoSol1.webp" class="gallery-thumb-item" data-index="1" alt="Oficina de costura">
+                  <img src="assets/images/galeria/MulheresDoSol2.webp" class="gallery-thumb-item" data-index="2" alt="Empreendedoras em feira">
+                  <img src="assets/images/galeria/MulheresDoSol3.webp" class="gallery-thumb-item" data-index="3" alt="Workshop de finanças">
+                  <img src="assets/images/galeria/MulheresDoSol4.webp" class="gallery-thumb-item" data-index="4" alt="Grupo de mulheres sorrindo">
+                  <img src="assets/images/galeria/MulheresDoSol5.webp" class="gallery-thumb-item" data-index="5" alt="Aulas de artesanato">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mulheres-do-sol">Apoiar esta Causa</a>
@@ -496,14 +498,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-8">Som das Ruas</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--cultura" aria-label="Categoria: Cultura">Cultura</span>
+                <span class="badge badge--cultura">Cultura</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--nova">Nova</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Música, Arte, Juventude, Prevenção">
+            <div class="causa-card__tags">
               <span class="tag tag--cultura">Música</span>
               <span class="tag tag--arte">Arte</span>
               <span class="tag tag--juventude">Juventude</span>
@@ -534,12 +536,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/SomDasRuasVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/SomDasRuas1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/SomDasRuas2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/SomDasRuas3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/SomDasRuas4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/SomDasRuas5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/SomDasRuasVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Aula de violão">
+                  <img src="assets/images/galeria/SomDasRuas1.webp" class="gallery-thumb-item" data-index="1" alt="Aula de violão">
+                  <img src="assets/images/galeria/SomDasRuas2.webp" class="gallery-thumb-item" data-index="2" alt="Jovens dançando break">
+                  <img src="assets/images/galeria/SomDasRuas3.webp" class="gallery-thumb-item" data-index="3" alt="Oficina de grafite">
+                  <img src="assets/images/galeria/SomDasRuas4.webp" class="gallery-thumb-item" data-index="4" alt="Gravação em estúdio">
+                  <img src="assets/images/galeria/SomDasRuas5.webp" class="gallery-thumb-item" data-index="5" alt="Apresentação musical">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="som-das-ruas">Apoiar esta Causa</a>
@@ -552,11 +554,11 @@
             <div class="causa-card__header">
               <h3 id="card-title-9">Cuidar é Viver</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--saude" aria-label="Categoria: Saúde">Saúde</span>
+                <span class="badge badge--saude">Saúde</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Saúde menta, Psicologia, Prevenção, workshops">
+            <div class="causa-card__tags">
               <span class="tag tag--saude">Saúde Mental</span>
               <span class="tag tag--medicos">Psicologia</span>
               <span class="tag tag--comunidade">Prevenção</span>
@@ -587,12 +589,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/CuidarEViverVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/CuidarEViver1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/CuidarEViver2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/CuidarEViver3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/CuidarEViver4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/CuidarEViver5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/CuidarEViverVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Sessão de terapia">
+                  <img src="assets/images/galeria/CuidarEViver1.webp" class="gallery-thumb-item" data-index="1" alt="Sessão de terapia">
+                  <img src="assets/images/galeria/CuidarEViver2.webp" class="gallery-thumb-item" data-index="2" alt="Palestra de saúde">
+                  <img src="assets/images/galeria/CuidarEViver3.webp" class="gallery-thumb-item" data-index="3" alt="Médico e paciente">
+                  <img src="assets/images/galeria/CuidarEViver4.webp" class="gallery-thumb-item" data-index="4" alt="Grupo de apoio">
+                  <img src="assets/images/galeria/CuidarEViver5.webp" class="gallery-thumb-item" data-index="5" alt="Distribuição de kits de higiene">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="cuidar-e-viver">Apoiar esta Causa</a>
@@ -605,14 +607,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-10">Mesa Solidária</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--emergencia" aria-label="Categoria: Emergência">Emergência</span>
+                <span class="badge badge--emergencia">Emergência</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--urgente">Urgente</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Alimentação, Hortas, Nutrição, Diário">
+            <div class="causa-card__tags">
               <span class="tag tag--emergencia">Alimentação</span>
               <span class="tag tag--sustentabilidade">Hortas</span>
               <span class="tag tag--comunidade">Nutrição</span>
@@ -643,12 +645,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/MesaSolidariaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/MesaSolidaria1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/MesaSolidaria2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/MesaSolidaria3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/MesaSolidaria4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/MesaSolidaria5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/MesaSolidariaVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt=" thumbnail de video Distribuição de marmitas">
+                  <img src="assets/images/galeria/MesaSolidaria1.webp" class="gallery-thumb-item" data-index="1" alt="Distribuição de marmitas">
+                  <img src="assets/images/galeria/MesaSolidaria2.webp" class="gallery-thumb-item" data-index="2" alt="Voluntários cozinhando">
+                  <img src="assets/images/galeria/MesaSolidaria3.webp" class="gallery-thumb-item" data-index="3" alt="Horta urbana">
+                  <img src="assets/images/galeria/MesaSolidaria4.webp" class="gallery-thumb-item" data-index="4" alt="Estoque de alimentos">
+                  <img src="assets/images/galeria/MesaSolidaria5.webp" class="gallery-thumb-item" data-index="5" alt="Família recebendo cesta básica">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="mesa-solidaria">Apoiar esta Causa</a>
@@ -661,11 +663,11 @@
             <div class="causa-card__header">
               <h3 id="card-title-11">Flor do Campo</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--ambiente" aria-label="Categoria: Meio Ambiente">Meio Ambiente</span>
+                <span class="badge badge--ambiente">Meio Ambiente</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label=" Agricultura, Sustentáve, Famílias, Rural">
+            <div class="causa-card__tags">
               <span class="tag tag--ambiente">Agricultura</span>
               <span class="tag tag--sustentabilidade">Sustentável</span>
               <span class="tag tag--comunidade">Famílias</span>
@@ -699,12 +701,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/FlorDoCampoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/FlorDoCampo1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/FlorDoCampo2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/FlorDoCampo3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/FlorDoCampo4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/FlorDoCampo5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/FlorDoCampoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Roda de conversa na aldeia">
+                  <img src="assets/images/galeria/FlorDoCampo1.webp" class="gallery-thumb-item" data-index="1" alt="Roda de conversa na aldeia">
+                  <img src="assets/images/galeria/FlorDoCampo2.webp" class="gallery-thumb-item" data-index="2" alt="Crianças na escola bilíngue">
+                  <img src="assets/images/galeria/FlorDoCampo3.webp" class="gallery-thumb-item" data-index="3" alt="Artesanato indígena">
+                  <img src="assets/images/galeria/FlorDoCampo4.webp" class="gallery-thumb-item" data-index="4" alt="Ritual cultural">
+                  <img src="assets/images/galeria/FlorDoCampo5.webp" class="gallery-thumb-item" data-index="5" alt="Plantação sustentável">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="flor-do-campo">Apoiar esta Causa</a>
@@ -717,14 +719,14 @@
             <div class="causa-card__header">
               <h3 id="card-title-12">Luz do Caminho</h3>
               <div class="causa-card__categoria">
-                <span class="badge badge--inclusao" aria-label="Categoria: Inclusão">Inclusão</span>
+                <span class="badge badge--inclusao">Inclusão</span>
               </div>
               <div class="causa-card__badges">
                 <span class="badge badge--popular">Popular</span>
               </div>
             </div>
             
-            <div class="causa-card__tags" aria-label="Reintegração, Capacitação, Moradia, Social">
+            <div class="causa-card__tags">
               <span class="tag tag--reintegracao">Reintegração</span>
               <span class="tag tag--voluntario">Capacitação</span>
               <span class="tag tag--comunidade">Moradia</span>
@@ -755,12 +757,12 @@
                   <button class="gallery-arrow next" aria-label="Próxima mídia">&gt;</button>
                 </div>
                 <div class="gallery-thumbnails">
-                  <img src="assets/images/galeria/LuzDoCaminhoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0">
-                  <img src="assets/images/galeria/LuzDoCaminho1.webp" class="gallery-thumb-item" data-index="1">
-                  <img src="assets/images/galeria/LuzDoCaminho2.webp" class="gallery-thumb-item" data-index="2">
-                  <img src="assets/images/galeria/LuzDoCaminho3.webp" class="gallery-thumb-item" data-index="3">
-                  <img src="assets/images/galeria/LuzDoCaminho4.webp" class="gallery-thumb-item" data-index="4">
-                  <img src="assets/images/galeria/LuzDoCaminho5.webp" class="gallery-thumb-item" data-index="5">
+                  <img src="assets/images/galeria/LuzDoCaminhoVideo-thumb.webp" class="gallery-thumb-item active" data-index="0" alt="thumbnail de video Pessoa em entrevista de emprego">
+                  <img src="assets/images/galeria/LuzDoCaminho1.webp" class="gallery-thumb-item" data-index="1" alt="Pessoa em entrevista de emprego">
+                  <img src="assets/images/galeria/LuzDoCaminho2.webp" class="gallery-thumb-item" data-index="2"  alt="Moradia de transição">
+                  <img src="assets/images/galeria/LuzDoCaminho3.webp" class="gallery-thumb-item" data-index="3" alt="Curso profissionalizante">
+                  <img src="assets/images/galeria/LuzDoCaminho4.webp" class="gallery-thumb-item" data-index="4" alt="Grupo de apoio em terapia">
+                  <img src="assets/images/galeria/LuzDoCaminho5.webp" class="gallery-thumb-item" data-index="5" alt="Voluntário e ex-detento">
                 </div>
               </div>
               <a href="#doar-agora" class="btn btn--doar-especifico" data-causa="luz-do-caminho">Apoiar esta Causa</a>
@@ -882,7 +884,7 @@
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="footer__container">
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
@@ -909,8 +911,8 @@
   
     </div>
   </div>
-  <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/onghub-validator.js"></script>
+  <script src="assets/js/scripts.min.js" defer></script>
+  <script src="assets/js/onghub-validator.min.js"></script>
 
 </body>
 </html>

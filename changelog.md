@@ -70,8 +70,11 @@ O formato segue o **Versionamento Semântico (SemVer)**.
   > *Arquivos `.min.html` foram removidos para padronização e manutenção do fluxo de build e versionamento.*
 
 
+## [1.5.0] - 2025-10-27
+### Adicionado
+- Processo de minificação de arquivos CSS e JS para otimização de desempenho
+- Compressão de imagens para redução de tamanho e carregamento mais rápido
 
-**Melhorias futuras planejadas**
-- compressão de imagens.
-
-
+### Alterado
+- Estrutura otimizada para distribuição em produção
+- Projeto finalizado e preparado para deploy

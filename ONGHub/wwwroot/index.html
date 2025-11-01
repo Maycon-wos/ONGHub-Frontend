@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONGHub</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
   <meta name="description" content="Unimos solidariedade e tecnologia para aproximar quem quer ajudar de quem mais precisa. Conheça nossos projetos e seja um voluntário.">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
-  <header class="header" role="banner">
+  <header class="header">
     <div class="header__container">
       <div class="header__logo">
         <img src="assets/images/logoONGHub.svg" alt="ONGHub - Conectando causas a voluntários">
@@ -20,7 +20,7 @@
       </button>
   
       <nav class="header__menu" id="main-menu" aria-label="Navegação principal">
-        <ul class="nav__list" role="menibar">
+        <ul class="nav__list" role="menubar">
           <li class="nav__item nav__item--dropdown" role="none">
             <a href="index.html" class="nav__link" role="menuitem" aria-expanded="false" aria-current="page">
               Home 
@@ -80,7 +80,7 @@
       </nav>
     </div>
   </header>
-    <main id="main-content" role="main">
+    <main id="main-content">
     <section class="home">
       <div class="home__container">
         <div class="home__content">
@@ -203,9 +203,9 @@
     <section class="contato" id="contato">
       <div class="contato__container">
         <div class="contato__content">
-          <h2>Contato</h2>
+          <h2>Contato</h2>  
           <address class="contato__info">
-            <p><img src="assets/images/phone.svg" alt=""> xx xxxxx-xxxx</p> <p><img src="assets/images/email.svg" alt=""> contato@onghub.com.br</p> <p>Av. Solidariedade, 1 - Bairro da Esperança, Cidade do Amanhã - Brasil - CEP 00000-000</p>
+            <p><img src="assets/images/phone.svg" alt="icone telefone"> xx xxxxx-xxxx</p> <p><img src="assets/images/email.svg" alt=""> contato@onghub.com.br</p> <p>Av. Solidariedade, 1 - Bairro da Esperança, Cidade do Amanhã - Brasil - CEP 00000-000</p>
           </address>
 
           <div class="social-media">
@@ -223,7 +223,7 @@
 
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="footer__container">
       <div class="footer__content">
         <img src="assets/images/logoONGHub.svg" alt="Logo ONGHub">
@@ -233,13 +233,19 @@
           <a href="index.html#impacto">Transparência</a>
         </nav>
         <p><small>© 2025 <a href="https://www.linkedin.com/in/maycon-wos/" target="_blank" rel="noopener noreferrer">Maycon Wos</a> — Todos os direitos reservados.</small></p>
+        <p>
+          Validação HTML: 
+          <a href="https://validator.w3.org/services" target="_blank" rel="noopener noreferrer">
+            Validar HTML
+          </a>
+      </p>
       </div>
     </div>
   </footer>
 <button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
   ↑
 </button>
-  <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/onghub-validator.js"></script>
+  <script src="assets/js/scripts.min.js" defer></script>
+  <script src="assets/js/onghub-validator.min.js"></script>
 </body>
 </html>
