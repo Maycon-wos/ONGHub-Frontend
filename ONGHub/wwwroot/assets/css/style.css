@@ -562,7 +562,7 @@ img {
 }
 
 
-@media (max-width: 767px) {
+@media (max-device-width: 767px) {
     
   /* 1. ESTADO FECHADO (PADRÃO)  */
   .submenu {
@@ -862,7 +862,7 @@ img {
 /* =========================
    MENU MOBILE  
    ========================= */
-@media (max-width: 767px) {
+@media (max-device-width: 767px) {
   .header__btn-mobile {
     display: block;
   }
@@ -1710,7 +1710,7 @@ img {
 
 .btn--enviar {
   width: 100%;
-  font-size: 1rem;
+  font-size: var(--space-4);
 }
 
 /* Cadastro: Grid para Desktop */
@@ -2063,7 +2063,7 @@ img {
 }
 
 /* Estados do dropdown no MOBILE */
-@media (max-width: 767px) {
+@media (max-device-width: 767px) {
   .submenu {
     position: static;
     background-color: transparent;
@@ -2104,7 +2104,7 @@ html {
   scroll-padding-top: 80px;
 }
 
-@media (max-width: 767px) {
+@media (max-device-width: 767px) {
   html {
     scroll-padding-top: 70px;
   }
@@ -2468,8 +2468,12 @@ nav ol,
 }
 
 [data-theme="high-contrast"] .theme-option {
-  color: #000000  !important;
+  color: #ffffff  !important;
 }
+[data-theme="high-contrast"] .theme-option[aria-pressed="true"] span {
+  color: #ffffff  !important;
+}
+
 
 .theme-option[aria-pressed="true"] {
   background: var(--color-primary) !important;
@@ -2596,7 +2600,7 @@ nav ol,
 }
    }
   
-  @media (max-width: 767px) {
+  @media (max-device-width: 767px) {
     .header__container {
       flex-direction: row !important;
       justify-content: space-between !important;
@@ -2947,4 +2951,484 @@ nav ol,
   background-color: var(--color-white);
   border-width: 3px;
 }
+ /* =======================================================
+   CORREÇÃO DEFINITIVA DE CORES - TODOS OS TEMAS
+   ONGHub - Versão Mobile/Desktop
+   ======================================================= */
+
+/* =======================================================
+   TEMA LIGHT (PADRÃO) - FORÇAR CORES
+   ======================================================= */
+
+/* Tema Light explícito */
+:root,
+html:not([data-theme]),
+html[data-theme="light"],
+[data-theme="light"] {
+  --color-primary: #1F6F8B;
+  --color-secondary: #66BB6A;
+  --color-azure: #1976D2;
+  --color-text: #333;
+  --color-dark: #2C3E50;
+  --color-bg: #fff;
+  --color-light: #F8F9FA;
+  --color-white: #FFFFFF;
+  --color-gray: #5A6268;
+  --color-gray-light: #E9ECEF;
+  --color-success: #28A745;
+  --color-warning: #FFC107;
+  --color-accent: #FFC107;
+}
+
+/* =======================================================
+   CORREÇÃO: HEADER - LIGHT THEME
+   ======================================================= */
+:root .header,
+html:not([data-theme]) .header,
+[data-theme="light"] .header {
+  background-color: #FFFFFF !important;
+  border-bottom: 2px solid #E9ECEF;
+}
+
+:root .header__container,
+html:not([data-theme]) .header__container,
+[data-theme="light"] .header__container {
+  background-color: #FFFFFF !important;
+}
+
+/* =======================================================
+   CORREÇÃO: MENU MOBILE - LINKS SEM COR
+   ======================================================= */
+:root .header__menu,
+html:not([data-theme]) .header__menu,
+[data-theme="light"] .header__menu {
+  background: #FFFFFF !important;
+}
+
+:root .header__menu ul,
+html:not([data-theme]) .header__menu ul,
+[data-theme="light"] .header__menu ul {
+  background-color: transparent !important;
+}
+
+:root .header__menu ul li a,
+html:not([data-theme]) .header__menu ul li a,
+[data-theme="light"] .header__menu ul li a,
+:root .nav__link,
+html:not([data-theme]) .nav__link,
+[data-theme="light"] .nav__link {
+  color: #333 !important;
+}
+
+:root .submenu__link,
+html:not([data-theme]) .submenu__link,
+[data-theme="light"] .submenu__link {
+  color: #2C3E50 !important;
+}
+
+/* =======================================================
+   CORREÇÃO: FOOTER - LIGHT THEME
+   ======================================================= */
+:root .footer,
+html:not([data-theme]) .footer,
+[data-theme="light"] .footer {
+  background-color: #1F6F8B !important;
+  color: #FFFFFF !important;
+}
+
+:root .footer__nav a,
+html:not([data-theme]) .footer__nav a,
+[data-theme="light"] .footer__nav a {
+  color: #FFFFFF !important;
+}
+
+:root .footer__content p,
+html:not([data-theme]) .footer__content p,
+[data-theme="light"] .footer__content p,
+:root .footer__content p a,
+html:not([data-theme]) .footer__content p a,
+[data-theme="light"] .footer__content p a {
+  color: #FFFFFF !important;
+}
+
+/* =======================================================
+   CORREÇÃO: SECTIONS - LIGHT THEME
+   ======================================================= */
+
+/* Section HOME */
+:root .home,
+html:not([data-theme]) .home,
+[data-theme="light"] .home {
+  background-color: #F8F9FA !important;
+}
+
+/* Section SOBRE */
+:root .sobre,
+html:not([data-theme]) .sobre,
+[data-theme="light"] .sobre {
+  background-color: #FFFFFF !important;
+}
+
+/* Section PILARES */
+:root .pilares,
+html:not([data-theme]) .pilares,
+[data-theme="light"] .pilares {
+  background-color: #F8F9FA !important;
+}
+
+:root .pilar,
+html:not([data-theme]) .pilar,
+[data-theme="light"] .pilar {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* Section IMPACTO */
+:root .impacto,
+html:not([data-theme]) .impacto,
+[data-theme="light"] .impacto {
+  background-color: #FFFFFF !important;
+}
+
+:root .impacto__card,
+html:not([data-theme]) .impacto__card,
+[data-theme="light"] .impacto__card {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* Section CONTATO */
+:root .contato,
+html:not([data-theme]) .contato,
+[data-theme="light"] .contato {
+  background-color: #F8F9FA !important;
+}
+
+/* =======================================================
+   CORREÇÃO: PÁGINA PROJETOS - LIGHT THEME
+   ======================================================= */
+
+/* Section CAUSAS */
+:root .causas,
+html:not([data-theme]) .causas,
+[data-theme="light"] .causas {
+  background-color: #FFFFFF !important;
+}
+
+:root .causa-card,
+html:not([data-theme]) .causa-card,
+[data-theme="light"] .causa-card {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* Section APOIE */
+:root .apoie,
+html:not([data-theme]) .apoie,
+[data-theme="light"] .apoie {
+  background-color: #F8F9FA !important;
+}
+
+:root .apoie__form,
+html:not([data-theme]) .apoie__form,
+[data-theme="light"] .apoie__form {
+  background-color: #FFFFFF !important;
+}
+
+:root .apoie-passo,
+html:not([data-theme]) .apoie-passo,
+[data-theme="light"] .apoie-passo {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E9ECEF !important;
+}
+
+/* Section FAQ */
+:root .faq,
+html:not([data-theme]) .faq,
+[data-theme="light"] .faq {
+  background-color: #FFFFFF !important;
+}
+
+:root .faq__item,
+html:not([data-theme]) .faq__item,
+[data-theme="light"] .faq__item {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* Section VOLUNTÁRIOS */
+:root .voluntarios,
+html:not([data-theme]) .voluntarios,
+[data-theme="light"] .voluntarios {
+  background-color: #F8F9FA !important;
+}
+
+/* Section CADASTRO */
+:root .cadastro,
+html:not([data-theme]) .cadastro,
+[data-theme="light"] .cadastro {
+  background-color: #FFFFFF !important;
+}
+
+:root .cadastro__form,
+html:not([data-theme]) .cadastro__form,
+[data-theme="light"] .cadastro__form {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* =======================================================
+   CORREÇÃO: FORMULÁRIOS - LIGHT THEME
+   ======================================================= */
+:root .form-group input,
+html:not([data-theme]) .form-group input,
+[data-theme="light"] .form-group input,
+:root .form-group select,
+html:not([data-theme]) .form-group select,
+[data-theme="light"] .form-group select,
+:root .form-group textarea,
+html:not([data-theme]) .form-group textarea,
+[data-theme="light"] .form-group textarea {
+  background-color: #F8F9FA !important;
+  border: 2px solid #E9ECEF !important;
+  color: #333 !important;
+}
+
+:root .apoie__causa-select select,
+html:not([data-theme]) .apoie__causa-select select,
+[data-theme="light"] .apoie__causa-select select {
+  background-color: #F8F9FA !important;
+  color: #333 !important;
+}
+
+/* =======================================================
+   CORREÇÃO: MODAL - LIGHT THEME
+   ======================================================= */
+:root .modal-content,
+html:not([data-theme]) .modal-content,
+[data-theme="light"] .modal-content {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+}
+
+/* =======================================================
+   CORREÇÃO: TEMA DARK
+   ======================================================= */
+[data-theme="dark"] {
+  --color-primary: #4FA8C7;
+  --color-secondary: #81C784;
+  --color-azure: #64B5F6;
+  --color-text: #E9ECEF;
+  --color-dark: #002029;
+  --color-bg: #002029;
+  --color-light: #0A3A46;
+  --color-white: #F5F5F5;
+  --color-gray: #B0BEC5;
+  --color-gray-light: #2D2D2D;
+  --color-success: #4CAF50;
+  --color-warning: #FFB74D;
+  --color-accent: #EF5350;
+}
+
+[data-theme="dark"] .header {
+  background-color: #002029 !important;
+}
+
+[data-theme="dark"] .header__container {
+  background-color: #002029 !important;
+}
+
+[data-theme="dark"] .header__menu {
+  background-color: #002029 !important;
+}
+
+[data-theme="dark"] .header__menu ul li a,
+[data-theme="dark"] .nav__link {
+  color: #E9ECEF !important;
+}
+
+[data-theme="dark"] .footer {
+  background-color: #002029 !important;
+  color: #E9ECEF !important;
+}
+
+[data-theme="dark"] .footer__nav a,
+[data-theme="dark"] .footer__content p,
+[data-theme="dark"] .footer__content p a {
+  color: #E9ECEF !important;
+}
+
+[data-theme="dark"] .home,
+[data-theme="dark"] .pilares,
+[data-theme="dark"] .contato,
+[data-theme="dark"] .apoie,
+[data-theme="dark"] .voluntarios {
+  background-color: #002029 !important;
+}
+
+[data-theme="dark"] .sobre,
+[data-theme="dark"] .impacto,
+[data-theme="dark"] .causas,
+[data-theme="dark"] .faq,
+[data-theme="dark"] .cadastro {
+  background-color: #001419 !important;
+}
+
+[data-theme="dark"] .pilar,
+[data-theme="dark"] .impacto__card,
+[data-theme="dark"] .causa-card,
+[data-theme="dark"] .apoie__form,
+[data-theme="dark"] .apoie-passo,
+[data-theme="dark"] .faq__item,
+[data-theme="dark"] .cadastro__form,
+[data-theme="dark"] .modal-content {
+  background-color: #0A3A46 !important;
+  color: #E9ECEF !important;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+  background-color: #002029 !important;
+  border: 1px solid #2D2D2D !important;
+  color: #E9ECEF !important;
+}
+
+/* =======================================================
+   CORREÇÃO: TEMA HIGH CONTRAST
+   ======================================================= */
+[data-theme="high-contrast"] {
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-azure: #0000FF;
+  --color-text: #000000;
+  --color-dark: #000000;
+  --color-bg: #FFFFFF;
+  --color-light: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-gray: #000000;
+  --color-gray-light: #FFFFFF;
+  --color-success: #008000;
+  --color-warning: #FF0000;
+  --color-accent: #FF0000;
+}
+
+[data-theme="high-contrast"] body {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+[data-theme="high-contrast"] .header,
+[data-theme="high-contrast"] .header__container,
+[data-theme="high-contrast"] .header__menu {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+/* FOOTER - HIGH CONTRAST - CORREÇÃO ESPECÍFICA */
+[data-theme="high-contrast"] .footer {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  border-top: 1px solid #000000 !important;
+}
+
+[data-theme="high-contrast"] .footer__nav a,
+[data-theme="high-contrast"] .footer__content p,
+[data-theme="high-contrast"] .footer__content p a,
+[data-theme="high-contrast"] .footer__content small,
+[data-theme="high-contrast"] .footer__content small a {
+  color: #000000 !important;
+  text-decoration: underline !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="high-contrast"] .footer__nav a:hover,
+[data-theme="high-contrast"] .footer__content p a:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="high-contrast"] .nav__link,
+[data-theme="high-contrast"] .submenu__link {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="high-contrast"] section {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+[data-theme="high-contrast"] .pilar,
+[data-theme="high-contrast"] .impacto__card,
+[data-theme="high-contrast"] .causa-card,
+[data-theme="high-contrast"] .apoie__form,
+[data-theme="high-contrast"] .faq__item,
+[data-theme="high-contrast"] .cadastro__form {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Todos os textos e links em High Contrast */
+[data-theme="high-contrast"] h1,
+[data-theme="high-contrast"] h2,
+[data-theme="high-contrast"] h3,
+[data-theme="high-contrast"] h4,
+[data-theme="high-contrast"] h5,
+[data-theme="high-contrast"] h6,
+[data-theme="high-contrast"] p,
+[data-theme="high-contrast"] a,
+[data-theme="high-contrast"] span,
+[data-theme="high-contrast"] li {
+  color: #000000 !important;
+}
+
+/* Links devem ter sublinhado para acessibilidade */
+[data-theme="high-contrast"] a {
+  text-decoration: underline !important;
+  font-weight: 700 !important;
+}
+
+/* Botões em High Contrast */
+[data-theme="high-contrast"] .btn {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #000000 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="high-contrast"] .btn:hover {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+/* =======================================================
+   FORÇA APLICAÇÃO NO MOBILE
+   ======================================================= */
+@media (max-width: 767px) {
+  /* Repete as regras críticas para garantir no mobile */
   
+  [data-theme="light"] .header__menu,
+  :root .header__menu,
+  html:not([data-theme]) .header__menu {
+    background: #FFFFFF !important;
+  }
+  
+  [data-theme="light"] .nav__link,
+  :root .nav__link,
+  html:not([data-theme]) .nav__link {
+    color: #333 !important;
+  }
+  
+  [data-theme="dark"] .header__menu {
+    background: #002029 !important;
+  }
+  
+  [data-theme="dark"] .nav__link {
+    color: #E9ECEF !important;
+  }
+}
