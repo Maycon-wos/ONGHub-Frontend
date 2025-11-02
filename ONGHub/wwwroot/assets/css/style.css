@@ -1710,7 +1710,7 @@ img {
 
 .btn--enviar {
   width: 100%;
-  font-size: var(--space-4);
+  font-size: 1rem;
 }
 
 /* Cadastro: Grid para Desktop */

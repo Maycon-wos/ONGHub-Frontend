@@ -12,19 +12,14 @@
     <div class="header__container">
       <div class="header__logo">
         <img src="assets/images/logoONGHub.svg" alt="ONGHub - Conectando causas a voluntários">
-      </div>
-  
+      </div>  
       <button class="header__btn-mobile" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
         <span class="hamburger-icon"></span>
-      </button>
-  
-
+      </button> 
       <nav class="header__menu" id="main-menu">
         <ul class="nav__list">
           <li class="nav__item nav__item--dropdown">
-            <a href="index.html" class="nav__link" aria-expanded="false">
-              Home 
-              <span class="dropdown-arrow">▼</span>
+            <a href="index.html" class="nav__link" aria-expanded="false">Home<span class="dropdown-arrow">▼</span>
             </a>
             <ul class="submenu">
               <li><a href="index.html#sobre" class="submenu__link">Sobre</a></li>
@@ -32,8 +27,7 @@
               <li><a href="index.html#impacto" class="submenu__link">Impacto</a></li>
               <li><a href="index.html#contato" class="submenu__link">Contato</a></li>
             </ul>
-          </li>
-  
+          </li>  
           <li class="nav__item nav__item--dropdown">
             <a href="projetos.html" class="nav__link" aria-expanded="false">
               Projetos 
@@ -46,31 +40,25 @@
               <li><a href="projetos.html#faq" class="submenu__link">FAQ</a></li>
               <li><a href="projetos.html#seja-voluntario" class="submenu__link">Seja Voluntário</a></li>
             </ul>
-          </li>
-  
+          </li>  
           <li class="nav__item"><a href="cadastro.html" class="nav__link" aria-current="page">Cadastro</a></li>
         </ul>
         <div class="header__actions">
           <a href="login.html" class="btn btn--login">Entrar</a>
-
           <div class="theme-selector-dropdown">
-
             <button class="theme-dropdown-btn" aria-expanded="false" aria-label="Selecionar tema" title="Alterar tema">
               <span class="theme-current-icon">🌙</span>
               <span class="dropdown-arrow">▼</span>
-            </button>
-            
+            </button>            
             <div class="theme-dropdown-menu">
               <button class="theme-option" data-theme="light" aria-pressed="true">
                 <span class="theme-icon">☀️</span>
                 <span>Tema Claro</span>
-              </button>
-              
+              </button>              
               <button class="theme-option" data-theme="dark" aria-pressed="false">
                 <span class="theme-icon">🌙</span>
                 <span>Tema Escuro</span>
-              </button>
-              
+              </button>              
               <button class="theme-option" data-theme="high-contrast" aria-pressed="false">
                 <span class="theme-icon">⚫</span>
                 <span>Alto Contraste</span>
@@ -78,8 +66,7 @@
               </div>
           </div>
         </div>
-      </nav>
-    
+      </nav>    
     </div>
   </header>
   <main>
@@ -97,62 +84,50 @@
         </div>
       </div>
     </section>
-
     <section class="cadastro">
       <div class="cadastro__container">
         <h2>Faça parte da nossa rede</h2>
         <p>Ficamos felizes com seu interesse! Preencha o formulário abaixo para fazer parte do nosso banco de talentos.</p>
         <div class="cadastro__form-container">
           <form action="/enviar-formulario" method="post" class="cadastro__form">
-
             <fieldset>
               <legend>Dados Pessoais</legend>
-
               <div class="form-group">
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required autocomplete="name">
               </div>
-
               <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required autocomplete="email">
               </div>
-
               <div class="form-group">
                 <label for="nascimento">Data de Nascimento:</label>
                 <input type="text" id="nascimento" name="nascimento" placeholder="DD/MM/AAAA" maxlength="10" required pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}" inputmode="numeric" 
                   title="Digite a data de nascimento no formato DD/MM/AAAA">
               </div>
-
               <div class="form-group">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" inputmode="numeric" title="Digite o CPF no formato 000.000.000-00" oninput="formatarCPF(this)">
               </div>
-
               <div class="form-group">
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="(XX)XXXXX-XXXX" maxlength="15" required pattern="\(?\d{2}\)?\s?\d{5}-\d{4}"  autocomplete="tel" inputmode="numeric" title="Digite o telefone com DDD no formato  (XX)XXXXX-XXXX">
               </div>
             </fieldset>
-
             <fieldset>
               <legend>Endereço</legend>
-
               <div class="form-group">
                 <label for="cep">CEP:</label>
                 <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required pattern="\d{5}-\d{3}" autocomplete="postal-code" inputmode="numeric" title="Digite o CEP no formato 00000-000">
               </div>
-
               <div class="form-group">
                 <label for="endereco">Endereço:</label>
                 <input type="text" id="endereco" name="endereco" placeholder="Rua, número, complemento" required autocomplete="address-line1">
               </div>
-
               <div class="form-group">
                 <label for="cidade">Cidade:</label>
                 <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required autocomplete="address-level2">
               </div>
-
               <div class="form-group">
                 <label for="estado">Estado:</label>
                 <select id="estado" name="estado" required autocomplete="address-level1">
@@ -187,14 +162,12 @@
                 </select>
               </div>
             </fieldset>
-
-            <button type="submit" class="btn btn--enviar">Quero ser voluntário!</button>
+            <button type="submit" class="btn btn--enviar" id="btn-voluntario">Quero ser voluntário!</button>
           </form>
         </div>
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__content">
@@ -208,13 +181,10 @@
       </div>
     </div>
   </footer>
-<button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">
-  ↑
-</button>
+<button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo da página">↑</button>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> 
   <script src="assets/js/scripts.min.js" defer></script>
-  <script src="assets/js/onghub-validator.min.js"></script>
-  
+  <script src="assets/js/onghub-validator.min.js"></script>  
 </body>
 </html>
