@@ -5,6 +5,14 @@
 ![Status](https://img.shields.io/badge/status-em_desenvolvimento-blue)
 
 # 🌟 ONGHub - Conectando Causas a Voluntários
+---
+
+## 🚀 Demonstração
+
+🔗 **Acesse o projeto online:**  
+👉 [https://onghub.vercel.app/](https://onghub.vercel.app/)
+
+---
 
 ## 🎓 Contexto do Projeto
 
@@ -100,13 +108,13 @@ ONGHub/
 ## 📸 Demonstração
 
 ### 🏠 Página Inicial
-<img src="assets/images/readme/home.webp" width="700" alt="Tela inicial do ONGHub">
+<img src="ONGHub/wwwroot/assets/images/readme/home.webp" width="700" alt="Tela inicial do ONGHub">
 
 ### 📊 Página de Projetos
-<img src="assets/images/readme/projetos.webp" width="700" alt="Galeria de Projetos do ONGHub">
+<img src="ONGHub/wwwroot/assets/images/readme/projetos.webp" width="700" alt="Galeria de Projetos do ONGHub">
 
 ### 👥 Página de Cadastro
-<img src="assets/images/readme/cadastro.webp" width="700" alt="Tela de Cadastro do ONGHub">
+<img src="ONGHub/wwwroot/assets/images/readme/cadastro.webp" width="700" alt="Tela de Cadastro do ONGHub">
 
 ---
 
@@ -134,6 +142,69 @@ O projeto é totalmente frontend — basta abrir no navegador.
 --color-dark: #2C3E50;         /* Azul escuro */
 --color-success: #28A745;      /* Verde confirmação */
 ```
+# 🏗️ Projeto ONGHub
+
+**Descrição:**  
+Plataforma voltada para divulgação de causas sociais, com design responsivo, acessibilidade aprimorada e alternância de temas (dark e alto contraste).
+
+---
+
+## 📦 Histórico de Versões
+
+### 🟢 [1.0.0] – 2025-10-27  
+- Estrutura principal finalizada (HTML, CSS, JS)  
+- Layout responsivo implementado  
+- Páginas principais: Home, Projetos e Cadastro  
+- Galeria e cards de causas concluídos  
+
+### 🟡 [1.1.0] – 2025-10-27  
+- Adicionado sistema de espaçamento modular (8–64px)  
+- Criado grid customizado de 12 colunas  
+
+### 🟣 [1.2.0] – 2025-10-27  
+- Sistema de tags e badges para categorização  
+- Ajustes de layout e integração com grid  
+
+### 🟠 [1.3.0] – 2025-10-28  
+- Acessibilidade WCAG 2.1 nível AA  
+- Navegação por teclado e suporte a leitores de tela  
+- Contraste mínimo 4.5:1 garantido em todo o site  
+
+### 🔵 [1.4.0-beta] – 2025-10-31  
+- Implementado sistema de alertas e feedback visual  
+- Criado Theme Mode com suporte a:
+  - 🌙 Modo Escuro  
+  - 🌞 Modo Claro  
+  - ♿ Modo Alto Contraste  
+- Limpeza e modularização de código JS  
+
+### 🟩 [1.5.0] – 2025-10-31  
+*(Versão atual – otimização final)*  
+- Compressão de imagens WebP e vídeos WebM  
+- Minificação final de JS e CSS  
+- Validação HTML conforme W3C  
+- Preparação para deploy final
+
+---
+
+## 🧩 Tecnologias utilizadas
+- HTML5 semântico  
+- CSS3 modular (grid 12 colunas, variáveis CSS, dark mode)  
+- JavaScript ES6 modular  
+- Acessibilidade (WCAG 2.1 AA)  
+- Versionamento Semântico (SemVer)
+
+---
+
+## 🗃️ Organização do projeto
+- **Milestones:** 6 fases principais (v1.0.0 → v1.5.0)  
+- **Issues:** 12 issues documentadas (histórico retroativo)  
+- **Commits:** Baseados em Conventional Commits  
+- **Branches:** ambiente principal + branch de teste
+
+---
+
+
 ## 👨‍💻 Autor
 
 Desenvolvido por **Maycon Souza**  
